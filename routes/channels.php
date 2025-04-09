@@ -8,5 +8,3 @@ use Illuminate\Support\Facades\Broadcast;
 //    return (int) $user->id === (int) $id;
 //});
 
-Broadcast::channel('chat_thread.{chatThread}', ChatThreadChannel::class);
-Broadcast::channel('admin_threads.{adminEmployeeId}', AdminThreadsChannel::class);

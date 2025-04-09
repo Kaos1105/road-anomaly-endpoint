@@ -7,6 +7,3 @@ Route::get('/', function () {
 });
 
 
-Route::get('/api-documentation', function () {
-    return view('swagger.index');
-});

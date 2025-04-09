@@ -133,63 +133,6 @@ class InversionServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->app->bind(IAuthService::class, AuthService::class);
-        $this->app->bind(ISystemService::class, SystemService::class);
-        $this->app->bind(IEmployeeService::class, EmployeeService::class);
-        $this->app->bind(IDepartmentService::class, DepartmentService::class);
-        $this->app->bind(IAccessPermissionService::class, AccessPermissionService::class);
-        $this->app->bind(IAccessHistoryService::class, AccessHistoryService::class);
-        $this->app->bind(IAttachmentFileService::class, AttachmentFileService::class);
-        $this->app->bind(IFavoriteService::class, FavoriteService::class);
-        $this->app->bind(ICompanyService::class, CompanyService::class);
-        $this->app->bind(ISiteService::class, SiteService::class);
-        $this->app->bind(IDivisionService::class, DivisionService::class);
-        $this->app->bind(ITransferService::class, TransferService::class);
-        $this->app->bind(IEventClassificationService::class, EventClassificationService::class);
-        $this->app->bind(IManagementGroupService::class, ManagementGroupService::class);
-        $this->app->bind(IDisplayService::class, DisplayService::class);
-        $this->app->bind(ISupplierService::class, SupplierService::class);
-        $this->app->bind(ICustomerService::class, CustomerService::class);
-        $this->app->bind(IProductService::class, ProductService::class);
-        $this->app->bind(ISocialDashboardService::class, SocialDashboardService::class);
-        $this->app->bind(ISocialEventService::class, SocialEventService::class);
-        $this->app->bind(ISocialDataService::class, SocialDataService::class);
-        $this->app->bind(IContentService::class, ContentService::class);
-        $this->app->bind(IQuestionService::class, QuestionService::class);
-        $this->app->bind(IAnswerTextService::class, AnswerTextService::class);
-        $this->app->bind(IAnswerFileService::class, AnswerFileService::class);
-        $this->app->bind(IAnswerService::class, AnswerService::class);
-        $this->app->bind(IManagementDepartmentService::class, ManagementDepartmentService::class);
-        $this->app->bind(IMyCompanyEmployeeService::class, MyCompanyEmployeeService::class);
-        $this->app->bind(IClientSiteService::class, ClientSiteService::class);
-        $this->app->bind(IClientEmployeeService::class, ClientEmployeeService::class);
-        $this->app->bind(INegotiationService::class, NegotiationService::class);
-        $this->app->bind(INegotiationEmployeeService::class, NegotiationEmployeeService::class);
-        $this->app->bind(IChatThreadService::class, ChatThreadService::class);
-        $this->app->bind(IChatContentService::class, ChatContentService::class);
-        $this->app->bind(ICompanyCalendarService::class, CompanyCalendarService::class);
-        $this->app->bind(IWeeklyScheduleService::class, WeeklyScheduleService::class);
-        $this->app->bind(IDailyScheduleService::class, DailyScheduleService::class);
-        $this->app->bind(ITimeScheduleService::class, TimeScheduleService::class);
-        $this->app->bind(IGroupService::class, GroupService::class);
-        $this->app->bind(IFacilityGroupService::class, FacilityGroupService::class);
-        $this->app->bind(IFacilityService::class, FacilityService::class);
-        $this->app->bind(IReservationService::class, ReservationService::class);
-        $this->app->bind(IFacilityUserSettingService::class, FacilityUserSettingService::class);
-        $this->app->bind(IImportExcelService::class, ImportExcelService::class);
-        $this->app->bind(IExportExcelService::class, ExportExcelService::class);
-        $this->app->bind(INegotiationDashboardService::class, NegotiationDashboardService::class);
-        $this->app->bind(IAnnouncementService::class, AnnouncementService::class);
-        $this->app->bind(IMainDashboardService::class, MainDashboardService::class);
-        $this->app->bind(ILayoutService::class, LayoutService::class);
-        $this->app->bind(IAuthenticationHistoryService::class, AuthenticationHistoryService::class);
-        $this->app->bind(IDeviceInformationService::class, DeviceInformationService::class);
-        $this->app->bind(IBasicContractService::class, BasicContractService::class);
-        $this->app->bind(IIndividualContractService::class, IndividualContractService::class);
-        $this->app->bind(IContractConditionService::class, ContractConditionService::class);
-        $this->app->bind(IContractWorkplaceService::class, ContractWorkplaceService::class);
-        $this->app->bind(IContractUserSettingService::class, ContractUserSettingService::class);
-        //:end-bindings:
-        //:end-bindings:
+
     }
 }

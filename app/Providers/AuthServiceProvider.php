@@ -81,40 +81,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        System::class => SystemPolicy::class,
-        AccessPermission::class => AccessPermissionPolicy::class,
-        Company::class => CompanyPolicy::class,
-        Site::class => SitePolicy::class,
-        Department::class => DepartmentPolicy::class,
-        Division::class => DivisionPolicy::class,
-        Employee::class => EmployeePolicy::class,
-        Transfer::class => TransferPolicy::class,
-        EventClassification::class => EventClassificationPolicy::class,
-        ManagementGroup::class => ManagementGroupPolicy::class,
-        Supplier::class => SupplierPolicy::class,
-        Customer::class => CustomerPolicy::class,
-        Product::class => ProductPolicy::class,
-        SocialEvent::class => SocialEventPolicy::class,
-        SocialData::class => SocialDataPolicy::class,
-        Display::class => DisplayPolicy::class,
-        Content::class => ContentPolicy::class,
-        Question::class => QuestionPolicy::class,
-        Announcement::class => AnnouncementPolicy::class,
-        ManagementDepartment::class => ManagementDepartmentPolicy::class,
-        MyCompanyEmployee::class => MyCompanyEmployeePolicy::class,
-        ClientSite::class => ClientSitePolicy::class,
-        ClientEmployee::class => ClientEmployeePolicy::class,
-        Negotiation::class => NegotiationPolicy::class,
-        ChatContent::class => ChatContentPolicy::class,
-        TimeSchedule::class => TimeSchedulePolicy::class,
-        DailySchedule::class => DailySchedulePolicy::class,
-        WeeklySchedule::class => WeeklySchedulePolicy::class,
-        CompanyCalendar::class => CompanyCalendarPolicy::class,
-        Group::class => GroupPolicy::class,
-        FacilityGroup::class => FacilityGroupPolicy::class,
-        Facility::class => FacilityPolicy::class,
-        Reservation::class => ReservationPolicy::class,
-        FacilityUserSetting::class => FacilityUserSettingPolicy::class,
+
     ];
 
 
