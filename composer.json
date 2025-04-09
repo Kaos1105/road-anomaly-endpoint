@@ -12,6 +12,7 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "league/flysystem-aws-s3-v3": "^3.28",
+        "league/geotools": "^0.1.5",
         "phpoffice/phpspreadsheet": "^3.7",
         "predis/predis": "^2.2.2",
         "prettus/l5-repository": "^2.9",
