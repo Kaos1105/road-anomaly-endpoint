@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('sensor_data', function (Blueprint $table) {
             $table->id();
             $table->foreignId('anomaly_id')->constrained(table: 'anomalies')->onDelete('cascade');
-            $table->timestamp('timestamp');
+            $table->bigInteger('timestamp');
             $table->dateTime('record_date_time');
             $table->float('gyro_mag');
             $table->float('accel_mag');

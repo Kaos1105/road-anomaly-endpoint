@@ -26,18 +26,14 @@ class EvaluateGeoHashAnomalies implements ShouldQueue
     {
         $lockKey = "handling-geoHash-{$this->geoHash}";
 
-        if (!Cache::lock($lockKey, 30)->get()) {
-            return; // Lock held, skip duplicate job
-        }
-
-        $count = Anomaly::where('timestamp', '>=', now()->subDay())
-            ->where('region', $this->geoHash)
-            ->count();
-
-        if ($count >= 10) {
-            broadcast(new AnomalyClusterDetected($this->geoHash));
-        }
-
-        Cache::lock($lockKey)->release();
+        Cache::lock($lockKey, 30)->get(function (){
+            $count = Anomaly::where('timestamp', '>=', now()->subDay())
+                ->where('region', $this->geoHash)->where('label', 'L-UNEVEN')
+                ->count();
+            \Log::info($this->geoHash);
+            if ($count >= 2) {
+                broadcast(new AnomalyClusterDetected($this->geoHash));
+            }
+        });
     }
 }

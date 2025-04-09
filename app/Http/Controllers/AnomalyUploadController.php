@@ -4,34 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Jobs\EvaluateGeoHashAnomalies;
 use App\Models\Anomaly;
+use App\Trait\HandleResponse;
 use Cache;
 use Carbon\Carbon;
 use Geotools\Coordinate\Coordinate;
 use Geotools\Geotools;
-use Request;
+use Illuminate\Http\Request;
 
 class AnomalyUploadController extends Controller
 {
+    use HandleResponse;
     public function __construct(
     )
     {
     }
 
-    public function upload(Request $request): \Illuminate\Http\JsonResponse
+    public function upload(Request $request): \App\Http\DTO\ResponseData
     {
         foreach ($request->file('files') as $file) {
             $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
             [$timestampStr, $label] = explode('_', $filename, 2);
-            $timestamp = Carbon::createFromTimestamp($timestampStr);
+            $timestamp = Carbon::createFromTimestampMs($timestampStr);
             $recordDateTime = $timestamp->toDateTimeString();
 
             $rows = array_map('str_getcsv', file($file->getRealPath()));
             $header = array_map('trim', array_shift($rows));
 
             $firstRow = array_combine($header, $rows[0]);
-            $lat = $firstRow['lat'];
-            $lon = $firstRow['lon'];
-            $geoTools       = new Geotools();
+            $lat = $firstRow['latitude'];
+            $lon = $firstRow['longitude'];
+            $geoTools = new Geotools();
             $coordinateToGeoHash = new Coordinate([$lat, $lon]);
             $encoded = $geoTools->geohash()->encode($coordinateToGeoHash, 9);
             $region = $encoded->getGeohash();
@@ -49,7 +51,7 @@ class AnomalyUploadController extends Controller
                 $data = array_combine($header, $row);
                 $sensorData[] = [
                     'timestamp' => $data['timestamp'],
-                    'record_date_time' => $data['recordDateTime'],
+                    'record_date_time' => Carbon::createFromFormat('j/n/Y H:i', $data['recordDateTime']),
                     'gyro_mag' => $data['gyroMag'],
                     'accel_mag' => $data['accelMag'],
                 ];
@@ -57,11 +59,11 @@ class AnomalyUploadController extends Controller
             $anomaly->sensorData()->createMany($sensorData);
 
             $lockKey = "evaluate-geoHash-{$region}";
-            if (Cache::lock($lockKey, 30)->get()) {
+            Cache::lock($lockKey, 30)->get(function () use ($region){
                 EvaluateGeohashAnomalies::dispatch($region);
-            }
+            });
         }
 
-        return response()->json(['status' => 'success']);
+        return $this->httpOk();
     }
 }

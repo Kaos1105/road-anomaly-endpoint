@@ -14,6 +14,8 @@ class SensorData extends Model
         'anomaly_id', 'timestamp', 'record_date_time', 'gyro_mag', 'accel_mag'
     ];
 
+    protected $table = 'sensor_data';
+
     public function anomaly(): BelongsTo
     {
         return $this->belongsTo(Anomaly::class);
