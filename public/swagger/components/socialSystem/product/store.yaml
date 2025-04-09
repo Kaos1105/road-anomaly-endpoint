@@ -1,0 +1,515 @@
+get:
+  tags:
+    - Products
+  summary: List products.
+  description: Get all products
+  parameters:
+    - in: query
+      name: filter[name]
+      type: string
+      description: >
+        Search by employee's last_name, first_name, maiden_name, kana OR customer category OR company's long name
+    - in: query
+      name: filter[company_id]
+      type: string
+      description: >
+        Filter by supplier's category found in category name dropdown list.
+    - in: query
+      name: filter[product_classification]
+      type: integer
+      enum: [ 1, 2 ]
+      default:
+      description: >
+        Filter by product classification
+        * `1` - FOOD
+        * `2` - CASH
+    - in: query
+      name: filter[use_classification]
+      type: integer
+      enum: [ 1, 2 ]
+      default: 2
+      description: >
+        Filter by Use classification
+          * `1` - Not use
+          * `2` - Use
+    - in: query
+      name: sort
+      schema:
+        type: string
+      description: >
+        Sort order:
+         * `-sortKey` - Ascending, from A to Z
+         * `sortKey` - Descending, from Z to A
+         * List sortKey: code, name, unit_price, store_name, supplier_name, display_order, updated_at.
+    - in: query
+      name: perPage
+      type: integer
+      description: The number of items of each page.
+    - in: query
+      name: page
+      type: integer
+      description: Page.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "collection": [
+                {
+                  "id": 8,
+                  "product_classification": 2,
+                  "site": {
+                    "id": 12,
+                    "company_id": 13,
+                    "code": "ryosuke.ishida",
+                    "long_name": "株式会社 高橋",
+                    "short_name": null,
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 1,
+                    "post_code": null,
+                    "address_1": "加藤市",
+                    "address_2": "rerum",
+                    "address_3": "nihil",
+                    "phone": "090-8655-1575",
+                    "company": {
+                      "id": 13,
+                      "code": "e641",
+                      "long_name": "株式会社 宮沢",
+                      "previous_name": "repellendus",
+                      "previous_name_flg": 2,
+                      "use_classification": 1,
+                      "short_name": "illum"
+                    }
+                  },
+                  "code": "code",
+                  "name": "me",
+                  "unit_price": 120,
+                  "tax_classification_1": 1,
+                  "tax_classification_2": 2,
+                  "tax_classification_3": 3,
+                  "display_order": 1,
+                  "use_classification": 2,
+                  "updated_at": "2024/10/02"
+                },
+                {
+                  "id": 7,
+                  "product_classification": 2,
+                  "site": {
+                    "id": 12,
+                    "company_id": 13,
+                    "code": "ryosuke.ishida",
+                    "long_name": "株式会社 高橋",
+                    "short_name": null,
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 1,
+                    "post_code": null,
+                    "address_1": "加藤市",
+                    "address_2": "rerum",
+                    "address_3": "nihil",
+                    "phone": "090-8655-1575",
+                    "company": {
+                      "id": 13,
+                      "code": "e641",
+                      "long_name": "株式会社 宮沢",
+                      "previous_name": "repellendus",
+                      "previous_name_flg": 2,
+                      "use_classification": 1,
+                      "short_name": "illum"
+                    }
+                  },
+                  "code": "code",
+                  "name": "name",
+                  "unit_price": 120,
+                  "tax_classification_1": 1,
+                  "tax_classification_2": 2,
+                  "tax_classification_3": 3,
+                  "display_order": 1,
+                  "use_classification": 2,
+                  "updated_at": "2024/10/02"
+                },
+                {
+                  "id": 6,
+                  "product_classification": 1,
+                  "site": {
+                    "id": 12,
+                    "company_id": 13,
+                    "code": "ryosuke.ishida",
+                    "long_name": "株式会社 高橋",
+                    "short_name": null,
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 1,
+                    "post_code": null,
+                    "address_1": "加藤市",
+                    "address_2": "rerum",
+                    "address_3": "nihil",
+                    "phone": "090-8655-1575",
+                    "company": {
+                      "id": 13,
+                      "code": "e641",
+                      "long_name": "株式会社 宮沢",
+                      "previous_name": "repellendus",
+                      "previous_name_flg": 2,
+                      "use_classification": 1,
+                      "short_name": "illum"
+                    }
+                  },
+                  "code": "code",
+                  "name": "name",
+                  "unit_price": 120,
+                  "tax_classification_1": 1,
+                  "tax_classification_2": 2,
+                  "tax_classification_3": 3,
+                  "display_order": 1,
+                  "use_classification": 2,
+                  "updated_at": "2024/10/02"
+                },
+                {
+                  "id": 5,
+                  "product_classification": 1,
+                  "site": {
+                    "id": 12,
+                    "company_id": 13,
+                    "code": "ryosuke.ishida",
+                    "long_name": "株式会社 高橋",
+                    "short_name": null,
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 1,
+                    "post_code": null,
+                    "address_1": "加藤市",
+                    "address_2": "rerum",
+                    "address_3": "nihil",
+                    "phone": "090-8655-1575",
+                    "company": {
+                      "id": 13,
+                      "code": "e641",
+                      "long_name": "株式会社 宮沢",
+                      "previous_name": "repellendus",
+                      "previous_name_flg": 2,
+                      "use_classification": 1,
+                      "short_name": "illum"
+                    }
+                  },
+                  "code": "code",
+                  "name": "name",
+                  "unit_price": 100.2,
+                  "tax_classification_1": 1,
+                  "tax_classification_2": 2,
+                  "tax_classification_3": 3,
+                  "display_order": 1,
+                  "use_classification": 2,
+                  "updated_at": "2024/10/02"
+                },
+                {
+                  "id": 4,
+                  "product_classification": 1,
+                  "site": {
+                    "id": 12,
+                    "company_id": 13,
+                    "code": "ryosuke.ishida",
+                    "long_name": "株式会社 高橋",
+                    "short_name": null,
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 1,
+                    "post_code": null,
+                    "address_1": "加藤市",
+                    "address_2": "rerum",
+                    "address_3": "nihil",
+                    "phone": "090-8655-1575",
+                    "company": {
+                      "id": 13,
+                      "code": "e641",
+                      "long_name": "株式会社 宮沢",
+                      "previous_name": "repellendus",
+                      "previous_name_flg": 2,
+                      "use_classification": 1,
+                      "short_name": "illum"
+                    }
+                  },
+                  "code": "code",
+                  "name": "name",
+                  "unit_price": 1000.2,
+                  "tax_classification_1": 1,
+                  "tax_classification_2": 2,
+                  "tax_classification_3": 3,
+                  "display_order": 1,
+                  "use_classification": 2,
+                  "updated_at": "2024/10/02"
+                },
+                {
+                  "id": 3,
+                  "product_classification": 1,
+                  "site": {
+                    "id": 12,
+                    "company_id": 13,
+                    "code": "ryosuke.ishida",
+                    "long_name": "株式会社 高橋",
+                    "short_name": null,
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 1,
+                    "post_code": null,
+                    "address_1": "加藤市",
+                    "address_2": "rerum",
+                    "address_3": "nihil",
+                    "phone": "090-8655-1575",
+                    "company": {
+                      "id": 13,
+                      "code": "e641",
+                      "long_name": "株式会社 宮沢",
+                      "previous_name": "repellendus",
+                      "previous_name_flg": 2,
+                      "use_classification": 1,
+                      "short_name": "illum"
+                    }
+                  },
+                  "code": "code",
+                  "name": "name",
+                  "unit_price": 1000.2,
+                  "tax_classification_1": 1,
+                  "tax_classification_2": 2,
+                  "tax_classification_3": 3,
+                  "display_order": 1,
+                  "use_classification": 2,
+                  "updated_at": "2024/10/02"
+                },
+                {
+                  "id": 1,
+                  "product_classification": 1,
+                  "site": {
+                    "id": 12,
+                    "company_id": 13,
+                    "code": "ryosuke.ishida",
+                    "long_name": "株式会社 高橋",
+                    "short_name": null,
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 1,
+                    "post_code": null,
+                    "address_1": "加藤市",
+                    "address_2": "rerum",
+                    "address_3": "nihil",
+                    "phone": "090-8655-1575",
+                    "company": {
+                      "id": 13,
+                      "code": "e641",
+                      "long_name": "株式会社 宮沢",
+                      "previous_name": "repellendus",
+                      "previous_name_flg": 2,
+                      "use_classification": 1,
+                      "short_name": "illum"
+                    }
+                  },
+                  "code": "PO1",
+                  "name": "Bánh",
+                  "unit_price": 2000,
+                  "tax_classification_1": 1,
+                  "tax_classification_2": 2,
+                  "tax_classification_3": 3,
+                  "display_order": 1,
+                  "use_classification": 2,
+                  "updated_at": "2024/10/02"
+                }
+              ],
+              "pagination": {
+                "total": 7,
+                "count": 7,
+                "perPage": 25,
+                "currentPage": 1,
+                "totalPages": 1
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+post:
+  tags:
+    - Products
+  summary: Create a new product.
+  description: Create a product.
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: supplier_id
+      description: Supplier id
+      in: formData
+      required: true
+      type: integer
+    - name: product_classification
+      description: Product classification
+        * `1` - FOOD
+        * `2` - CASH
+      in: formData
+      required: true
+      enum: [ 1, 2 ]
+      type: integer
+    - name: code
+      description: Code
+      in: formData
+      required: false
+      type: string
+    - name: name
+      description: Product name
+      in: formData
+      required: true
+      type: string
+    - name: unit_price
+      description: Unit price
+      in: formData
+      required: true
+      type: double
+    - name: tax_classification_1
+      description: Tax classification 1
+        * `1` - FREE
+        * `2` - EIGHT_PERCENT
+        * `3` - TEN_PERCENT
+      in: formData
+      required: true
+      enum: [ 1, 2, 3 ]
+      type: integer
+      default: 3
+    - name: tax_classification_2
+      description: Tax classification 2
+        * `1` - FREE
+        * `2` - EIGHT_PERCENT
+        * `3` - TEN_PERCENT
+      in: formData
+      required: true
+      enum: [ 1, 2, 3 ]
+      type: integer
+      default: 3
+    - name: tax_classification_3
+      description: Tax classification 3
+        * `1` - FREE
+        * `2` - EIGHT_PERCENT
+        * `3` - TEN_PERCENT
+      in: formData
+      required: true
+      enum: [ 1, 2, 3 ]
+      type: integer
+      default: 3
+    - name: memo
+      description: Memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: Display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Usage classification
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      default: 2
+      required: true
+      enum: [ 1, 2 ]
+      type: integer
+  responses:
+    201:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 1,
+              "product_classification": 1,
+              "site": {
+                "id": 12,
+                "company_id": 13,
+                "code": "ryosuke.ishida",
+                "long_name": "株式会社 高橋",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 1,
+                "post_code": null,
+                "address_1": "加藤市",
+                "address_2": "rerum",
+                "address_3": "nihil",
+                "phone": "090-8655-1575",
+                "company": {
+                  "id": 13,
+                  "code": "e641",
+                  "long_name": "株式会社 宮沢",
+                  "previous_name": "repellendus",
+                  "previous_name_flg": 2,
+                  "use_classification": 1,
+                  "short_name": "illum"
+                }
+              },
+              "code": "PO1",
+              "name": "Bánh",
+              "unit_price": 2000,
+              "tax_classification_1": 1,
+              "tax_classification_2": 2,
+              "tax_classification_3": 3,
+              "display_order": 1,
+              "use_classification": 2,
+              "memo": "bánh",
+              "created_info": {
+                "date": "2024/10/02 16:15:32",
+                "name": "吉田　直人"
+              },
+              "updated_info": {
+                "date": "2024/10/02 17:50:01",
+                "name": "吉田　直人"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "supplier_id",
+                "message": [
+                  "仕入先名無効な値です。"
+                ]
+              }
+            ]
+          }

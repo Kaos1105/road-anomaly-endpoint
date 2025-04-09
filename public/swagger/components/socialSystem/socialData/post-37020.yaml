@@ -1,0 +1,123 @@
+# create multiple social data for un-registered customer
+post:
+  tags:
+    - Social Data
+  summary: Create Social Data in No.37020.
+  description: Create Social Data in No.36020.
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: social_event
+      description: Social Event Id
+      in: path
+      required: true
+      type: integer
+    - in: body
+      name: body
+      description: JSON payload create Social Data
+      required: true
+      schema:
+        type: object
+        properties:
+          social_social_datas:
+            type: array
+            items:
+              type: object
+              properties:
+                customer_id:
+                  type: integer
+                  description: Unique identifier for the Customer
+                previous_social_data_id:
+                  type: integer
+                  description: Unique identifier for the previous Social Data
+            required:
+              - customer_id
+
+  responses:
+    201:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 13,
+                "social_event_id": 1,
+                "customer_id": 6,
+                "display_transfer_id": 102,
+                "display_transfer": {
+                  "id": 102,
+                  "position": null,
+                  "employee": {
+                    "id": 109,
+                    "code": null,
+                    "last_name": "山下",
+                    "first_name": "達也",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  }
+                },
+                "product_id": 1,
+                "product_name": "Product 1",
+                "unit_price": 10000,
+                "discount": 2000,
+                "tax_classification_1": 3,
+                "tax_1": 1000,
+                "shipping_cost": null,
+                "tax_classification_2": 3,
+                "tax_2": null,
+                "other": null,
+                "tax_classification_3": 3,
+                "tax_3": null,
+                "total_amount": 12000,
+                "total_tax": null,
+                "purpose": null,
+                "result": null,
+                "processing_site": 1,
+                "accounting_company": 1,
+                "accounting_department_id": 132,
+                "address_classification": 1,
+                "data_progress": null,
+                "comment_history": "2024/10/22 Danh　Nguyenさんが、作成しました。",
+                "memo": null,
+                "display_order": null,
+                "use_classification": null
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "supplier_id",
+                "message": [
+                  "仕入先名無効な値です。"
+                ]
+              }
+            ]
+          }

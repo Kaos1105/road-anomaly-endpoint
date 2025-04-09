@@ -1,0 +1,106 @@
+get:
+  tags:
+    - FAQs
+  summary: List similar questions
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 1,
+                "code": "Q1",
+                "classification": "ボード",
+                "title": "はるさんハウスはどこですか"
+              },
+              {
+                "id": 10,
+                "code": "Q1",
+                "classification": "ボード",
+                "title": "Question 10"
+              },
+              {
+                "id": 9,
+                "code": "Q1",
+                "classification": "ボード",
+                "title": "Question 9"
+              },
+              {
+                "id": 8,
+                "code": "Q1",
+                "classification": "ボード",
+                "title": "Question 8"
+              },
+              {
+                "id": 7,
+                "code": "Q1",
+                "classification": "ボード",
+                "title": "Question 7"
+              },
+              {
+                "id": 6,
+                "code": "Q1",
+                "classification": "ボード",
+                "title": "Question 6"
+              },
+              {
+                "id": 4,
+                "code": "Q1",
+                "classification": "ボード",
+                "title": "Question 4"
+              },
+              {
+                "id": 3,
+                "code": "Q1",
+                "classification": "ボード",
+                "title": "Question 3"
+              },
+              {
+                "id": 2,
+                "code": "Q1",
+                "classification": "ボード",
+                "title": "Question 2"
+              },
+              {
+                "id": 5,
+                "code": "No1",
+                "classification": "ダッシュボード",
+                "title": "ダッシュボード"
+              },
+              {
+                "id": 11,
+                "code": "test",
+                "classification": "ダッシュボード",
+                "title": "ttttt"
+              },
+              {
+                "id": 12,
+                "code": "test",
+                "classification": "ダッシュボード",
+                "title": "組織管理"
+              },
+              {
+                "id": 13,
+                "code": "test",
+                "classification": "ボード",
+                "title": "お名前は何ですか？"
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }

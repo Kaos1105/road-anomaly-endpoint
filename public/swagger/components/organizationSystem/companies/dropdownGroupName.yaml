@@ -1,0 +1,152 @@
+get:
+  tags:
+    - Companies
+  summary: List group name.
+  description: Get all group name of all companies
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "group_name": "jaf"
+              },
+              {
+                "group_name": "omnis"
+              },
+              {
+                "group_name": "et"
+              },
+              {
+                "group_name": "nemo"
+              },
+              {
+                "group_name": "repudiandae"
+              },
+              {
+                "group_name": "tempore"
+              },
+              {
+                "group_name": "dolorem"
+              },
+              {
+                "group_name": "occaecati"
+              },
+              {
+                "group_name": "quae"
+              },
+              {
+                "group_name": "hic"
+              },
+              {
+                "group_name": "est"
+              },
+              {
+                "group_name": "labore"
+              },
+              {
+                "group_name": "beatae"
+              },
+              {
+                "group_name": "facere"
+              },
+              {
+                "group_name": "quidem"
+              },
+              {
+                "group_name": "perspiciatis"
+              },
+              {
+                "group_name": "eos"
+              },
+              {
+                "group_name": "dicta"
+              },
+              {
+                "group_name": "ea"
+              },
+              {
+                "group_name": "perferendis"
+              },
+              {
+                "group_name": "facilis"
+              },
+              {
+                "group_name": "enim"
+              },
+              {
+                "group_name": "accusamus"
+              },
+              {
+                "group_name": "vel"
+              },
+              {
+                "group_name": "magni"
+              },
+              {
+                "group_name": "ipsum"
+              },
+              {
+                "group_name": "harum"
+              },
+              {
+                "group_name": "eum"
+              },
+              {
+                "group_name": "sint"
+              },
+              {
+                "group_name": "aut"
+              },
+              {
+                "group_name": "magnam"
+              },
+              {
+                "group_name": "placeat"
+              },
+              {
+                "group_name": "quia"
+              },
+              {
+                "group_name": "esse"
+              },
+              {
+                "group_name": "a"
+              },
+              {
+                "group_name": "blanditiis"
+              },
+              {
+                "group_name": "quo"
+              },
+              {
+                "group_name": "quis"
+              },
+              {
+                "group_name": "atque"
+              },
+              {
+                "group_name": "sed"
+              },
+              {
+                "group_name": "aspernatur"
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }

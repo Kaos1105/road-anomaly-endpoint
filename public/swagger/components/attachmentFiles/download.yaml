@@ -1,0 +1,36 @@
+get:
+  tags:
+    - Attachment Files
+  summary:  Download a attachment file.
+  description: Show a user
+  parameters:
+    - in: path
+      name: attachment_file
+      type: integer
+      required: true
+      description: Numeric ID of the attachment file to get.
+  responses:
+    204:
+      description: Success
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\AttachmentFile] 1"
+          }

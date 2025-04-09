@@ -1,0 +1,174 @@
+post:
+  tags:
+    - Negotiations
+  summary: Comment a negotiation.
+  description: Comment a negotiation
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - in: path
+      name: history
+      type: integer
+      required: true
+      description: Numeric ID of the negotiation.
+    - name: manager_comment
+      description: Company memo
+      in: formData
+      required: false
+      type: string
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 7,
+              "name": 1,
+              "client_site_id": 4,
+              "client_site": {
+                "id": 4,
+                "display_order": 2,
+                "site_id": 139,
+                "site": {
+                  "id": 139,
+                  "company_id": 83,
+                  "code": "S002",
+                  "long_name": "大阪ADVANCE",
+                  "short_name": "ADVANCE",
+                  "previous_name": "大阪",
+                  "previous_name_flg": 1,
+                  "use_classification": 2,
+                  "post_code": "700-0862",
+                  "address_1": "岡山県",
+                  "address_2": "岡山市北区",
+                  "address_3": "清輝本町",
+                  "phone": "0862501280",
+                  "company": {
+                    "id": 83,
+                    "code": "C1000",
+                    "long_name": "合同会社 TEST",
+                    "short_name": "ADVANCE",
+                    "previous_name": "Adva",
+                    "previous_name_flg": 2,
+                    "use_classification": 2,
+                    "display_order": 5
+                  }
+                }
+              },
+              "like_counter": null,
+              "date_time": "2024/11/21 09:15",
+              "progress_classification": 1,
+              "purpose": "100%",
+              "result": "succees",
+              "manager_comment": "comment",
+              "created_info": {
+                "date": "2024/12/02 12:40:00",
+                "name": "Lê Thụy　Ngọc Hạnh"
+              },
+              "updated_info": {
+                "date": "2024/12/02 12:54:48",
+                "name": "Nguyễn Hoàng　Nhật Thảo"
+              },
+              "comment_updated_info": {
+                "date": "2024/12/02 13:09:08",
+                "name": "Nguyễn Hoàng　Nhật Thảo"
+              },
+              "client_employees": [
+                {
+                  "id": 2,
+                  "employee_id": 119,
+                  "use_classification": 2,
+                  "employee": {
+                    "id": 119,
+                    "code": "code",
+                    "last_name": "Xuân",
+                    "first_name": "Lộc",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  }
+                }
+              ],
+              "my_company_employees": [
+                {
+                  "id": 17,
+                  "employee_id": 100,
+                  "use_classification": 2,
+                  "employee": {
+                    "id": 100,
+                    "code": "E100",
+                    "last_name": "Lê Thụy",
+                    "first_name": "Ngọc Hạnh",
+                    "maiden_name": "Sachiko",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  }
+                }
+              ]
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\Negotiation] 45"
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "client_site_id",
+                "message": [
+                  "取引先拠点IDは必須項目です。"
+                ]
+              },
+              {
+                "field": "date_time",
+                "message": [
+                  "商談日時は必須項目です。"
+                ]
+              },
+              {
+                "field": "progress_classification",
+                "message": [
+                  "進捗区分は必須項目です。"
+                ]
+              },
+              {
+                "field": "my_company_employee_ids",
+                "message": [
+                  "自社担当者は必須項目です。"
+                ]
+              }
+            ]
+          }

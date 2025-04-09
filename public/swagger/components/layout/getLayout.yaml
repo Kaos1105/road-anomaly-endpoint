@@ -1,0 +1,110 @@
+get:
+  tags:
+    - Layout
+  summary: Retrieve the layout from the user login using the system. Automatically create, update, and edit based on the screen content.
+  parameters:
+    - in: query
+      name: filter[screen_code]
+      type: string
+      required: true
+      description: Filter by screen code (type = dashboard)
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "blockA": [
+                {
+                  "id": 387,
+                  "system_id": 1,
+                  "content_no": "31",
+                  "block": "A",
+                  "block_order": 1
+                },
+                {
+                  "id": 390,
+                  "system_id": 1,
+                  "content_no": "51",
+                  "block": "A",
+                  "block_order": 2
+                },
+                {
+                  "id": 397,
+                  "system_id": 1,
+                  "content_no": "57",
+                  "block": "A",
+                  "block_order": 3
+                },
+                {
+                  "id": 400,
+                  "system_id": 1,
+                  "content_no": "63",
+                  "block": "A",
+                  "block_order": 4
+                }
+              ],
+              "blockB": [
+                {
+                  "id": 388,
+                  "system_id": 1,
+                  "content_no": "32",
+                  "block": "B",
+                  "block_order": 1
+                },
+                {
+                  "id": 391,
+                  "system_id": 1,
+                  "content_no": "53",
+                  "block": "B",
+                  "block_order": 2
+                },
+                {
+                  "id": 398,
+                  "system_id": 1,
+                  "content_no": "59",
+                  "block": "B",
+                  "block_order": 3
+                }
+              ],
+              "blockC": [
+                {
+                  "id": 389,
+                  "system_id": 1,
+                  "content_no": "34",
+                  "block": "C",
+                  "block_order": 1
+                },
+                {
+                  "id": 392,
+                  "system_id": 1,
+                  "content_no": "55",
+                  "block": "C",
+                  "block_order": 2
+                },
+                {
+                  "id": 399,
+                  "system_id": 1,
+                  "content_no": "61",
+                  "block": "C",
+                  "block_order": 3
+                }
+              ]
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }

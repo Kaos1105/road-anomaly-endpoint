@@ -1,0 +1,71 @@
+get:
+  tags:
+    - Social Event
+  summary: Get Social Event detail with Supplier for No.36040
+  description: Get Social Event detail with Supplier for No.36040
+  parameters:
+    - name: social_event
+      description: Social Event Id
+      in: path
+      required: true
+      type: integer
+    - in: query
+      name: filter[supplier_Id]
+      type: integer
+      description: >
+        Search by Supplier ID
+    - in: query
+      name: filter[order_date]
+      type: string
+      description: >
+        Search by Ordered date in YYYY/MM/DD
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 1,
+              "event_id": 2,
+              "event_title": "翔太",
+              "event_progress": 3,
+              "supplier": {
+                "id": 7,
+                "sales_store_id": 141,
+                "sales_store": {
+                  "id": 141,
+                  "company_id": 85,
+                  "code": "S301",
+                  "long_name": "北区支店",
+                  "short_name": "北区",
+                  "previous_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2,
+                  "post_code": "700-0865",
+                  "address_1": "岡山県",
+                  "address_2": "岡山市北区",
+                  "address_3": "旭本町385－1",
+                  "phone": "321536522563"
+                },
+                "use_classification": 2
+              },
+              "total_amount": 260,
+              "total_tax": 21
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

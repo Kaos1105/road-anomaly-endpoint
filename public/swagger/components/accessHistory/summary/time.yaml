@@ -1,0 +1,171 @@
+get:
+  tags:
+    - Access History
+  summary: List access history
+  description: List access history, pagination with 1000 records per page
+  parameters:
+    - in: query
+      name: filter[action]
+      type: string
+      description: >
+        Filter by action in code master:
+         *  LOGIN
+         *  LOGOUT
+         *  START
+         *  LIST
+         *  VIEW
+         *  CREATE
+         *  EDIT
+         *  DELETE
+         *  DOWNLOAD
+         *  UPLOAD
+         *  PRINT
+         *  INSERT_PRINT
+         *  ERROR
+         *  SEARCH
+         *  HELP
+         *  USER_VIEW_QUESTION
+         *  CHAT_LIST
+         *  ADMIN_VIEW_CHAT
+         *  USER_VIEW_CHAT
+         *  ADMIN_CHAT
+         *  USER_CHAT
+    - in: query
+      name: filter[system_id]
+      type: integer
+      description: >
+        Filter by system_id, example: 1
+    - in: query
+      name: filter[employee_id]
+      type: integer
+      description: >
+        Filter by employee_id, example: 18
+    - in: query
+      name: sort
+      schema:
+        type: string
+      description: >
+        Sort order:
+         * `-sortKey` - Ascending, from A to Z
+         * `sortKey` - Descending, from Z to A
+         * List sortKey: id, access_at, user_order, system_order, action, data, message, result_classification
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "hour": "00",
+                "value": "0.3"
+              },
+              {
+                "hour": "01",
+                "value": "1.4"
+              },
+              {
+                "hour": "02",
+                "value": "0.2"
+              },
+              {
+                "hour": "03",
+                "value": "0.2"
+              },
+              {
+                "hour": "04",
+                "value": "0.3"
+              },
+              {
+                "hour": "05",
+                "value": "0.0"
+              },
+              {
+                "hour": "06",
+                "value": "0.0"
+              },
+              {
+                "hour": "07",
+                "value": "0.0"
+              },
+              {
+                "hour": "08",
+                "value": "37.8"
+              },
+              {
+                "hour": "09",
+                "value": "40.8"
+              },
+              {
+                "hour": "10",
+                "value": "19.1"
+              },
+              {
+                "hour": "11",
+                "value": "23.8"
+              },
+              {
+                "hour": "12",
+                "value": "6.2"
+              },
+              {
+                "hour": "13",
+                "value": "32.2"
+              },
+              {
+                "hour": "14",
+                "value": "33.0"
+              },
+              {
+                "hour": "15",
+                "value": "25.9"
+              },
+              {
+                "hour": "16",
+                "value": "30.5"
+              },
+              {
+                "hour": "17",
+                "value": "30.2"
+              },
+              {
+                "hour": "18",
+                "value": "14.0"
+              },
+              {
+                "hour": "19",
+                "value": "8.5"
+              },
+              {
+                "hour": "20",
+                "value": "4.9"
+              },
+              {
+                "hour": "21",
+                "value": "0.6"
+              },
+              {
+                "hour": "22",
+                "value": "0.0"
+              },
+              {
+                "hour": "23",
+                "value": "0.0"
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

@@ -1,0 +1,321 @@
+get:
+  tags:
+    - Departments
+  summary: List departments of Shinnichiro .
+  description: List department and number of employees of the Shinnichiro Corp
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 115,
+                "code": null,
+                "long_name": "Nhân sự",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 2,
+                "display_order": 0,
+                "number_of_employees": 0
+              },
+              {
+                "id": 102,
+                "code": null,
+                "long_name": "Department name",
+                "previous_name": "aaaa",
+                "previous_name_flg": 2,
+                "use_classification": 2,
+                "display_order": 1,
+                "number_of_employees": 0
+              },
+              {
+                "id": 112,
+                "code": "1",
+                "long_name": "Nhân sự",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 2,
+                "display_order": 1,
+                "number_of_employees": 0
+              },
+              {
+                "id": 111,
+                "code": null,
+                "long_name": "test.",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 1,
+                "display_order": 3,
+                "number_of_employees": 0
+              },
+              {
+                "id": 113,
+                "code": "507",
+                "long_name": "Develop",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 2,
+                "display_order": 6,
+                "number_of_employees": 2
+              },
+              {
+                "id": 104,
+                "code": null,
+                "long_name": "部門名",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 1,
+                "display_order": 10,
+                "number_of_employees": 0
+              },
+              {
+                "id": 105,
+                "code": null,
+                "long_name": "1",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 2,
+                "display_order": 9999,
+                "number_of_employees": 0
+              },
+              {
+                "id": 94,
+                "code": "asuka.hamada",
+                "long_name": "有限会社 野村",
+                "previous_name": "株式会社 坂本",
+                "previous_name_flg": 2,
+                "use_classification": 1,
+                "display_order": 36683,
+                "number_of_employees": 0
+              },
+              {
+                "id": 72,
+                "code": "esasada",
+                "long_name": "有限会社 渚",
+                "previous_name": "有限会社 江古田",
+                "previous_name_flg": 2,
+                "use_classification": 2,
+                "display_order": 151579,
+                "number_of_employees": 0
+              },
+              {
+                "id": 64,
+                "code": "ryohei.tanaka",
+                "long_name": "株式会社 三宅",
+                "previous_name": "有限会社 三宅",
+                "previous_name_flg": 1,
+                "use_classification": 2,
+                "display_order": 252451,
+                "number_of_employees": 0
+              },
+              {
+                "id": 23,
+                "code": "taichi.uno",
+                "long_name": "有限会社 伊藤",
+                "previous_name": "有限会社 佐藤",
+                "previous_name_flg": 1,
+                "use_classification": 2,
+                "display_order": 283339,
+                "number_of_employees": 0
+              },
+              {
+                "id": 18,
+                "code": "nkudo",
+                "long_name": "株式会社 高橋",
+                "previous_name": "株式会社 笹田",
+                "previous_name_flg": 1,
+                "use_classification": 1,
+                "display_order": 315435,
+                "number_of_employees": 0
+              },
+              {
+                "id": 4,
+                "code": "ishida.rei",
+                "long_name": "株式会社 杉山",
+                "previous_name": "株式会社 青田",
+                "previous_name_flg": 1,
+                "use_classification": 1,
+                "display_order": 325343,
+                "number_of_employees": 0
+              },
+              {
+                "id": 84,
+                "code": "shuhei09",
+                "long_name": "株式会社 三宅",
+                "previous_name": "有限会社 若松",
+                "previous_name_flg": 2,
+                "use_classification": 2,
+                "display_order": 391790,
+                "number_of_employees": 0
+              },
+              {
+                "id": 39,
+                "code": "yuki.sato",
+                "long_name": "株式会社 藤本",
+                "previous_name": "有限会社 工藤",
+                "previous_name_flg": 1,
+                "use_classification": 2,
+                "display_order": 628121,
+                "number_of_employees": 0
+              },
+              {
+                "id": 22,
+                "code": "isasada",
+                "long_name": "株式会社 笹田",
+                "previous_name": "有限会社 野村",
+                "previous_name_flg": 2,
+                "use_classification": 1,
+                "display_order": 687032,
+                "number_of_employees": 0
+              },
+              {
+                "id": 83,
+                "code": "hideki.nakajima",
+                "long_name": "有限会社 青山",
+                "previous_name": "株式会社 鈴木",
+                "previous_name_flg": 2,
+                "use_classification": 1,
+                "display_order": 903199,
+                "number_of_employees": 0
+              },
+              {
+                "id": 81,
+                "code": "rei.watanabe",
+                "long_name": "株式会社 渡辺",
+                "previous_name": "株式会社 原田",
+                "previous_name_flg": 1,
+                "use_classification": 2,
+                "display_order": 917723,
+                "number_of_employees": 0
+              },
+              {
+                "id": 38,
+                "code": "vnakamura",
+                "long_name": "株式会社 中島",
+                "previous_name": "有限会社 野村",
+                "previous_name_flg": 2,
+                "use_classification": 2,
+                "display_order": 952875,
+                "number_of_employees": 0
+              },
+              {
+                "id": 106,
+                "code": null,
+                "long_name": "a",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 2,
+                "display_order": 999999,
+                "number_of_employees": 0
+              },
+              {
+                "id": 107,
+                "code": null,
+                "long_name": "Q308 NAME",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 1,
+                "display_order": 999999,
+                "number_of_employees": 0
+              },
+              {
+                "id": 108,
+                "code": null,
+                "long_name": "Q308 NAME 1",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 1,
+                "display_order": 999999,
+                "number_of_employees": 1
+              },
+              {
+                "id": 109,
+                "code": null,
+                "long_name": "SITE 111 11111",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 2,
+                "display_order": 999999,
+                "number_of_employees": 0
+              },
+              {
+                "id": 110,
+                "code": null,
+                "long_name": "dev",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 2,
+                "display_order": 999999,
+                "number_of_employees": 0
+              },
+              {
+                "id": 125,
+                "code": "123",
+                "long_name": "Dep",
+                "previous_name": "Dep",
+                "previous_name_flg": 2,
+                "use_classification": 2,
+                "display_order": 999999,
+                "number_of_employees": 1
+              },
+              {
+                "id": 114,
+                "code": null,
+                "long_name": "Sales",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 2,
+                "display_order": 999999,
+                "number_of_employees": 0
+              },
+              {
+                "id": 117,
+                "code": null,
+                "long_name": "Department name (test)",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 1,
+                "display_order": 999999,
+                "number_of_employees": 0
+              },
+              {
+                "id": 118,
+                "code": null,
+                "long_name": "Department chi nhánh đà nẵng (test)",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 1,
+                "display_order": 999999,
+                "number_of_employees": 2
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\Site] 80"
+          }
+

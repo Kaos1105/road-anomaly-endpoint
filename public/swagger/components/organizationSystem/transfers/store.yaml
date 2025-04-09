@@ -1,0 +1,179 @@
+post:
+  tags:
+    - Transfers
+  summary: Create a new transfer.
+  description: Create a new transfer
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: employee_id
+      description: Employee ID
+      in: formData
+      required: true
+      type: string
+    - name: company_id
+      description: Company ID
+      in: formData
+      required: true
+      type: string
+    - name: site_id
+      description: Site ID
+      in: formData
+      required: false
+      type: string
+    - name: department_id
+      description: Department ID
+      in: formData
+      required: false
+      type: string
+    - name: division_id
+      description: Division ID
+      in: formData
+      required: false
+      type: string
+    - name: team_name
+      description: Team name
+      in: formData
+      required: false
+      type: string
+    - name: position
+      description: Position
+      in: formData
+      required: false
+      type: string
+    - name: contract_classification
+      description: contract classification ID .
+        * `1` - No contract
+        * `2` - Indefinite contract
+        * `3` - Definite contract
+        * `4` - Commissioned contract
+      in: formData
+      required: true
+      type: integer
+      enum: [ 1, 2, 3, 4 ]
+      default: 1
+    - name: start_date
+      description: Transfer start date
+      in: formData
+      required: false
+      type: string
+      format: date
+    - name: end_date
+      description: Transfer end date
+      in: formData
+      required: false
+      type: string
+      format: date
+    - name: major_history_flg
+      description: major history flag
+        * `1` - NOT_SPECIFIED
+        * `2` - MAJOR_PERSONAL_CHANGES
+      in: formData
+      required: false
+      type: integer
+      enum: [ 1, 2 ]
+      default: 1
+    - name: transfer_classification
+      description: Transfer classification ID
+        * `1` - JOINING THE COMPANY
+        * `2` - PROMOTION
+        * `3` - TRANSFER
+        * `4` - REASSIGNMENT
+        * `5` - RETIREMENT
+        * `99` - OTHER
+      in: formData
+      required: false
+      type: integer
+      enum: [ 1, 2, 3, 4, 5, 99 ]
+      default: 1
+    - name: memo
+      description: division memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: Division display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 1201,
+              "code": "nakajima.yuta.144",
+              "company": {
+                "id": 256,
+                "code": "code65",
+                "long_name": "gfdg",
+                "previous_name": null,
+                "previous_name_flg": 2
+              },
+              "company_id": 256,
+              "long_name": "株式会社 渚",
+              "short_name": null,
+              "kana": null,
+              "start_date": "1986/06/03",
+              "end_date": null,
+              "represent_flg": 2,
+              "division_classification": 1,
+              "previous_name": null,
+              "previous_name_flg": 1,
+              "en_notation": null,
+              "post_code": null,
+              "address_1": "加納市",
+              "address_2": "quia",
+              "address_3": "culpa",
+              "phone": "090-7678-0764",
+              "memo": "Nam accusamus eaque ut sint illo aut voluptatem. Odio est nemo deserunt nulla qui odit et. Consequatur et eligendi ipsa ut accusamus minima.",
+              "display_order": 923916,
+              "use_classification": 2,
+              "created_info": {
+                "date": "2024/07/29 20:25:10",
+                "name": "直子 廣川"
+              },
+              "updated_info": {
+                "date": "2024/07/29 20:25:10",
+                "name": "直子 廣川"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "display_order",
+                "message": [
+                  "表示順番号は必須項目です。"
+                ]
+              }
+            ]
+          }

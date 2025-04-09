@@ -1,0 +1,221 @@
+get:
+  tags:
+    - Authentication History
+  summary: Summary for Authentication history
+  description: Summary
+  parameters:
+    - in: query
+      name: filter[year]
+      required: true
+      type: string
+      description: Filter by year in list dropdown year.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example: {
+          "code": 200,
+          "data": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "collection": [
+              {
+                "action": "AUTHENTICATION1_OK",
+                "summary": {
+                  "jan": 0,
+                  "feb": 0,
+                  "mar": 31,
+                  "apr": 0,
+                  "may": 0,
+                  "jun": 0,
+                  "jul": 0,
+                  "aug": 0,
+                  "sep": 0,
+                  "oct": 0,
+                  "nov": 0,
+                  "dec": 0,
+                  "year": 31,
+                  "last_year": 0,
+                  "two_year_ago": 0
+                }
+              },
+              {
+                "action": "AUTHENTICATION1_IDERROR",
+                "summary": {
+                  "jan": 0,
+                  "feb": 0,
+                  "mar": 2,
+                  "apr": 0,
+                  "may": 0,
+                  "jun": 0,
+                  "jul": 0,
+                  "aug": 0,
+                  "sep": 0,
+                  "oct": 0,
+                  "nov": 0,
+                  "dec": 0,
+                  "year": 2,
+                  "last_year": 0,
+                  "two_year_ago": 0
+                }
+              },
+              {
+                "action": "AUTHENTICATION1_PASSWORDERROR",
+                "summary": {
+                  "jan": 0,
+                  "feb": 0,
+                  "mar": 0,
+                  "apr": 0,
+                  "may": 0,
+                  "jun": 0,
+                  "jul": 0,
+                  "aug": 0,
+                  "sep": 0,
+                  "oct": 0,
+                  "nov": 0,
+                  "dec": 0,
+                  "year": 2,
+                  "last_year": 0,
+                  "two_year_ago": 0
+                }
+              },
+              {
+                "action": "AUTHENTICATION1_PASSWORDTIMEOUT",
+                "summary": {
+                  "jan": 0,
+                  "feb": 0,
+                  "mar": 1,
+                  "apr": 0,
+                  "may": 0,
+                  "jun": 0,
+                  "jul": 0,
+                  "aug": 0,
+                  "sep": 0,
+                  "oct": 0,
+                  "nov": 0,
+                  "dec": 0,
+                  "year": 1,
+                  "last_year": 0,
+                  "two_year_ago": 0
+                }
+              },
+              {
+                "action": "AUTHENTICATION2_IMPLEMENT",
+                "summary": {
+                  "jan": 0,
+                  "feb": 0,
+                  "mar": 8,
+                  "apr": 0,
+                  "may": 0,
+                  "jun": 0,
+                  "jul": 0,
+                  "aug": 0,
+                  "sep": 0,
+                  "oct": 0,
+                  "nov": 0,
+                  "dec": 0,
+                  "year": 8,
+                  "last_year": 0,
+                  "two_year_ago": 0
+                }
+              },
+              {
+                "action": "AUTHENTICATION2_OK",
+                "summary": {
+                  "jan": 0,
+                  "feb": 0,
+                  "mar": 20,
+                  "apr": 0,
+                  "may": 0,
+                  "jun": 0,
+                  "jul": 0,
+                  "aug": 0,
+                  "sep": 0,
+                  "oct": 0,
+                  "nov": 0,
+                  "dec": 0,
+                  "year": 20,
+                  "last_year": 0,
+                  "two_year_ago": 0
+                }
+              },
+              {
+                "action": "AUTHENTICATION2_TOKENERROR",
+                "summary": {
+                  "jan": 0,
+                  "feb": 0,
+                  "mar": 0,
+                  "apr": 0,
+                  "may": 0,
+                  "jun": 0,
+                  "jul": 0,
+                  "aug": 0,
+                  "sep": 0,
+                  "oct": 0,
+                  "nov": 0,
+                  "dec": 0,
+                  "year": 20,
+                  "last_year": 0,
+                  "two_year_ago": 0
+                }
+              },
+              {
+                "action": "AUTHENTICATION2_TOKENTIMEOUT",
+                "summary": {
+                  "jan": 0,
+                  "feb": 0,
+                  "mar": 0,
+                  "apr": 0,
+                  "may": 0,
+                  "jun": 0,
+                  "jul": 0,
+                  "aug": 0,
+                  "sep": 0,
+                  "oct": 0,
+                  "nov": 0,
+                  "dec": 0,
+                  "year": 20,
+                  "last_year": 0,
+                  "two_year_ago": 0
+                }
+              },
+              {
+                "action": null,
+                "summary": {
+                  "jan": 0,
+                  "feb": 0,
+                  "mar": 62,
+                  "apr": 0,
+                  "may": 0,
+                  "jun": 0,
+                  "jul": 0,
+                  "aug": 0,
+                  "sep": 0,
+                  "oct": 0,
+                  "nov": 0,
+                  "dec": 0,
+                  "year": 62,
+                  "last_year": 0,
+                  "two_year_ago": 0
+                }
+              }
+            ]
+          },
+          "message": "OK",
+          "errors": null
+        }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }

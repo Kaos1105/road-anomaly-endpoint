@@ -1,0 +1,236 @@
+get:
+  tags:
+    - Groups
+  summary: List groups by auth
+  parameters:
+    - in: query
+      name: filter[use_classification]
+      type: integer
+      description: Filter by use classification
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "collection": [
+                {
+                  "id": 16,
+                  "name": "S-NET開発チーム",
+                  "display_order": 1,
+                  "use_classification": 1,
+                  "number_of_employees": 3,
+                  "created_by": 100,
+                  "updated_info": {
+                    "date": null,
+                    "name": "Lê Thụy　Ngọc Hạnh"
+                  },
+                  "employees": [
+                    {
+                      "id": 100,
+                      "code": "E100",
+                      "last_name": "Lê Thụy",
+                      "first_name": "Ngọc Hạnh",
+                      "maiden_name": "Sachiko",
+                      "previous_name_flg": 2,
+                      "use_classification": 2,
+                      "avatar": {
+                        "id": 260,
+                        "attachable_id": 100,
+                        "attachable_type": "organization_employees",
+                        "file_name": "SymbolHanh.png",
+                        "file_path": "https://bucket-snet-dev.s3.ap-northeast-1.amazonaws.com/local/organization_employees/j7EebyjeyWx6A3w8yhK67ikAn5osruZwMtSzcgZA.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUBDOFLY7DRSZC6S3%2F20250106%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Date=20250106T022058Z&X-Amz-SignedHeaders=host&X-Amz-Expires=1800&X-Amz-Signature=45019b44e072feb030b4698b3659c62e83e888c02abdee149f96bdd18b9611a0"
+                      }
+                    },
+                    {
+                      "id": 102,
+                      "code": "E003",
+                      "last_name": "Nguyễn Thị",
+                      "first_name": "Mỹ",
+                      "maiden_name": null,
+                      "previous_name_flg": 1,
+                      "use_classification": 2,
+                      "avatar": {
+                        "id": 258,
+                        "attachable_id": 102,
+                        "attachable_type": "organization_employees",
+                        "file_name": "symbolMY.png",
+                        "file_path": "https://bucket-snet-dev.s3.ap-northeast-1.amazonaws.com/local/organization_employees/ft4mymwtWzExuO7M3kFSDv7z7WRRs2tdq3ejejns.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUBDOFLY7DRSZC6S3%2F20250106%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Date=20250106T022058Z&X-Amz-SignedHeaders=host&X-Amz-Expires=1800&X-Amz-Signature=cc34cbbc2799acdc0cf9e65d85f450b8bbb9297641030b37e7c5e80e2cffde29"
+                      }
+                    },
+                    {
+                      "id": 104,
+                      "code": "E202",
+                      "last_name": "Thị",
+                      "first_name": "Nhi",
+                      "maiden_name": null,
+                      "previous_name_flg": 1,
+                      "use_classification": 2,
+                      "avatar": null
+                    }
+                  ]
+                }
+              ],
+              "pagination": {
+                "total": 1,
+                "count": 1,
+                "perPage": 25,
+                "currentPage": 1,
+                "totalPages": 1
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+
+post:
+  tags:
+    - Groups
+  summary: Create a group.
+  description: Create a group
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: name
+      description: group name
+      in: formData
+      required: true
+      type: string
+    - name: employee_ids
+      description: List employee id
+      in: formData
+      required: true
+      type: array
+    - name: display_order
+      description: Company display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Company usage classification.
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      default: 2
+      required: true
+      type: integer
+      enum: [ 1, 2 ]
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 2,
+              "name": "group1",
+              "display_order": 1,
+              "use_classification": 1,
+              "created_info": {
+                "date": "2024/12/27 17:04:31",
+                "name": "Ha　Ngan"
+              },
+              "updated_info": {
+                "date": "2024/12/27 17:04:31",
+                "name": "Ha　Ngan"
+              },
+              "employees": [
+                {
+                  "id": 100,
+                  "code": "E100",
+                  "last_name": "Lê Thụy",
+                  "first_name": "Ngọc Hạnh",
+                  "maiden_name": "Sachiko",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                {
+                  "id": 31,
+                  "code": "E001",
+                  "last_name": "Ha",
+                  "first_name": "Ngan",
+                  "maiden_name": "Bờm",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                {
+                  "id": 106,
+                  "code": "NHFE123",
+                  "last_name": "Nhi 123",
+                  "first_name": "Thi4343",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                {
+                  "id": 107,
+                  "code": "325",
+                  "last_name": "daisy",
+                  "first_name": "Nhi",
+                  "maiden_name": "325",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                }
+              ]
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "name",
+                "message": [
+                  "このグループ名は、すでに存在します。"
+                ]
+              }
+            ]
+          }
+

@@ -1,0 +1,684 @@
+# create multiple social data for un-registered customer
+put:
+  tags:
+    - Social Data
+  summary: Update Social Data in No.37030.
+  description: Update Social Data in No.37030.
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: social_data
+      description: Social Data Id
+      in: path
+      required: true
+      type: integer
+    - in: body
+      name: body
+      description: JSON payload for updating Social Data
+      required: true
+      schema:
+        type: object
+        properties:
+          product_id:
+            type: integer
+            description: Unique identifier for the product
+          product_name:
+            type: string
+            description: Name of the product
+          unit_price:
+            type: number
+            format: float
+            description: Unit price of the product
+          discount:
+            type: number
+            format: float
+            description: Discount on the product
+          tax_classification_1:
+            type: integer
+            description: Tax classification for category 1
+          tax_1:
+            type: number
+            format: float
+            description: Tax amount for category 1
+          shipping_cost:
+            type: number
+            format: float
+            description: Shipping cost for the product
+          tax_classification_2:
+            type: integer
+            description: Tax classification for category 2
+          tax_2:
+            type: number
+            format: float
+            description: Tax amount for category 2
+          other:
+            type: number
+            format: float
+            description: Other costs associated with the product
+          tax_classification_3:
+            type: integer
+            description: Tax classification for category 3
+          tax_3:
+            type: number
+            format: float
+            description: Tax amount for category 3
+          total_amount:
+            type: number
+            format: float
+            description: Total amount including taxes and discounts
+          total_tax:
+            type: number
+            format: float
+            description: Total tax amount
+          purpose:
+            type: string
+            description: Purpose of the product
+          result:
+            type: string
+            description: Result associated with the product
+          processing_site:
+            type: integer
+            description: Identifier for the processing site
+          accounting_company:
+            type: integer
+            description: Identifier for the accounting company
+          accounting_department_id:
+            type: integer
+            description: Identifier for the accounting department
+          address_classification:
+            type: integer
+            description: Classification for the address
+          memo:
+            type: string
+            description: Additional memo for the product
+          display_order:
+            type: integer
+            description: Display order for the product
+          use_classification:
+            type: integer
+            description: Classification for usage
+        required:
+          - product_id
+          - product_name
+          - processing_site
+          - accounting_company
+          - accounting_department_id
+          - address_classification
+          - use_classification
+  responses:
+    201:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 44,
+              "event_id": 2,
+              "event_classification": {
+                "id": 2,
+                "name": "株式会社 村山",
+                "use_classification": 2
+              },
+              "group_id": 2,
+              "management_group": {
+                "id": 2,
+                "name": "Management group 1",
+                "use_classification": 2
+              },
+              "event_title": "event_title_44",
+              "event_progress": 2,
+              "planned_start": "2024/09/17",
+              "creation_deadline": "2024/09/17",
+              "approval_deadline": "2024/09/17",
+              "order_deadline": "2024/09/17",
+              "planned_completion": "2024/09/17",
+              "plan_comment": "plan_comment",
+              "actual_comment": "actual_comment",
+              "memo": "memo",
+              "use_classification": 2,
+              "created_info": {
+                "date": "2024/10/09 16:53:08",
+                "name": "Danh　Nguyen"
+              },
+              "updated_info": {
+                "date": "2024/10/09 19:06:38",
+                "name": "Danh　Nguyen"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "product_id",
+                "message": [
+                  "仕入先名無効な値です。"
+                ]
+              }
+            ]
+          }
+get:
+  tags:
+    - Social Data
+  summary: Get Social Data detail
+  description: Get Social Data detail
+  parameters:
+    - name: social_data
+      description: Social Data Id
+      in: path
+      required: true
+      type: integer
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 9,
+              "social_event_id": 1,
+              "social_event": {
+                "id": 1,
+                "event_id": 2,
+                "event_classification": {
+                  "id": 2,
+                  "name": "中元",
+                  "description": null,
+                  "operation_rule": null,
+                  "use_classification": 2,
+                  "social_criteria": null
+                },
+                "event_title": "翔太",
+                "use_classification": 2
+              },
+              "customer_id": 6,
+              "customer": {
+                "id": 6,
+                "category_name": "JFE関係",
+                "accounting_company": 1,
+                "update_order": "update 1",
+                "employee_id": 109,
+                "employee": {
+                  "id": 109,
+                  "code": null,
+                  "last_name": "山下",
+                  "first_name": "達也",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "post_code": "709-0861",
+                  "address_1": "岡山県",
+                  "address_2": "岡山市東区",
+                  "address_3": "瀬戸町瀬戸385-1",
+                  "phone": "09051428538"
+                },
+                "major_transfers": [
+                  {
+                    "id": 102,
+                    "employee_id": 109,
+                    "start_date": "2024/10/01",
+                    "end_date": "2024/10/31",
+                    "position": null,
+                    "major_history_flg": 2,
+                    "updated_at": "2024/10/01",
+                    "company": {
+                      "id": 81,
+                      "code": "C103",
+                      "long_name": "岡山情報ビジネス学院",
+                      "previous_name": "OIC",
+                      "previous_name_flg": 2,
+                      "use_classification": 2
+                    },
+                    "site": {
+                      "id": 134,
+                      "company_id": 81,
+                      "code": null,
+                      "long_name": "OIC 岡山",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "phone": "08056163044",
+                      "post_code": "709-0826",
+                      "address_1": "岡山県",
+                      "address_2": "赤磐市",
+                      "address_3": "和田",
+                      "use_classification": 2
+                    },
+                    "department": {
+                      "id": 140,
+                      "site_id": 134,
+                      "code": "SOCIAL_TRANSFER",
+                      "long_name": "TRANSFER CUSTOMER NAME",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "use_classification": 2
+                    },
+                    "division": {
+                      "id": 243,
+                      "department_id": 140,
+                      "code": "DI SOCIAL",
+                      "long_name": "Phòng Nhân Sự SOCIAL",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "use_classification": 2
+                    }
+                  }
+                ],
+                "responsible_id": 100,
+                "responsible_employee": {
+                  "id": 100,
+                  "code": "E100",
+                  "last_name": "Lê Thụy",
+                  "first_name": "Ngọc Hạnh",
+                  "maiden_name": "Sachiko",
+                  "previous_name_flg": 2,
+                  "use_classification": 2,
+                  "transfers": [
+                    {
+                      "id": 114,
+                      "position": null,
+                      "department": {
+                        "id": 139,
+                        "site_id": 141,
+                        "code": "SOCIAL_DATA",
+                        "long_name": "DEPARTMENT SOCAIL NAME",
+                        "previous_name": null,
+                        "previous_name_flg": 1,
+                        "use_classification": 2
+                      }
+                    }
+                  ]
+                },
+                "address_printing_1": 1,
+                "address_printing_2": 0,
+                "address_printing_3": 0,
+                "address_printing_4": 0,
+                "address_printing_5": 0,
+                "address_printing_6": 1,
+                "address_printing_7": 1,
+                "specified_post_code": null,
+                "specified_address_1": null,
+                "specified_address_2": null,
+                "specified_address_3": null,
+                "specified_phone": null,
+                "shipping_info": {
+                  "post_code": "709-0861",
+                  "address_1": "岡山県",
+                  "address_2": "岡山市東区",
+                  "address_3": "瀬戸町瀬戸385-1",
+                  "phone": "09051428538"
+                }
+              },
+              "display_transfer_id": 102,
+              "display_transfer": {
+                "id": 102,
+                "position": null,
+                "employee": {
+                  "id": 109,
+                  "code": null,
+                  "last_name": "山下",
+                  "first_name": "達也",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "company": {
+                  "id": 81,
+                  "code": "C103",
+                  "long_name": "岡山情報ビジネス学院",
+                  "previous_name": "OIC",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "site": {
+                  "id": 134,
+                  "company_id": 81,
+                  "code": null,
+                  "long_name": "OIC 岡山",
+                  "previous_name": null,
+                  "previous_name_flg": 1,
+                  "phone": "08056163044",
+                  "post_code": "709-0826",
+                  "address_1": "岡山県",
+                  "address_2": "赤磐市",
+                  "address_3": "和田",
+                  "use_classification": 2
+                },
+                "department": {
+                  "id": 140,
+                  "site_id": 134,
+                  "code": "SOCIAL_TRANSFER",
+                  "long_name": "TRANSFER CUSTOMER NAME",
+                  "previous_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "division": {
+                  "id": 243,
+                  "department_id": 140,
+                  "code": "DI SOCIAL",
+                  "long_name": "Phòng Nhân Sự SOCIAL",
+                  "previous_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                }
+              },
+              "product_id": 1,
+              "product": {
+                "id": 1,
+                "name": "桃岡山",
+                "code": null,
+                "product_classification": 1,
+                "company": {
+                  "id": 85,
+                  "code": "C300",
+                  "long_name": "岡山大学院",
+                  "previous_name": "大学院",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "use_classification": 2
+              },
+              "product_name": "Sample Product",
+              "unit_price": 100,
+              "discount": 10,
+              "tax_classification_1": 1,
+              "tax_1": 5,
+              "shipping_cost": 15,
+              "tax_classification_2": 2,
+              "tax_2": 3,
+              "other": 2,
+              "tax_classification_3": 3,
+              "tax_3": 1,
+              "total_amount": 120,
+              "total_tax": 9,
+              "purpose": "Sample Purpose",
+              "result": "Sample Result",
+              "processing_site": 1,
+              "accounting_company": 1,
+              "accounting_department_id": 132,
+              "accounting_department": {
+                "id": 132,
+                "site_id": 129,
+                "code": "C300",
+                "long_name": "技術開発企画部VN",
+                "previous_name": "Kỹ thuật",
+                "previous_name_flg": 2,
+                "use_classification": 2
+              },
+              "address_classification": 1,
+              "data_progress": 0,
+              "comment_history": "comment\n2024/10/17 Danh　Nguyenさんが、準備しました。\n",
+              "workflows": [
+                {
+                  "id": 10,
+                  "social_data_id": 9,
+                  "workflow_order": 10,
+                  "scheduled_person_id": 59,
+                  "scheduled_person": {
+                    "id": 59,
+                    "code": "E002",
+                    "last_name": "Danh",
+                    "first_name": "Nguyen",
+                    "maiden_name": "Dan",
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "executor_id": null,
+                  "executor": null,
+                  "execution_type": 1,
+                  "execution_at": null,
+                  "deadline": null
+                },
+                {
+                  "id": 11,
+                  "social_data_id": 9,
+                  "workflow_order": 20,
+                  "scheduled_person_id": 100,
+                  "scheduled_person": {
+                    "id": 100,
+                    "code": "E100",
+                    "last_name": "Lê Thụy",
+                    "first_name": "Ngọc Hạnh",
+                    "maiden_name": "Sachiko",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "executor_id": null,
+                  "executor": null,
+                  "execution_type": 1,
+                  "execution_at": null,
+                  "deadline": "2023/01/31"
+                },
+                {
+                  "id": 12,
+                  "social_data_id": 9,
+                  "workflow_order": 30,
+                  "scheduled_person_id": 85,
+                  "scheduled_person": {
+                    "id": 85,
+                    "code": "C300",
+                    "last_name": "Arumi",
+                    "first_name": "kun",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 1
+                  },
+                  "executor_id": null,
+                  "executor": null,
+                  "execution_type": 1,
+                  "execution_at": null,
+                  "deadline": null
+                },
+                {
+                  "id": 13,
+                  "social_data_id": 9,
+                  "workflow_order": 40,
+                  "scheduled_person_id": 31,
+                  "scheduled_person": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "executor_id": null,
+                  "executor": null,
+                  "execution_type": 1,
+                  "execution_at": null,
+                  "deadline": null
+                },
+                {
+                  "id": 14,
+                  "social_data_id": 9,
+                  "workflow_order": 50,
+                  "scheduled_person_id": 31,
+                  "scheduled_person": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "executor_id": null,
+                  "executor": null,
+                  "execution_type": 1,
+                  "execution_at": null,
+                  "deadline": "1982/06/07"
+                },
+                {
+                  "id": 15,
+                  "social_data_id": 9,
+                  "workflow_order": 60,
+                  "scheduled_person_id": 85,
+                  "scheduled_person": {
+                    "id": 85,
+                    "code": "C300",
+                    "last_name": "Arumi",
+                    "first_name": "kun",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 1
+                  },
+                  "executor_id": null,
+                  "executor": null,
+                  "execution_type": 1,
+                  "execution_at": null,
+                  "deadline": "1984/03/18"
+                },
+                {
+                  "id": 16,
+                  "social_data_id": 9,
+                  "workflow_order": 70,
+                  "scheduled_person_id": 31,
+                  "scheduled_person": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "executor_id": null,
+                  "executor": null,
+                  "execution_type": 1,
+                  "execution_at": null,
+                  "deadline": null
+                },
+                {
+                  "id": 17,
+                  "social_data_id": 9,
+                  "workflow_order": 80,
+                  "scheduled_person_id": 100,
+                  "scheduled_person": {
+                    "id": 100,
+                    "code": "E100",
+                    "last_name": "Lê Thụy",
+                    "first_name": "Ngọc Hạnh",
+                    "maiden_name": "Sachiko",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "executor_id": null,
+                  "executor": null,
+                  "execution_type": 1,
+                  "execution_at": null,
+                  "deadline": null
+                },
+                {
+                  "id": 18,
+                  "social_data_id": 9,
+                  "workflow_order": 90,
+                  "scheduled_person_id": 85,
+                  "scheduled_person": {
+                    "id": 85,
+                    "code": "C300",
+                    "last_name": "Arumi",
+                    "first_name": "kun",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 1
+                  },
+                  "executor_id": null,
+                  "executor": null,
+                  "execution_type": 1,
+                  "execution_at": null,
+                  "deadline": null
+                }
+              ],
+              "memo": "Sample Memo",
+              "display_order": 1,
+              "use_classification": 2,
+              "created_info": {
+                "date": "2024/10/11 19:23:18",
+                "name": "Danh　Nguyen"
+              },
+              "updated_info": {
+                "date": "2024/10/17 13:50:57",
+                "name": "Danh　Nguyen"
+              },
+              "is_enable_btn_flg": {
+                "end_btn": false,
+                "edit_btn": false,
+                "workflow_btn": true
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+delete:
+  tags:
+    - Social Data
+  summary: Delete a Social Data.
+  description: Delete a Social Data
+  parameters:
+    - in: path
+      name: social_data
+      type: integer
+      required: true
+      description: Numeric ID of the Social to delete.
+  responses:
+    204:
+      description: Success
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\SocialData] 80"
+          }

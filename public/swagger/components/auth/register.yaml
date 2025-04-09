@@ -1,0 +1,67 @@
+post:
+  tags:
+    - Auth
+  summary: Register User
+  description: User register
+  consumes:
+    - application/x-www-form-urlencoded
+  parameters:
+    - in: formData
+      name: employee_id
+      type: string
+      required: true
+      example: 173
+      description: ID of [organization_employees]
+    - in: formData
+      name: login_id
+      type: string
+      required: true
+      description: login_id of [snet_logins]
+    - in: formData
+      name: password
+      type: string
+      required: true
+      minLength: 8
+      example: 'passworD@1'
+      description: password of [snet_logins]
+  responses:
+    201:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 201,
+            "data": {
+              "token": "7|15XrstTdBLAXHCdnY1ENxyQsd8b2Mu49jps4ktqeff7fbb30",
+              "user": {
+                "id": 41,
+                "code": "1122331",
+                "last_name": "三宅",
+                "first_name": "香織",
+                "previous_name_flg": 1,
+                "maiden_name": null,
+                "display_order": 999999
+              }
+            },
+            "message": "登録しました。",
+            "errors": null
+          }
+    422:
+      description: Bad request
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "employee_id",
+                "message": [
+                  "このemployee idは、すでに存在します。"
+                ]
+              }
+            ]
+          }

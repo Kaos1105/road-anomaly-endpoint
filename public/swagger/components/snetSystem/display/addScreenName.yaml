@@ -1,0 +1,106 @@
+post:
+  tags:
+    - Screen Name
+  summary: Add new screen name
+  parameters:
+    - name: system_id
+      description: System's Id
+      in: formData
+      required: true
+      type: integer
+    - name: code
+      description: Screen's code
+      in: formData
+      required: true
+      type: string
+    - name: name
+      description: Screen's name
+      in: formData
+      required: true
+      type: string
+    - name: display_classification
+      in: formData
+      required: true
+      type: integer
+      enum: [ 1, 2, 3, 4, 5, 6 ]
+      default: 1
+      description: Display classification
+        * `1` - DASHBOARD
+        * `2` - LIST
+        * `3` - DISPLAY
+        * `4` - ADD
+        * `5` - EDIT
+        * `6` - OTHER
+    - name: memo
+      description: Memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: Display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Usage classification
+      in: formData
+      default: 2
+      required: true
+      type: integer
+  responses:
+    201:
+      description: Success
+      schema:
+        type: object
+        example:           {
+          "code": 200,
+          "data": {
+            "id": 1,
+            "code": "10001",
+            "system_id": 1,
+            "name": "ログイン",
+            "display_classification": 1,
+            "memo": "Start",
+            "display_order": 1,
+            "use_classification": 2,
+            "created_info": {
+              "date": "2024/10/11 17:45:53"
+            },
+            "updated_info": {
+              "date": "2024/10/14 15:21:28",
+              "name": "吉田　直人"
+            }
+          },
+          "message": "OK",
+          "errors": null
+        }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "display_order",
+                "message": [
+                  "表示順番号は必須項目です。"
+                ]
+              }
+            ]
+          }

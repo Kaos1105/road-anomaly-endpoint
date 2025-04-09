@@ -1,0 +1,1029 @@
+get:
+  tags:
+    - Employee
+  summary: Get accessible employee
+  description: Get all accessible employee by System's code
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 1,
+                "code": "9936133",
+                "access_permission": {
+                  "id": 41,
+                  "employee_id": 1,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 3,
+                  "permission_4": 3,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/07/04",
+                  "end_date": null,
+                  "updated_at": "2024/07/31"
+                },
+                "last_name": "坂本",
+                "first_name": "淳",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 2,
+                "code": "5237375",
+                "access_permission": {
+                  "id": 42,
+                  "employee_id": 2,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 4,
+                  "permission_4": 4,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/06/06",
+                  "end_date": null,
+                  "updated_at": "2024/07/31"
+                },
+                "last_name": "宇野",
+                "first_name": "涼平",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 3,
+                "code": "5323415",
+                "access_permission": {
+                  "id": 43,
+                  "employee_id": 3,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/04",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "工藤",
+                "first_name": "くみ子",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 4,
+                "code": "4647404",
+                "access_permission": {
+                  "id": 44,
+                  "employee_id": 4,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/10",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "山口",
+                "first_name": "聡太郎",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 5,
+                "code": "3592380",
+                "access_permission": {
+                  "id": 45,
+                  "employee_id": 5,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/10",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "浜田",
+                "first_name": "淳",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 6,
+                "code": "1139925",
+                "access_permission": {
+                  "id": 46,
+                  "employee_id": 6,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/07/06",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "三宅",
+                "first_name": "舞",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 7,
+                "code": "4736101",
+                "access_permission": {
+                  "id": 47,
+                  "employee_id": 7,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/12",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "高橋",
+                "first_name": "稔",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 8,
+                "code": "8217572",
+                "access_permission": {
+                  "id": 48,
+                  "employee_id": 8,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/06/20",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "村山",
+                "first_name": "拓真",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 9,
+                "code": "4177017",
+                "access_permission": {
+                  "id": 49,
+                  "employee_id": 9,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/06/27",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "小泉",
+                "first_name": "花子",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 10,
+                "code": "3403790",
+                "access_permission": {
+                  "id": 50,
+                  "employee_id": 10,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/07/06",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "井上",
+                "first_name": "花子",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 11,
+                "code": "5849555",
+                "access_permission": {
+                  "id": 51,
+                  "employee_id": 11,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/30",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "中島",
+                "first_name": "千代",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 12,
+                "code": "8399748",
+                "access_permission": {
+                  "id": 52,
+                  "employee_id": 12,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/07/01",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "斉藤",
+                "first_name": "洋介",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 13,
+                "code": "2631638",
+                "access_permission": {
+                  "id": 53,
+                  "employee_id": 13,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/06/14",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "山田",
+                "first_name": "学",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 14,
+                "code": "8581394",
+                "access_permission": {
+                  "id": 54,
+                  "employee_id": 14,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/04",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "杉山",
+                "first_name": "里佳",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 15,
+                "code": "6696877",
+                "access_permission": {
+                  "id": 55,
+                  "employee_id": 15,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/07/01",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "加藤",
+                "first_name": "英樹",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 16,
+                "code": "1931807",
+                "access_permission": {
+                  "id": 56,
+                  "employee_id": 16,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/07/20",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "野村",
+                "first_name": "治",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 17,
+                "code": "9135132",
+                "access_permission": {
+                  "id": 57,
+                  "employee_id": 17,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/05",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "野村",
+                "first_name": "健一",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 18,
+                "code": "7108017",
+                "access_permission": {
+                  "id": 58,
+                  "employee_id": 18,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/14",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "津田",
+                "first_name": "舞",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 19,
+                "code": "7852270",
+                "access_permission": {
+                  "id": 59,
+                  "employee_id": 19,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/06/25",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "石田",
+                "first_name": "加奈",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 20,
+                "code": "8515036",
+                "access_permission": {
+                  "id": 60,
+                  "employee_id": 20,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/24",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "宇野",
+                "first_name": "充",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 21,
+                "code": "9512243",
+                "access_permission": {
+                  "id": 61,
+                  "employee_id": 21,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/06/25",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "中村",
+                "first_name": "京助",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 22,
+                "code": "9249018",
+                "access_permission": {
+                  "id": 62,
+                  "employee_id": 22,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/01",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "吉田",
+                "first_name": "亮介",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 23,
+                "code": "9539254",
+                "access_permission": {
+                  "id": 63,
+                  "employee_id": 23,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/25",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "田中",
+                "first_name": "智也",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 24,
+                "code": "9827528",
+                "access_permission": {
+                  "id": 64,
+                  "employee_id": 24,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/04/28",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "津田",
+                "first_name": "くみ子",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 25,
+                "code": "2021261",
+                "access_permission": {
+                  "id": 65,
+                  "employee_id": 25,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/24",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "山本",
+                "first_name": "零",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 26,
+                "code": "5147119",
+                "access_permission": {
+                  "id": 66,
+                  "employee_id": 26,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/07/18",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "工藤",
+                "first_name": "篤司",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 27,
+                "code": "9809287",
+                "access_permission": {
+                  "id": 67,
+                  "employee_id": 27,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/30",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "渡辺",
+                "first_name": "明美",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 28,
+                "code": "5314336",
+                "access_permission": {
+                  "id": 68,
+                  "employee_id": 28,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/07/06",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "山田",
+                "first_name": "幹",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 29,
+                "code": "3159492",
+                "access_permission": {
+                  "id": 69,
+                  "employee_id": 29,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/06/13",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "山本",
+                "first_name": "真綾",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 30,
+                "code": "8929036",
+                "access_permission": {
+                  "id": 70,
+                  "employee_id": 30,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/04/30",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "青山",
+                "first_name": "直子",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 31,
+                "code": "4073224",
+                "access_permission": {
+                  "id": 71,
+                  "employee_id": 31,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/06",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "坂本",
+                "first_name": "里佳",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 32,
+                "code": "4393580",
+                "access_permission": {
+                  "id": 72,
+                  "employee_id": 32,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/19",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "中村",
+                "first_name": "舞",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 33,
+                "code": "6029905",
+                "access_permission": {
+                  "id": 73,
+                  "employee_id": 33,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/04",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "中島",
+                "first_name": "智也",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 34,
+                "code": "2185752",
+                "access_permission": {
+                  "id": 74,
+                  "employee_id": 34,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/06/03",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "小泉",
+                "first_name": "健一",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 35,
+                "code": "1213778",
+                "access_permission": {
+                  "id": 75,
+                  "employee_id": 35,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/12",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "佐々木",
+                "first_name": "陽子",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 36,
+                "code": "1366761",
+                "access_permission": {
+                  "id": 76,
+                  "employee_id": 36,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/17",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "井上",
+                "first_name": "真綾",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 37,
+                "code": "7685241",
+                "access_permission": {
+                  "id": 77,
+                  "employee_id": 37,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/06/27",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "渡辺",
+                "first_name": "淳",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 38,
+                "code": "7896244",
+                "access_permission": {
+                  "id": 78,
+                  "employee_id": 38,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/05/06",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "田辺",
+                "first_name": "翔太",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 39,
+                "code": "5083612",
+                "access_permission": {
+                  "id": 79,
+                  "employee_id": 39,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/06/20",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "大垣",
+                "first_name": "桃子",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              },
+              {
+                "id": 40,
+                "code": "8177317",
+                "access_permission": {
+                  "id": 80,
+                  "employee_id": 40,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 2,
+                    "code": "20000",
+                    "name": "ORGANIZATION"
+                  },
+                  "start_date": "2024/07/14",
+                  "end_date": null,
+                  "updated_at": "2024/07/25"
+                },
+                "last_name": "佐々木",
+                "first_name": "拓真",
+                "previous_name_flg": 1,
+                "maiden_name": null
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

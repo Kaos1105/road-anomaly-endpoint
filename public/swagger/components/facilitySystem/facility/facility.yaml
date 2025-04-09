@@ -1,0 +1,146 @@
+post:
+  tags:
+    - Facility
+  summary: Create a facility.
+  description: Create a facility
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+
+    - name: name
+      description: Facility name
+      in: formData
+      required: true
+      type: string
+    - name: facility_classification
+      description: Facility classification.
+        * `1` - Meeting room
+        * `2` - Vehicle
+        * `99` - Other
+      in: formData
+      default: 1
+      required: true
+      type: integer
+      enum: [ 1, 2, 99 ]
+    - name: facility_group_id
+      description: Choose facility_group_id in dropdown
+      in: formData
+      required: true
+      type: integer
+    - name: usage_method
+      description: usage method
+      in: formData
+      type: string
+      required: false
+    - name: responsible_user_id
+      description: Choose responsible_user_id in dropdown
+      in: formData
+      required: true
+      type: integer
+    - name: aggregation_classification
+      description: Aggregation classification.
+        * `1` - Not Aggregation
+        * `2` - Aggregation
+      in: formData
+      default: 2
+      required: true
+      type: integer
+      enum: [ 1, 2 ]
+    - name: display_order
+      description: Company display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Company usage classification.
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      default: 2
+      required: true
+      type: integer
+      enum: [ 1, 2 ]
+    - name: memo
+      description: memo
+      in: formData
+      type: string
+      required: false
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 201,
+            "data": {
+              "id": 24,
+              "facility_group_id": 2,
+              "facility_group": {
+                "id": 2,
+                "name": "Nhóm Thể Thao",
+                "display_order": 1,
+                "use_classification": 2
+              },
+              "responsible_user_id": 100,
+              "responsible_user": {
+                "id": 100,
+                "code": "E100",
+                "last_name": "Lê Thụy",
+                "first_name": "Ngọc Hạnh",
+                "maiden_name": "Sachiko",
+                "previous_name_flg": 2,
+                "use_classification": 2
+              },
+              "name": "factility 2",
+              "usage_method": "editor",
+              "facility_classification": 1,
+              "aggregation_classification": 2,
+              "display_order": 111,
+              "use_classification": 2,
+              "memo": null,
+              "created_info": {
+                "date": "2025/01/16 18:47:38",
+                "name": "Lê Thụy　Ngọc Hạnh"
+              },
+              "updated_info": {
+                "date": "2025/01/16 18:47:38",
+                "name": "Lê Thụy　Ngọc Hạnh"
+              }
+            },
+            "message": "登録しました。",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "name",
+                "message": [
+                  "この設備名は、すでに存在します。"
+                ]
+              }
+            ]
+          }
+

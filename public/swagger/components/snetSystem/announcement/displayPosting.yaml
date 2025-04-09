@@ -1,0 +1,54 @@
+get:
+  tags:
+    - Announcement
+  summary: Show all posting announcement by display code
+  description: Show detail screen
+  parameters:
+    - in: query
+      name: filter[code]
+      type: string
+      required: true
+      description: Display code to get
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "is_new": false,
+              "announcements": [
+                {
+                  "id": 30,
+                  "announcement_classification": 2,
+                  "title": "animation",
+                  "content": "animation",
+                  "start_time": "2025/02/17 00:00:00",
+                  "end_time": null
+                },
+                {
+                  "id": 2,
+                  "announcement_classification": 1,
+                  "title": "グループ登録",
+                  "content": "グループ登録",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null
+                }
+              ]
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }

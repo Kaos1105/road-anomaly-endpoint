@@ -1,0 +1,123 @@
+get:
+  tags:
+    - Social Data
+  summary: Get Social Data shipping of No.37030
+  description: Get Social Data shipping of No.37030 by Address Classification
+  parameters:
+    - name: social_data
+      description: Social Data Id
+      in: path
+      required: true
+      type: integer
+    - in: query
+      name: filter[address_classification]
+      type: integer
+      enum: [ 1, 2, 3, 4 ]
+      description: >
+        Search by Address Classification
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 9,
+              "customer": {
+                "id": 6,
+                "category_name": "JFE関係",
+                "accounting_company": 1,
+                "update_order": "update 1",
+                "employee_id": 109,
+                "responsible_id": 100,
+                "address_printing_1": 1,
+                "address_printing_2": 0,
+                "address_printing_3": 0,
+                "address_printing_4": 0,
+                "address_printing_5": 0,
+                "address_printing_6": 1,
+                "address_printing_7": 1,
+                "specified_post_code": null,
+                "specified_address_1": null,
+                "specified_address_2": null,
+                "specified_address_3": null,
+                "specified_phone": null,
+                "shipping_info": {
+                  "post_code": "709-0826",
+                  "address_1": "岡山県",
+                  "address_2": "赤磐市",
+                  "address_3": "和田",
+                  "phone": "08056163044"
+                }
+              },
+              "display_transfer_id": 102,
+              "display_transfer": {
+                "id": 102,
+                "position": null,
+                "employee": {
+                  "id": 109,
+                  "code": null,
+                  "last_name": "山下",
+                  "first_name": "達也",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "company": {
+                  "id": 81,
+                  "code": "C103",
+                  "long_name": "岡山情報ビジネス学院",
+                  "previous_name": "OIC",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "site": {
+                  "id": 134,
+                  "company_id": 81,
+                  "code": null,
+                  "long_name": "OIC 岡山",
+                  "previous_name": null,
+                  "previous_name_flg": 1,
+                  "phone": "08056163044",
+                  "post_code": "709-0826",
+                  "address_1": "岡山県",
+                  "address_2": "赤磐市",
+                  "address_3": "和田",
+                  "use_classification": 2
+                },
+                "department": {
+                  "id": 140,
+                  "site_id": 134,
+                  "code": "SOCIAL_TRANSFER",
+                  "long_name": "TRANSFER CUSTOMER NAME",
+                  "previous_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "division": {
+                  "id": 243,
+                  "department_id": 140,
+                  "code": "DI SOCIAL",
+                  "long_name": "Phòng Nhân Sự SOCIAL",
+                  "previous_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                }
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

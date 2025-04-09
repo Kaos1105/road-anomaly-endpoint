@@ -1,0 +1,56 @@
+get:
+  tags:
+    - Import Export CSV
+  summary: Import Displays
+  description: Import displays
+  parameters:
+    - in: query
+      name: file
+      type: file
+      required: true
+      description: >
+        Action import by file name. **_ADD.csv or **_EDIT.csv or **_DELETE.csv
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "code": 200,
+              "action": "EDIT",
+              "data": null,
+              "message": "処理されたレコードが10件あります。"
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "code": 422,
+              "action": null,
+              "data": null,
+              "message": "テンプレートが間違えています。Excelファイルを修正してください。"
+            },
+            "message": "OK",
+            "errors": null
+          }

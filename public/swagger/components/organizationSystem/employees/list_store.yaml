@@ -1,0 +1,503 @@
+post:
+  tags:
+    - Employees
+  summary: Create a new employee.
+  description: Create a new employee
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: code
+      description: code
+      in: formData
+      required: false
+      type: string
+    - name: last_name
+      description: Employee's last name
+      in: formData
+      required: true
+      type: string
+    - name: first_name
+      description: Employee's first name
+      in: formData
+      required: true
+      type: string
+    - name: kana
+      description: Employee name in Kana
+      in: formData
+      required: false
+      type: string
+    - name: day_of_birth
+      description: Day of birth
+      in: formData
+      required: true
+      type: string
+      format: date
+    - name: day_of_death
+      description: Day of death
+      in: formData
+      required: false
+      type: string
+      format: date
+    - name: period_accuracy_flg
+      description: Period accuracy flag
+        * `1` - IN_CORRECT
+        * `2` - CORRECT
+      in: formData
+      required: false
+      type: integer
+      enum: [ 1, 2 ]
+      default: 1
+    - name: employees_classification
+      description: Employees classification
+        * `1` - EMPLOYEE
+        * `2` - CUSTOMER
+        * `3` - TEACHER
+        * `99` - OTHER
+      in: formData
+      required: false
+      type: integer
+      enum: [ 1, 2, 3, 99 ]
+      default: 1
+    - name: maiden_name
+      description: Maiden name
+      in: formData
+      required: false
+      type: string
+    - name: previous_name_flg
+      description: Flag to indicate if employee had maiden name
+        * `1` - Not combined
+        * `2` - Combined
+      in: formData
+      required: false
+      type: integer
+      enum: [ 1, 2 ]
+      default: 1
+    - name: gender
+      description: Gender.
+        * `1` - Male
+        * `2` - Female
+      in: formData
+      required: false
+      type: integer
+      num: [ 1, 2 ]
+      default: 1
+    - name: en_notation
+      description: Employee name in English notation
+      in: formData
+      required: false
+      type: string
+    - name: company_email
+      description: Company email
+      in: formData
+      required: false
+      type: string
+    - name: company_phone
+      description: Company phone
+      in: formData
+      required: false
+      type: string
+    - name: post_code
+      description: Post code
+      in: formData
+      required: false
+      type: string
+    - name: address_1
+      description: Address  (Prefecture)
+      in: formData
+      required: false
+      type: string
+    - name: address_2
+      description: Address (city, town, ward)
+      in: formData
+      required: false
+      type: string
+    - name: address_3
+      description: Address (Street number)
+      in: formData
+      required: false
+      type: string
+    - name: phone
+      description: Employee phone
+      in: formData
+      required: false
+      type: string
+    - name: email
+      description: Employee email
+      in: formData
+      required: false
+      type: string
+    - name: memo
+      description: Employee memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: Employee display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Employee usage classification
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      default: 2
+      required: true
+      enum: [ 1, 2 ]
+      type: integer
+    - name: company_id
+      description: Company ID
+      in: formData
+      required: true
+      type: string
+    - name: site_id
+      description: Site ID
+      in: formData
+      required: false
+      type: string
+    - name: department_id
+      description: Department ID
+      in: formData
+      required: false
+      type: string
+    - name: division_id
+      description: Division ID
+      in: formData
+      required: false
+      type: string
+  responses:
+    201:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 201,
+            "data": {
+              "id": 1,
+              "code": "SO1",
+              "last_name": "Lee",
+              "first_name": "Sunny",
+              "kana": "sunny",
+              "day_of_birth": "2010-10-10",
+              "period_accuracy_flg": 1,
+              "maiden_name": "Kwan",
+              "previous_name_flg": 1,
+              "gender": 1,
+              "en_notation": "Sunny Lee",
+              "company_email": "",
+              "company_phone": "",
+              "post_code": "",
+              "address_1": "",
+              "address_2": "",
+              "address_3": "",
+              "phone": "",
+              "email": "",
+              "memo": "",
+              "display_order": 999,
+              "use_classification": 1,
+              "employees_classification": 1,
+              "created_info": {
+                "date": "2024/08/08 14:16:30",
+                "name": "直子 廣川"
+              },
+              "updated_info": {
+                "date": "",
+                "name": ""
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "day_of_birth",
+                "message": [
+                  "期間 (誕生日)は必須項目です。"
+                ]
+              }
+            ]
+          }
+get:
+  tags:
+    - Employees
+  summary: List employees.
+  description: Get all employees
+  parameters:
+    - in: query
+      name: filter[name]
+      type: string
+      description: >
+        Search by last name or first name or maiden or kana
+    - in: query
+      name: filter[company_id]
+      type: string
+      description: >
+        Filter by company_id found in company dropdown list. With "-1" for independent
+    - in: query
+      name: filter[site_id]
+      type: string
+      description: >
+        Filter by site_id found in site dropdown list.
+    - in: query
+      name: filter[department_id]
+      type: string
+      description: >
+        Filter by department_id found in department dropdown list.
+    - in: query
+      name: filter[division_id]
+      type: string
+      description: >
+        Filter by division_id found in division dropdown list.
+    - in: query
+      name: filter[contract_classification]
+      type: integer
+      enum: [ 1, 2, 3, 4 ]
+      default:
+      description: >
+        Filter by Contract classification
+          * `1` - No contract
+          * `2` - Indefinite contract
+          * `3` - Definite contract
+          * `4` - Commissioned contract
+    - in: query
+      name: filter[use_classification]
+      type: integer
+      enum: [ 1, 2, 3, 4 ]
+      default:
+      description: >
+        Filter by Use classification
+          * `1` - Not use
+          * `2` - Use
+    - in: query
+      name: sort
+      schema:
+        type: string
+      description: >
+        Sort order:
+         * `-sortKey` - Ascending, from A to Z
+         * `sortKey` - Descending, from Z to A
+         * List sortKey: code, name, company_name, site, department, division, position, display_order, contract_classification, favorite, updated_at.
+    - in: query
+      name: perPage
+      type: integer
+      description: The number of items of each page.
+    - in: query
+      name: page
+      type: integer
+      description: Page.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "collection": [
+                {
+                  "id": 2,
+                  "has_favorite": true,
+                  "code": "9957871",
+                  "transfer_position": "Gibson, Fritsch and Cummings",
+                  "last_name": "鈴木",
+                  "first_name": "聡太郎",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "transfers": [
+                    {
+                      "id": 146,
+                      "contract_classification": 3,
+                      "position": "Gibson, Fritsch and Cummings",
+                      "company": {
+                        "id": 11,
+                        "code": "o518",
+                        "long_name": "株式会社 斉藤",
+                        "previous_name": "qui",
+                        "previous_name_flg": 2
+                      },
+                      "site": {
+                        "id": 10,
+                        "company_id": 11,
+                        "code": "akira01",
+                        "long_name": "有限会社 中島",
+                        "previous_name": null,
+                        "previous_name_flg": 1
+                      },
+                      "department": {
+                        "id": 78,
+                        "site_id": 10,
+                        "code": "kanou.mitsuru",
+                        "long_name": "有限会社 井上",
+                        "previous_name": "株式会社 西之園",
+                        "previous_name_flg": 1
+                      },
+                      "division": {
+                        "id": 130,
+                        "department_id": 78,
+                        "code": "harada.kenichi",
+                        "long_name": "有限会社 山田",
+                        "previous_name": "有限会社 渡辺",
+                        "previous_name_flg": 2
+                      }
+                    },
+                    {
+                      "id": 6,
+                      "contract_classification": 2,
+                      "position": "Wilderman, Brown and Sawayn",
+                      "company": {
+                        "id": 11,
+                        "code": "o518",
+                        "long_name": "株式会社 斉藤",
+                        "previous_name": "qui",
+                        "previous_name_flg": 2
+                      },
+                      "site": {
+                        "id": 10,
+                        "company_id": 11,
+                        "code": "akira01",
+                        "long_name": "有限会社 中島",
+                        "previous_name": null,
+                        "previous_name_flg": 1
+                      },
+                      "department": {
+                        "id": 48,
+                        "site_id": 10,
+                        "code": "tkiriyama",
+                        "long_name": "株式会社 斉藤",
+                        "previous_name": "有限会社 松本",
+                        "previous_name_flg": 1
+                      },
+                      "division": {
+                        "id": 106,
+                        "department_id": 48,
+                        "code": "fkudo",
+                        "long_name": "有限会社 斉藤",
+                        "previous_name": "有限会社 小林",
+                        "previous_name_flg": 1
+                      }
+                    },
+                    {
+                      "id": 114,
+                      "contract_classification": 3,
+                      "position": "Boyle, Bauch and Dickens",
+                      "company": {
+                        "id": 4,
+                        "code": "w072",
+                        "long_name": "株式会社 浜田",
+                        "previous_name": "suscipit",
+                        "previous_name_flg": 2
+                      },
+                      "site": {
+                        "id": 3,
+                        "company_id": 4,
+                        "code": "koizumi.naoko",
+                        "long_name": "有限会社 中津川",
+                        "previous_name": null,
+                        "previous_name_flg": 1
+                      },
+                      "department": {
+                        "id": 96,
+                        "site_id": 3,
+                        "code": "nishinosono.hanako",
+                        "long_name": "株式会社 渡辺",
+                        "previous_name": "株式会社 杉山",
+                        "previous_name_flg": 1
+                      },
+                      "division": {
+                        "id": 105,
+                        "department_id": 96,
+                        "code": "tsakamoto",
+                        "long_name": "株式会社 石田",
+                        "previous_name": "有限会社 津田",
+                        "previous_name_flg": 2
+                      }
+                    },
+                    {
+                      "id": 177,
+                      "contract_classification": 2,
+                      "position": "Powlowski, Casper and Anderson",
+                      "company": {
+                        "id": 11,
+                        "code": "o518",
+                        "long_name": "株式会社 斉藤",
+                        "previous_name": "qui",
+                        "previous_name_flg": 2
+                      },
+                      "site": {
+                        "id": 10,
+                        "company_id": 11,
+                        "code": "akira01",
+                        "long_name": "有限会社 中島",
+                        "previous_name": null,
+                        "previous_name_flg": 1
+                      },
+                      "department": {
+                        "id": 78,
+                        "site_id": 10,
+                        "code": "kanou.mitsuru",
+                        "long_name": "有限会社 井上",
+                        "previous_name": "株式会社 西之園",
+                        "previous_name_flg": 1
+                      },
+                      "division": {
+                        "id": 117,
+                        "department_id": 78,
+                        "code": "yasuhiro.yoshida",
+                        "long_name": "有限会社 坂本",
+                        "previous_name": "株式会社 加藤",
+                        "previous_name_flg": 2
+                      }
+                    }
+                  ],
+                  "use_classification": 2,
+                  "display_order": 999999,
+                  "updated_at": "2024/08/02"
+                }
+              ],
+              "pagination": {
+                "total": 42,
+                "count": 25,
+                "perPage": 25,
+                "currentPage": 1,
+                "totalPages": 2
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

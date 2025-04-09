@@ -1,0 +1,109 @@
+get:
+  tags:
+    - SNET Dashboard
+  summary: system Management
+  description: All system list
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 1,
+                "code": "10000",
+                "name": "マインシステム",
+                "operation_classification": 2,
+                "use_classification": 2,
+                "number_of_users": 35,
+                "start_date": "2025/01/08",
+                "end_date": "2029/02/15"
+              },
+              {
+                "id": 2,
+                "code": "20000",
+                "name": "組織管理システム",
+                "operation_classification": 2,
+                "use_classification": 2,
+                "number_of_users": 29,
+                "start_date": "2024/07/28",
+                "end_date": null
+              },
+              {
+                "id": 3,
+                "code": "40000",
+                "name": "商談管理システム",
+                "operation_classification": 2,
+                "use_classification": 2,
+                "number_of_users": 32,
+                "start_date": "2021/09/01",
+                "end_date": null
+              },
+              {
+                "id": 4,
+                "code": "60000",
+                "name": "S-NET管理システム",
+                "operation_classification": 2,
+                "use_classification": 2,
+                "number_of_users": 30,
+                "start_date": "2025/02/04",
+                "end_date": null
+              },
+              {
+                "id": 21,
+                "code": "30000",
+                "name": "交際管理システム",
+                "operation_classification": 2,
+                "use_classification": 2,
+                "number_of_users": 29,
+                "start_date": "2024/09/17",
+                "end_date": null
+              },
+              {
+                "id": 26,
+                "code": "70000",
+                "name": "QC NAVIT",
+                "operation_classification": 2,
+                "use_classification": 2,
+                "number_of_users": 2,
+                "start_date": "2024/11/20",
+                "end_date": null
+              },
+              {
+                "id": 38,
+                "code": "50000",
+                "name": "予定管理システム",
+                "operation_classification": 2,
+                "use_classification": 2,
+                "number_of_users": 6,
+                "start_date": "2025/01/08",
+                "end_date": null
+              },
+              {
+                "id": 39,
+                "code": "80000",
+                "name": "設備予約システム",
+                "operation_classification": 2,
+                "use_classification": 2,
+                "number_of_users": 73,
+                "start_date": "2025/01/22",
+                "end_date": null
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }

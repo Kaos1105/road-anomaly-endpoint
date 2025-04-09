@@ -1,0 +1,135 @@
+get:
+  tags:
+    - Access History
+  summary: Negotiation History
+  description: Get the n last records of access histories by action of the Negotiation History of Negotiation system
+  parameters:
+    - in: query
+      name: filter[action]
+      type: string
+      required: true
+      description: >
+        Filter by action, example: CREATE,EDIT,DELETE
+    - in: query
+      name: records
+      type: integer
+      default: 3
+      description: >
+        Number of records, example: 3
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "is_enable_btn": true,
+              "records": [
+                {
+                  "id": 27779,
+                  "employee": {
+                    "id": 100,
+                    "code": "E100",
+                    "last_name": "Lê Thụy",
+                    "first_name": "Ngọc Hạnh",
+                    "maiden_name": "Sachiko",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 3,
+                  "accessible_type": "negotiation_negotiations",
+                  "accessible_id": 49,
+                  "action": "EDIT",
+                  "message": "2024/12/20 13:28 C500 岡山外語学院 102 岡山外語",
+                  "access_at": "2025-01-10 12:08:42"
+                },
+                {
+                  "id": 27252,
+                  "employee": {
+                    "id": 85,
+                    "code": "C300",
+                    "last_name": "Arumi",
+                    "first_name": "kun",
+                    "maiden_name": "Nhom",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 3,
+                  "accessible_type": "negotiation_negotiations",
+                  "accessible_id": 51,
+                  "action": "EDIT",
+                  "message": "2024/12/26 00:00 C103 岡山情報ビジネス学院 OIC 岡山",
+                  "access_at": "2025-01-09 16:22:09"
+                },
+                {
+                  "id": 27250,
+                  "employee": {
+                    "id": 85,
+                    "code": "C300",
+                    "last_name": "Arumi",
+                    "first_name": "kun",
+                    "maiden_name": "Nhom",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 3,
+                  "accessible_type": "negotiation_negotiations",
+                  "accessible_id": 51,
+                  "action": "EDIT",
+                  "message": "2024/12/26 00:00 C103 岡山情報ビジネス学院 OIC 岡山",
+                  "access_at": "2025-01-09 16:21:31"
+                },
+                {
+                  "id": 25293,
+                  "employee": {
+                    "id": 100,
+                    "code": "E100",
+                    "last_name": "Lê Thụy",
+                    "first_name": "Ngọc Hạnh",
+                    "maiden_name": "Sachiko",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 3,
+                  "accessible_type": "negotiation_negotiations",
+                  "accessible_id": 57,
+                  "action": "CREATE",
+                  "message": "2025/01/02 14:46 300 KiKat株式会社 Kitkat VN",
+                  "access_at": "2025-01-02 16:46:41"
+                },
+                {
+                  "id": 24256,
+                  "employee": {
+                    "id": 100,
+                    "code": "E100",
+                    "last_name": "Lê Thụy",
+                    "first_name": "Ngọc Hạnh",
+                    "maiden_name": "Sachiko",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 3,
+                  "accessible_type": "negotiation_negotiations",
+                  "accessible_id": 49,
+                  "action": "EDIT",
+                  "message": "2024/12/20 13:28 C500 岡山外語学院 102 岡山外語",
+                  "access_at": "2024-12-24 19:35:51"
+                }
+              ]
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

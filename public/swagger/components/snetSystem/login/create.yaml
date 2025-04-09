@@ -1,0 +1,59 @@
+post:
+  tags:
+    - Login
+  summary: Regis Login
+  description: Regis Login
+  consumes:
+    - application/x-www-form-urlencoded
+  parameters:
+    - in: formData
+      name: login_id
+      type: string
+      required: true
+      example: 'login01'
+    - in: formData
+      name: employee_id
+      type: integer
+      required: true
+    - in: formData
+      name: password
+      type: string
+      required: true
+      minLength: 8
+      maxLength: 40
+      example: 'passworD@1'
+  responses:
+    201:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 201,
+            "data": {
+              "id": 44,
+              "employee_id": 42,
+              "login_id": "login_test",
+              "password_decrypt": "password"
+            },
+            "message": "登録しました。",
+            "errors": null
+          }
+    422:
+      description: Bad request
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "employee_id",
+                "message": [
+                  "このemployee idは、すでに存在します。"
+                ]
+              }
+            ]
+          }

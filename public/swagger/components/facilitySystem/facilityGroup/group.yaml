@@ -1,0 +1,313 @@
+get:
+  tags:
+    - Facility Group
+  summary: List groups
+  parameters:
+    - in: query
+      name: filter[use_classification]
+      type: integer
+      description: Filter by use classification
+    - in: query
+      name: sort
+      schema:
+        type: string
+      description: >
+        Sort order:
+         * `-sortKey` - Ascending, from A to Z
+         * `sortKey` - Descending, from Z to A
+         * List sortKey: name, number_of_facilities, use_group, display_order, updated_at.
+    - in: query
+      name: perPage
+      type: integer
+      description: The number of items of each page.
+    - in: query
+      name: page
+      type: integer
+      description: Page.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "collection": [
+                {
+                  "id": 2,
+                  "use_group_id": 24,
+                  "use_group": {
+                    "id": 24,
+                    "name": "TESTtt",
+                    "display_order": 2,
+                    "use_classification": 2
+                  },
+                  "name": "Nhóm Thể Thao",
+                  "display_order": 1,
+                  "use_classification": 2,
+                  "number_of_facilities": 3,
+                  "updated_at": "2025/01/14"
+                },
+                {
+                  "id": 3,
+                  "use_group_id": 23,
+                  "use_group": {
+                    "id": 23,
+                    "name": "幸子",
+                    "display_order": 4,
+                    "use_classification": 2
+                  },
+                  "name": "Nhóm Học Tập",
+                  "display_order": 2,
+                  "use_classification": 2,
+                  "number_of_facilities": 5,
+                  "updated_at": "2025/01/14"
+                },
+                {
+                  "id": 1,
+                  "use_group_id": 22,
+                  "use_group": {
+                    "id": 22,
+                    "name": "TESTttttttt",
+                    "display_order": 2,
+                    "use_classification": 2
+                  },
+                  "name": "Nhóm Sáng Tạo",
+                  "display_order": 2,
+                  "use_classification": 2,
+                  "number_of_facilities": 1,
+                  "updated_at": "2025/01/14"
+                },
+                {
+                  "id": 4,
+                  "use_group_id": 25,
+                  "use_group": {
+                    "id": 25,
+                    "name": "12345678",
+                    "display_order": 3,
+                    "use_classification": 2
+                  },
+                  "name": "Nhóm Công Nghệ",
+                  "display_order": 3,
+                  "use_classification": 2,
+                  "number_of_facilities": 5,
+                  "updated_at": "2025/01/14"
+                },
+                {
+                  "id": 5,
+                  "use_group_id": 22,
+                  "use_group": {
+                    "id": 22,
+                    "name": "TESTttttttt",
+                    "display_order": 2,
+                    "use_classification": 2
+                  },
+                  "name": "Nhóm Đam Mê",
+                  "display_order": 4,
+                  "use_classification": 2,
+                  "number_of_facilities": 5,
+                  "updated_at": "2025/01/14"
+                },
+                {
+                  "id": 6,
+                  "use_group_id": 24,
+                  "use_group": {
+                    "id": 24,
+                    "name": "TESTtt",
+                    "display_order": 2,
+                    "use_classification": 2
+                  },
+                  "name": "Nhóm Âm Nhạc",
+                  "display_order": 5,
+                  "use_classification": 2,
+                  "number_of_facilities": 2,
+                  "updated_at": "2025/01/14"
+                },
+                {
+                  "id": 7,
+                  "use_group_id": 23,
+                  "use_group": {
+                    "id": 23,
+                    "name": "幸子",
+                    "display_order": 4,
+                    "use_classification": 2
+                  },
+                  "name": "Nhóm Du Lịch",
+                  "display_order": 6,
+                  "use_classification": 2,
+                  "number_of_facilities": 0,
+                  "updated_at": "2025/01/14"
+                },
+                {
+                  "id": 8,
+                  "use_group_id": 25,
+                  "use_group": {
+                    "id": 25,
+                    "name": "12345678",
+                    "display_order": 3,
+                    "use_classification": 2
+                  },
+                  "name": "Nhóm Ẩm Thực",
+                  "display_order": 7,
+                  "use_classification": 2,
+                  "number_of_facilities": 0,
+                  "updated_at": "2025/01/14"
+                },
+                {
+                  "id": 10,
+                  "use_group_id": 22,
+                  "use_group": {
+                    "id": 22,
+                    "name": "TESTttttttt",
+                    "display_order": 2,
+                    "use_classification": 2
+                  },
+                  "name": "Nhóm Giao Lưu",
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "number_of_facilities": 0,
+                  "updated_at": "2025/01/15"
+                },
+                {
+                  "id": 9,
+                  "use_group_id": 22,
+                  "use_group": {
+                    "id": 22,
+                    "name": "TESTttttttt",
+                    "display_order": 2,
+                    "use_classification": 2
+                  },
+                  "name": "Nhóm Tình Nguyện",
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "number_of_facilities": 0,
+                  "updated_at": "2025/01/15"
+                }
+              ],
+              "pagination": {
+                "total": 10,
+                "count": 10,
+                "perPage": 25,
+                "currentPage": 1,
+                "totalPages": 1
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+
+post:
+  tags:
+    - Facility Group
+  summary: Create a facility group.
+  description: Create a facility group
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: name
+      description: Facility group name
+      in: formData
+      required: true
+      type: string
+    - name: use_group_id
+      description: Choose use_group_id in dropdown
+      in: formData
+      required: true
+      type: integer
+    - name: display_order
+      description: Company display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Company usage classification.
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      default: 2
+      required: true
+      type: integer
+      enum: [ 1, 2 ]
+    - name: memo
+      description: memo
+      in: formData
+      type: string
+      required: false
+  responses:
+    201:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 201,
+            "data": {
+              "id": 12,
+              "use_group_id": 21,
+              "use_group": {
+                "id": 21,
+                "name": "掲示板",
+                "display_order": 1,
+                "use_classification": 2
+              },
+              "name": "group",
+              "display_order": 2,
+              "use_classification": 2,
+              "memo": "memo",
+              "created_info": {
+                "date": "2025/01/16 18:18:43",
+                "name": "Lê Thụy　Ngọc Hạnh"
+              },
+              "updated_info": {
+                "date": "2025/01/16 18:18:43",
+                "name": "Lê Thụy　Ngọc Hạnh"
+              }
+            },
+            "message": "登録しました。",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "name",
+                "message": [
+                  "この設備グループ名は、すでに存在します。"
+                ]
+              }
+            ]
+          }
+

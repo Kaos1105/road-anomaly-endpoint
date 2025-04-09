@@ -1,0 +1,269 @@
+get:
+  tags:
+    - Access Permission
+  summary: Pagination Access Permission
+  description: Get Pagination of Access Permission
+  parameters:
+    - in: query
+      name: field[employee_id]
+      type: integer
+      required: false
+    - in: query
+      name: field[system_id]
+      type: integer
+      required: false
+    - in: query
+      name: field[department_id]
+      type: integer
+      required: false
+    - in: query
+      name: field[employee_use_classification]
+      type: integer
+      required: false
+    - in: query
+      name: field[employee_name]
+      type: string
+      required: false
+    - in: query
+      name: sort
+      schema:
+        type: string
+      description: >
+        Sort order:
+         * `-sortKey` - Ascending, from A to Z
+         * `sortKey` - Descending, from Z to A
+         * List sortKey: employee_order, department_order, operation_period, transfer_position, system_order, start_date, access_at.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example: {
+          "code": 200,
+          "data": [
+            {
+              "id": 3,
+              "code": "NEGOTIATION",
+              "name": "NEGOTIATION",
+              "operation_classification": 1,
+              "count_accessible_employees": 40,
+              "this_month_accessed_times": 0,
+              "this_year_accessed_times": 0,
+              "start_date": "2024/05/31",
+              "end_date": null,
+              "updated_at": "2024/08/07"
+            },
+            {
+              "id": 20,
+              "code": "NET",
+              "name": "NET System",
+              "operation_classification": 1,
+              "count_accessible_employees": 13,
+              "this_month_accessed_times": 0,
+              "this_year_accessed_times": 0,
+              "start_date": "2024/07/22",
+              "end_date": "2024/12/31",
+              "updated_at": "2024/08/08"
+            },
+            {
+              "id": 4,
+              "code": "S-NET",
+              "name": "SNET",
+              "operation_classification": 1,
+              "count_accessible_employees": 40,
+              "this_month_accessed_times": 7,
+              "this_year_accessed_times": 7,
+              "start_date": "2024/07/26",
+              "end_date": null,
+              "updated_at": "2024/08/09"
+            },
+            {
+              "id": 2,
+              "code": "ORGANIZATION",
+              "name": "Main SYSTEM",
+              "operation_classification": 1,
+              "count_accessible_employees": 40,
+              "this_month_accessed_times": 1,
+              "this_year_accessed_times": 1,
+              "start_date": "2024/07/21",
+              "end_date": "2024/08/31",
+              "updated_at": "2024/08/09"
+            },
+            {
+              "id": 1,
+              "code": "MAIN",
+              "name": "Main SYSTEM",
+              "operation_classification": 1,
+              "count_accessible_employees": 40,
+              "this_month_accessed_times": 21,
+              "this_year_accessed_times": 21,
+              "start_date": "2024/07/21",
+              "end_date": "2024/12/30",
+              "updated_at": "2024/08/12"
+            },
+            {
+              "id": 23,
+              "code": "SYSTEM TEST TEST",
+              "name": "System name",
+              "operation_classification": 0,
+              "count_accessible_employees": 0,
+              "this_month_accessed_times": 0,
+              "this_year_accessed_times": 0,
+              "start_date": "2024/08/01",
+              "end_date": null,
+              "updated_at": "2024/08/12"
+            },
+            {
+              "id": 24,
+              "code": "SYSTEM TEST TEST 1",
+              "name": "System name",
+              "operation_classification": 1,
+              "count_accessible_employees": 0,
+              "this_month_accessed_times": 0,
+              "this_year_accessed_times": 0,
+              "start_date": "2024/08/01",
+              "end_date": null,
+              "updated_at": "2024/08/12"
+            }
+          ],
+          "message": "OK",
+          "errors": null
+        }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+post:
+  tags:
+    - System
+  summary: Create a system
+  description: Create a system
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: code
+      description: Unique System's code
+      in: formData
+      required: true
+      type: string
+    - name: name
+      description: System's name
+      in: formData
+      required: true
+      type: string
+    - name: start_date
+      description: System's operation start date
+      in: formData
+      required: true
+      type: string
+    - name: end_date
+      description: System's operation end date
+      in: formData
+      required: false
+      type: string
+    - name: default_permission_2
+      description: System's default permission 2
+      in: formData
+      required: true
+      type: integer
+    - name: default_permission_3
+      description: System's default permission 3
+      in: formData
+      required: true
+      type: integer
+    - name: default_permission_4
+      description: System's default permission 4
+      in: formData
+      required: true
+      type: integer
+    - name: memo
+      description: Company memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: Company display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Company usage classification
+      in: formData
+      default: 2
+      required: true
+      type: integer
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 254,
+              "code": "code6",
+              "long_name": "qq cp",
+              "short_name": "qq",
+              "kana": null,
+              "start_date": null,
+              "end_date": null,
+              "company_classification": 1,
+              "group_name": "jaf",
+              "previous_name": null,
+              "previous_name_flg": 2,
+              "en_notation": null,
+              "memo": null,
+              "display_order": 9999,
+              "use_classification": null,
+              "created_info": {
+                "date": "2024/07/29 13:34:47",
+                "name": "直子 廣川"
+              },
+              "updated_info": {
+                "date": "2024/07/29 13:34:47",
+                "name": "直子 廣川"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "end_date",
+                "message": [
+                  "システム名はシステム名以降の日付にしてください。"
+                ]
+              }
+            ]
+          }

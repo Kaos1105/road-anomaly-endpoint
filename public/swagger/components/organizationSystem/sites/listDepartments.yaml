@@ -1,0 +1,66 @@
+get:
+  tags:
+    - Sites
+  summary: List departments.
+  description:  Show all departments by a site
+  parameters:
+    - in: path
+      name: site
+      type: integer
+      required: true
+      description: Numeric ID of the site to get.
+    - in: query
+      name: sort
+      schema:
+        type: string
+      description: >
+        Sort order:
+         * `-sortKey` - Ascending, from A to Z
+         * `sortKey` - Descending, from Z to A
+         * List sortKey: code, name, phone, display_order, department_classification, use_classification, favorite, updated_at.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 76,
+                "has_favorite": true,
+                "code": "cwolf",
+                "long_name": "Heaney-Batz",
+                "phone": null,
+                "department_classification": 11,
+                "display_order": 247692,
+                "use_classification": 1,
+                "updated_at": "1980/09/17"
+              },
+              {
+                "id": 8,
+                "has_favorite": false,
+                "code": "helga81",
+                "long_name": "Gleason Ltd (Gleichner, Ankunding and Homenick)",
+                "phone": null,
+                "department_classification": 61,
+                "display_order": 765726,
+                "use_classification": 1,
+                "updated_at": "2023/06/17"
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

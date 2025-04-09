@@ -1,0 +1,30 @@
+get:
+  tags:
+    - Access History Summary
+  summary: List years
+  description: Get all year in access history
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example: {
+          "code": 200,
+          "data": [
+            2024,
+            2025
+          ],
+          "message": "OK",
+          "errors": null
+        }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }

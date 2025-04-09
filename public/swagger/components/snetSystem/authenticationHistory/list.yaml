@@ -1,0 +1,971 @@
+get:
+  tags:
+    - Authentication History
+  summary: List authentication history
+  description: List all authentication history, 10000 records per page.
+  parameters:
+    - in: query
+      name: filter[employee_id]
+      type: string
+      description: Filter by employee_id in list dropdown employee.
+        * `-1` - 不明
+    - in: query
+      name: filter[action]
+      type: string
+      description: >
+        Filter by action in list code master
+    - in: query
+      name: sort
+      schema:
+        type: string
+      description: >
+        Sort order:
+         * `-sortKey` - Ascending, from A to Z
+         * `sortKey` - Descending, from Z to A
+         * List sortKey: authen_at, user_order, action, message, id.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example: {
+          "code": 200,
+          "data": {
+            "collection": [
+              {
+                "id": 31,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/07 17:48:53"
+              },
+              {
+                "id": 32,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/07 17:48:53"
+              },
+              {
+                "id": 33,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/07 17:50:52"
+              },
+              {
+                "id": 34,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_IMPLEMENT",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/07 17:50:52"
+              },
+              {
+                "id": 35,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/07 18:06:29"
+              },
+              {
+                "id": 36,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/07 18:07:13"
+              },
+              {
+                "id": 37,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/07 18:07:13"
+              },
+              {
+                "id": 38,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/07 18:11:19"
+              },
+              {
+                "id": 39,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/07 18:11:19"
+              },
+              {
+                "id": 40,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/07 18:13:35"
+              },
+              {
+                "id": 41,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/07 18:13:35"
+              },
+              {
+                "id": 42,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/07 18:13:38"
+              },
+              {
+                "id": 43,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/07 18:13:38"
+              },
+              {
+                "id": 44,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/07 18:13:55"
+              },
+              {
+                "id": 45,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/07 18:13:55"
+              },
+              {
+                "id": 46,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/07 19:39:06"
+              },
+              {
+                "id": 47,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/07 19:39:06"
+              },
+              {
+                "id": 48,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/07 19:39:09"
+              },
+              {
+                "id": 49,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/07 19:39:09"
+              },
+              {
+                "id": 50,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 11:03:59"
+              },
+              {
+                "id": 51,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/11 11:03:59"
+              },
+              {
+                "id": 52,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 12:53:14"
+              },
+              {
+                "id": 53,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_IMPLEMENT",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/11 12:53:16"
+              },
+              {
+                "id": 54,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 13:04:42"
+              },
+              {
+                "id": 55,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_IMPLEMENT",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/11 13:04:42"
+              },
+              {
+                "id": 56,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 13:06:23"
+              },
+              {
+                "id": 57,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_IMPLEMENT",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/11 13:06:23"
+              },
+              {
+                "id": 58,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 13:06:58"
+              },
+              {
+                "id": 59,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_IMPLEMENT",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/11 13:06:58"
+              },
+              {
+                "id": 60,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 13:08:06"
+              },
+              {
+                "id": 61,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_IMPLEMENT",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/11 13:08:06"
+              },
+              {
+                "id": 62,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 13:08:27"
+              },
+              {
+                "id": 63,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_IMPLEMENT",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/11 13:08:27"
+              },
+              {
+                "id": 64,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 13:15:52"
+              },
+              {
+                "id": 65,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/11 13:15:52"
+              },
+              {
+                "id": 66,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 14:02:00"
+              },
+              {
+                "id": 67,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/11 14:02:00"
+              },
+              {
+                "id": 68,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 14:02:04"
+              },
+              {
+                "id": 69,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/11 14:02:04"
+              },
+              {
+                "id": 70,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 14:02:07"
+              },
+              {
+                "id": 71,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/11 14:02:07"
+              },
+              {
+                "id": 72,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 15:43:23"
+              },
+              {
+                "id": 73,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/11 15:43:23"
+              },
+              {
+                "id": 74,
+                "employee": {
+                  "id": 31,
+                  "code": "E001",
+                  "last_name": "Ha",
+                  "first_name": "Ngan",
+                  "maiden_name": "Bờm",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E001 Ha　Ngan（旧 Bờm）さんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 15:45:03"
+              },
+              {
+                "id": 75,
+                "employee": {
+                  "id": 31,
+                  "code": "E001",
+                  "last_name": "Ha",
+                  "first_name": "Ngan",
+                  "maiden_name": "Bờm",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E001 Ha　Ngan（旧 Bờm）の二要素認証が成功しました。",
+                "authen_at": "2025/03/11 15:45:03"
+              },
+              {
+                "id": 76,
+                "employee": {
+                  "id": 31,
+                  "code": "E001",
+                  "last_name": "Ha",
+                  "first_name": "Ngan",
+                  "maiden_name": "Bờm",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E001 Ha　Ngan（旧 Bờm）さんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 15:45:05"
+              },
+              {
+                "id": 77,
+                "employee": {
+                  "id": 31,
+                  "code": "E001",
+                  "last_name": "Ha",
+                  "first_name": "Ngan",
+                  "maiden_name": "Bờm",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E001 Ha　Ngan（旧 Bờm）さんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 15:45:08"
+              },
+              {
+                "id": 78,
+                "employee": {
+                  "id": 31,
+                  "code": "E001",
+                  "last_name": "Ha",
+                  "first_name": "Ngan",
+                  "maiden_name": "Bờm",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E001 Ha　Ngan（旧 Bờm）さんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 15:46:44"
+              },
+              {
+                "id": 79,
+                "employee": {
+                  "id": 31,
+                  "code": "E001",
+                  "last_name": "Ha",
+                  "first_name": "Ngan",
+                  "maiden_name": "Bờm",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E001 Ha　Ngan（旧 Bờm）の二要素認証が成功しました。",
+                "authen_at": "2025/03/11 15:46:44"
+              },
+              {
+                "id": 80,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 15:47:44"
+              },
+              {
+                "id": 81,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/11 15:47:44"
+              },
+              {
+                "id": 82,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 15:53:39"
+              },
+              {
+                "id": 83,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/11 15:53:39"
+              },
+              {
+                "id": 84,
+                "employee": {
+                  "id": 31,
+                  "code": "E001",
+                  "last_name": "Ha",
+                  "first_name": "Ngan",
+                  "maiden_name": "Bờm",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E001 Ha　Ngan（旧 Bờm）さんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 15:54:50"
+              },
+              {
+                "id": 85,
+                "employee": {
+                  "id": 31,
+                  "code": "E001",
+                  "last_name": "Ha",
+                  "first_name": "Ngan",
+                  "maiden_name": "Bờm",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E001 Ha　Ngan（旧 Bờm）の二要素認証が成功しました。",
+                "authen_at": "2025/03/11 15:54:50"
+              },
+              {
+                "id": 86,
+                "employee": {
+                  "id": 187,
+                  "code": "191603",
+                  "last_name": "an",
+                  "first_name": "NGUYỄN",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "191603 an　NGUYỄNさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 16:43:21"
+              },
+              {
+                "id": 87,
+                "employee": {
+                  "id": 187,
+                  "code": "191603",
+                  "last_name": "an",
+                  "first_name": "NGUYỄN",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_IMPLEMENT",
+                "message": "191603 an　NGUYỄNの二要素認証が成功しました。",
+                "authen_at": "2025/03/11 16:43:23"
+              },
+              {
+                "id": 88,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_PASSWORDTIMEOUT",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoさんのパスワードの期限が切れました。",
+                "authen_at": "2025/03/11 16:45:20"
+              },
+              {
+                "id": 89,
+                "employee": null,
+                "action": "AUTHENTICATION1_IDERROR",
+                "message": "不明のアクセス",
+                "authen_at": "2025/03/11 16:45:31"
+              },
+              {
+                "id": 90,
+                "employee": null,
+                "action": "AUTHENTICATION1_IDERROR",
+                "message": "不明のアクセス",
+                "authen_at": "2025/03/11 16:45:51"
+              },
+              {
+                "id": 91,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION1_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật ThảoさんのIDとパスワードが合っています。",
+                "authen_at": "2025/03/11 16:45:57"
+              },
+              {
+                "id": 92,
+                "employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "action": "AUTHENTICATION2_OK",
+                "message": "E404 Nguyễn Hoàng　Nhật Thảoの二要素認証が成功しました。",
+                "authen_at": "2025/03/11 16:45:57"
+              }
+            ],
+            "pagination": {
+              "total": 62,
+              "count": 62,
+              "perPage": 1000,
+              "currentPage": 1,
+              "totalPages": 1
+            }
+          },
+          "message": "OK",
+          "errors": null
+        }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }

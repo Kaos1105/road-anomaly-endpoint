@@ -1,0 +1,360 @@
+get:
+  tags:
+    - Common
+  summary: AnnouncementCard by subsystem
+  parameters:
+    - in: query
+      name: filter[system_id]
+      type: int
+      required: true
+      description: System id to get
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "access_histories": [ ],
+              "announcements": [
+                {
+                  "id": 7,
+                  "announcement_classification": 1,
+                  "title": "会社情報",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2060,
+                    "system_id": 2,
+                    "code": "20000",
+                    "name": "ダッシュボード",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 8,
+                  "announcement_classification": 1,
+                  "title": "会社追加",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2061,
+                    "system_id": 2,
+                    "code": "22000",
+                    "name": "会社一覧",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 9,
+                  "announcement_classification": 1,
+                  "title": "会社修正",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2062,
+                    "system_id": 2,
+                    "code": "22010",
+                    "name": "会社情報",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 10,
+                  "announcement_classification": 1,
+                  "title": "会社組織図",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2063,
+                    "system_id": 2,
+                    "code": "22020",
+                    "name": "会社追加",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 11,
+                  "announcement_classification": 1,
+                  "title": "拠点一覧",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2064,
+                    "system_id": 2,
+                    "code": "22030",
+                    "name": "会社修正",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 12,
+                  "announcement_classification": 1,
+                  "title": "拠点情報",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2065,
+                    "system_id": 2,
+                    "code": "22040",
+                    "name": "会社組織図",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 13,
+                  "announcement_classification": 1,
+                  "title": "拠点追加",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2066,
+                    "system_id": 2,
+                    "code": "23000",
+                    "name": "拠点一覧",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 14,
+                  "announcement_classification": 1,
+                  "title": "拠点修正",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2067,
+                    "system_id": 2,
+                    "code": "23010",
+                    "name": "拠点情報",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 15,
+                  "announcement_classification": 1,
+                  "title": "部門情報",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2068,
+                    "system_id": 2,
+                    "code": "23020",
+                    "name": "拠点追加",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 16,
+                  "announcement_classification": 1,
+                  "title": "部門追加",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2069,
+                    "system_id": 2,
+                    "code": "23030",
+                    "name": "拠点修正",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 17,
+                  "announcement_classification": 2,
+                  "title": "部門修正",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2070,
+                    "system_id": 2,
+                    "code": "24010",
+                    "name": "部門情報",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 18,
+                  "announcement_classification": 2,
+                  "title": "課情報",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2071,
+                    "system_id": 2,
+                    "code": "24020",
+                    "name": "部門追加",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 19,
+                  "announcement_classification": 2,
+                  "title": "課追加",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2072,
+                    "system_id": 2,
+                    "code": "24030",
+                    "name": "部門修正",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 20,
+                  "announcement_classification": 2,
+                  "title": "課修正",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2073,
+                    "system_id": 2,
+                    "code": "25010",
+                    "name": "課情報",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 21,
+                  "announcement_classification": 2,
+                  "title": "社員一覧",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2074,
+                    "system_id": 2,
+                    "code": "25020",
+                    "name": "課追加",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 22,
+                  "announcement_classification": 2,
+                  "title": "社員情報",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2075,
+                    "system_id": 2,
+                    "code": "25030",
+                    "name": "課修正",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 23,
+                  "announcement_classification": 2,
+                  "title": "設定",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2076,
+                    "system_id": 2,
+                    "code": "26000",
+                    "name": "社員一覧",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 24,
+                  "announcement_classification": 2,
+                  "title": "グループ登録",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2077,
+                    "system_id": 2,
+                    "code": "26010",
+                    "name": "社員情報",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 25,
+                  "announcement_classification": 2,
+                  "title": "ハザードマップ情報",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2078,
+                    "system_id": 2,
+                    "code": "26020",
+                    "name": "社員追加",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 26,
+                  "announcement_classification": 2,
+                  "title": "ハザードマップ追加",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2079,
+                    "system_id": 2,
+                    "code": "26030",
+                    "name": "社員修正",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 27,
+                  "announcement_classification": 2,
+                  "title": "ダッシュボード",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2080,
+                    "system_id": 2,
+                    "code": "27020",
+                    "name": "人事異動追加",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 28,
+                  "announcement_classification": 2,
+                  "title": "会社一覧",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2081,
+                    "system_id": 2,
+                    "code": "27021",
+                    "name": "人事異動複写",
+                    "use_classification": 2
+                  }
+                },
+                {
+                  "id": 29,
+                  "announcement_classification": 2,
+                  "title": "会社情報",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null,
+                  "display": {
+                    "id": 2082,
+                    "system_id": 2,
+                    "code": "27030",
+                    "name": "人事異動修正",
+                    "use_classification": 2
+                  }
+                }
+              ]
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+

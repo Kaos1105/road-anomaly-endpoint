@@ -1,0 +1,252 @@
+get:
+  tags:
+    - Announcement
+  summary: Show a announcement.
+  description: Show detail announcement
+  parameters:
+    - in: path
+      name: announcement
+      type: integer
+      required: true
+      description: Numeric ID of the announcement to get.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 8,
+              "system_id": 1,
+              "system": {
+                "id": 1,
+                "code": "10000",
+                "name": "S-NET",
+                "display_order": 1,
+                "use_classification": 2
+              },
+              "display": {
+                "id": 2,
+                "system_id": 1,
+                "code": "10000",
+                "name": "ポータル",
+                "use_classification": 2
+              },
+              "display_id": 2,
+              "announcement_classification": 1,
+              "title": "1",
+              "content": "HiHi",
+              "start_time": "2025/01/13 00:00",
+              "end_time": "2025/01/13 00:00",
+              "use_classification": 2,
+              "created_info": null,
+              "updated_info": null
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\Company] 80"
+          }
+put:
+  tags:
+    - Announcement
+  summary: Update a announcement.
+  description: Update a announcement
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - in: path
+      name: announcement
+      type: integer
+      required: true
+      description: Numeric ID of the announcement.
+    - name: system_id
+      description: system_id unique
+      in: formData
+      required: true
+      type: number
+    - name: display_id
+      description: display id
+      in: formData
+      required: false
+      type: number
+    - name: announcement_classification
+      description: announcement classification.
+        * `1` - Information
+        * `2` - Attention
+        * `3` - Emergence
+      in: formData
+      required: true
+      enum: [ 1, 2, 3 ]
+      type: integer
+    - name: start_time
+      description: announcement start time
+      in: formData
+      required: true
+      type: string
+      format: date
+    - name: end_time
+      description: announcement end time
+      in: formData
+      required: false
+      type: string
+      format: date
+    - name: title
+      description: title
+      in: formData
+      required: true
+      type: string
+    - name: content
+      description: content
+      in: formData
+      required: false
+      type: string
+    - name: use_classification
+      description: announcement usage classification.
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      default: 2
+      required: true
+      type: integer
+      enum: [ 1, 2 ]
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 9,
+              "system_id": 1,
+              "system": {
+                "id": 1,
+                "code": "10000",
+                "name": "S-NET",
+                "operation_classification": null,
+                "start_date": "2025/01/10",
+                "end_date": "2029/02/15",
+                "use_classification": 2,
+                "display_order": 1,
+                "display": {
+                  "id": 2,
+                  "system_id": 1,
+                  "code": "10000",
+                  "name": "ポータル",
+                  "use_classification": 2
+                }
+              },
+              "display_id": 2,
+              "announcement_classification": 1,
+              "title": "1",
+              "content": "HiHi",
+              "start_time": "2025/01/13",
+              "end_time": "2025/01/13",
+              "use_classification": 2,
+              "display_order": null,
+              "created_info": {
+                "date": "2025/02/13 16:21:19",
+                "name": null
+              },
+              "updated_info": null
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "system_id",
+                "message": [
+                  "画面名無効な値です。"
+                ]
+              },
+              {
+                "field": "title",
+                "message": [
+                  "会社名は必須項目です。"
+                ]
+              }
+            ]
+          }
+delete:
+  tags:
+    - Announcement
+  summary: Delete announcement.
+  description: Delete a announcement
+  parameters:
+    - in: path
+      name: announcement
+      type: integer
+      required: true
+      description: Numeric ID of the announcement to get.
+  responses:
+    204:
+      description: Success
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\Announcement] 80"
+          }

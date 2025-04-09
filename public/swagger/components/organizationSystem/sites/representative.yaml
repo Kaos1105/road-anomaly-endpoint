@@ -1,0 +1,70 @@
+put:
+  tags:
+    - Sites
+  summary: Set represent department
+  description: Set represent site
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - in: path
+      name: site
+      type: integer
+      required: true
+      description: Numeric ID of the site to get.
+    - name: department_id
+      description: Numeric ID of the department
+      in: formData
+      required: true
+      type: integer
+  responses:
+    200:
+      description: Success
+
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\Site] 80"
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "department_id",
+                "message": [
+                  "部門ID無効な値です。"
+                ]
+              },
+              {
+                "field": "site_id",
+                "message": [
+                  "拠点は必須項目です。"
+                ]
+              }
+            ]
+          }

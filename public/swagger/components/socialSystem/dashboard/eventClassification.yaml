@@ -1,0 +1,362 @@
+get:
+  tags:
+    - Social Dashboard
+  summary: Event classification List
+  description: Get all records of the Event classificationAccess
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "is_enable_btn": true,
+              "social_events": [
+                {
+                  "id": 7,
+                  "event_id": 6,
+                  "group_id": 2,
+                  "management_group": {
+                    "id": 2,
+                    "name": "水島",
+                    "use_classification": 2
+                  },
+                  "event_title": "Tắm biển",
+                  "event_progress": 2,
+                  "use_classification": 2,
+                  "start_date": "2025/10/01",
+                  "end_date": "2025/10/02"
+                },
+                {
+                  "id": 48,
+                  "event_id": 5,
+                  "group_id": 18,
+                  "management_group": {
+                    "id": 18,
+                    "name": "Ngan group",
+                    "use_classification": 2
+                  },
+                  "event_title": "Nhảy cha cha cha",
+                  "event_progress": 1,
+                  "use_classification": 1,
+                  "start_date": "2024/12/18",
+                  "end_date": null
+                },
+                {
+                  "id": 47,
+                  "event_id": 2,
+                  "group_id": 17,
+                  "management_group": {
+                    "id": 17,
+                    "name": "Group BBBBBB",
+                    "use_classification": 2
+                  },
+                  "event_title": "Tết Trung nguyên",
+                  "event_progress": 1,
+                  "use_classification": 1,
+                  "start_date": "2024/12/12",
+                  "end_date": null
+                },
+                {
+                  "id": 36,
+                  "event_id": 1,
+                  "group_id": 8,
+                  "management_group": {
+                    "id": 8,
+                    "name": "Fukuyama",
+                    "use_classification": 2
+                  },
+                  "event_title": "Ngày 13/11",
+                  "event_progress": 2,
+                  "use_classification": 2,
+                  "start_date": "2024/11/13",
+                  "end_date": "2024/11/13"
+                },
+                {
+                  "id": 35,
+                  "event_id": 1,
+                  "group_id": 1,
+                  "management_group": {
+                    "id": 1,
+                    "name": "岡山本社",
+                    "use_classification": 2
+                  },
+                  "event_title": "Ngày 12/11",
+                  "event_progress": 2,
+                  "use_classification": 2,
+                  "start_date": "2024/11/12",
+                  "end_date": "2024/11/12"
+                },
+                {
+                  "id": 34,
+                  "event_id": 1,
+                  "group_id": 3,
+                  "management_group": {
+                    "id": 3,
+                    "name": "松江",
+                    "use_classification": 1
+                  },
+                  "event_title": "Ngày 11/11",
+                  "event_progress": 2,
+                  "use_classification": 2,
+                  "start_date": "2024/11/11",
+                  "end_date": "2024/11/11"
+                },
+                {
+                  "id": 33,
+                  "event_id": 1,
+                  "group_id": 9,
+                  "management_group": {
+                    "id": 9,
+                    "name": "Group c",
+                    "use_classification": 2
+                  },
+                  "event_title": "Ngày 10/11",
+                  "event_progress": 2,
+                  "use_classification": 2,
+                  "start_date": "2024/11/10",
+                  "end_date": "2024/11/10"
+                },
+                {
+                  "id": 32,
+                  "event_id": 1,
+                  "group_id": 1,
+                  "management_group": {
+                    "id": 1,
+                    "name": "岡山本社",
+                    "use_classification": 2
+                  },
+                  "event_title": "Ngày 9/11",
+                  "event_progress": 1,
+                  "use_classification": 1,
+                  "start_date": "2024/11/09",
+                  "end_date": null
+                },
+                {
+                  "id": 14,
+                  "event_id": 7,
+                  "group_id": 3,
+                  "management_group": {
+                    "id": 3,
+                    "name": "松江",
+                    "use_classification": 1
+                  },
+                  "event_title": "merry",
+                  "event_progress": 1,
+                  "use_classification": 1,
+                  "start_date": "2024/11/05",
+                  "end_date": null
+                },
+                {
+                  "id": 26,
+                  "event_id": 7,
+                  "group_id": 12,
+                  "management_group": {
+                    "id": 12,
+                    "name": "あいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこ",
+                    "use_classification": 2
+                  },
+                  "event_title": "test supplier event titlee",
+                  "event_progress": 3,
+                  "use_classification": 2,
+                  "start_date": "2024/11/04",
+                  "end_date": "2024/11/04"
+                },
+                {
+                  "id": 28,
+                  "event_id": 3,
+                  "group_id": 13,
+                  "management_group": {
+                    "id": 13,
+                    "name": "test group",
+                    "use_classification": 2
+                  },
+                  "event_title": "Test event2",
+                  "event_progress": 2,
+                  "use_classification": 2,
+                  "start_date": "2024/11/04",
+                  "end_date": "2024/11/05"
+                },
+                {
+                  "id": 10,
+                  "event_id": 5,
+                  "group_id": 9,
+                  "management_group": {
+                    "id": 9,
+                    "name": "Group c",
+                    "use_classification": 2
+                  },
+                  "event_title": "123",
+                  "event_progress": 2,
+                  "use_classification": 2,
+                  "start_date": "2024/10/31",
+                  "end_date": "2024/10/30"
+                },
+                {
+                  "id": 9,
+                  "event_id": 2,
+                  "group_id": 1,
+                  "management_group": {
+                    "id": 1,
+                    "name": "岡山本社",
+                    "use_classification": 2
+                  },
+                  "event_title": "Kikat",
+                  "event_progress": 2,
+                  "use_classification": 2,
+                  "start_date": "2024/10/28",
+                  "end_date": "2024/10/29"
+                },
+                {
+                  "id": 2,
+                  "event_id": 1,
+                  "group_id": 2,
+                  "management_group": {
+                    "id": 2,
+                    "name": "水島",
+                    "use_classification": 2
+                  },
+                  "event_title": "Ban giám đốc chơi Golf",
+                  "event_progress": 2,
+                  "use_classification": 2,
+                  "start_date": "2024/10/27",
+                  "end_date": "2024/10/27"
+                },
+                {
+                  "id": 3,
+                  "event_id": 5,
+                  "group_id": 6,
+                  "management_group": {
+                    "id": 6,
+                    "name": "Addmin",
+                    "use_classification": 1
+                  },
+                  "event_title": "Biếu",
+                  "event_progress": 1,
+                  "use_classification": 1,
+                  "start_date": "2024/10/27",
+                  "end_date": null
+                },
+                {
+                  "id": 43,
+                  "event_id": 3,
+                  "group_id": 16,
+                  "management_group": {
+                    "id": 16,
+                    "name": "test management group (11/21)",
+                    "use_classification": 2
+                  },
+                  "event_title": "テストイベント (11/21)",
+                  "event_progress": 1,
+                  "use_classification": 1,
+                  "start_date": "2024/10/27",
+                  "end_date": null
+                },
+                {
+                  "id": 4,
+                  "event_id": 2,
+                  "group_id": 3,
+                  "management_group": {
+                    "id": 3,
+                    "name": "松江",
+                    "use_classification": 1
+                  },
+                  "event_title": "đi xem múa lân",
+                  "event_progress": 3,
+                  "use_classification": 2,
+                  "start_date": "2024/10/26",
+                  "end_date": "2024/10/27"
+                },
+                {
+                  "id": 6,
+                  "event_id": 5,
+                  "group_id": 6,
+                  "management_group": {
+                    "id": 6,
+                    "name": "Addmin",
+                    "use_classification": 1
+                  },
+                  "event_title": "あいうえおかきくけこあいうえおかきくけこあいうえおかきくけこ",
+                  "event_progress": 2,
+                  "use_classification": 2,
+                  "start_date": "2024/10/22",
+                  "end_date": "2024/10/22"
+                },
+                {
+                  "id": 1,
+                  "event_id": 1,
+                  "group_id": 1,
+                  "management_group": {
+                    "id": 1,
+                    "name": "岡山本社",
+                    "use_classification": 2
+                  },
+                  "event_title": "Quà trung thu",
+                  "event_progress": 2,
+                  "use_classification": 2,
+                  "start_date": "2024/10/21",
+                  "end_date": "2024/10/21"
+                },
+                {
+                  "id": 42,
+                  "event_id": 3,
+                  "group_id": 16,
+                  "management_group": {
+                    "id": 16,
+                    "name": "test management group (11/21)",
+                    "use_classification": 2
+                  },
+                  "event_title": "Test event (11/21)",
+                  "event_progress": 2,
+                  "use_classification": 2,
+                  "start_date": "2024/09/29",
+                  "end_date": "2024/10/08"
+                },
+                {
+                  "id": 12,
+                  "event_id": 8,
+                  "group_id": 2,
+                  "management_group": {
+                    "id": 2,
+                    "name": "水島",
+                    "use_classification": 2
+                  },
+                  "event_title": "運動しよう",
+                  "event_progress": 3,
+                  "use_classification": 2,
+                  "start_date": "2024/02/16",
+                  "end_date": "2024/02/06"
+                },
+                {
+                  "id": 11,
+                  "event_id": 7,
+                  "group_id": 10,
+                  "management_group": {
+                    "id": 10,
+                    "name": "開発グループ",
+                    "use_classification": 2
+                  },
+                  "event_title": "メリークリスマスナイト",
+                  "event_progress": 1,
+                  "use_classification": 1,
+                  "start_date": "2023/10/02",
+                  "end_date": null
+                }
+              ]
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

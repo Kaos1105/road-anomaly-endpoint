@@ -1,0 +1,1364 @@
+post:
+  tags:
+    - Supplier
+  summary: Create a supplier
+  description: Create a supplier
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: sales_store_id
+      description: Site Id
+      in: formData
+      required: true
+      type: integer
+    - name: supplier_classification
+      description: Take value of [1, 2] in code master
+      in: formData
+      required: true
+      type: integer
+    - name: supplier_person_id
+      description: Employee Id of Supplier's employee
+      in: formData
+      required: true
+      type: integer
+    - name: my_company_person_id
+      description: Employee Id of Company's employee
+      in: formData
+      required: true
+      type: integer
+    - name: memo
+      description: memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: usage classification
+      in: formData
+      default: 2
+      required: true
+      type: integer
+  responses:
+    201:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 201,
+            "data": {
+              "id": 51,
+              "sales_store_id": 2,
+              "sale_store": {
+                "id": 2,
+                "company_id": 3,
+                "code": "yuta68",
+                "long_name": "株式会社 田辺",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "post_code": null,
+                "address_1": "石田市",
+                "address_2": "similique",
+                "address_3": "eum",
+                "phone": "06145-8-8347",
+                "company": {
+                  "id": 3,
+                  "code": "g331",
+                  "long_name": "有限会社 津田",
+                  "previous_name": "dolore",
+                  "previous_name_flg": 2
+                }
+              },
+              "supplier_classification": 1,
+              "supplier_person_id": 59,
+              "supplier_person": {
+                "id": 59,
+                "code": "EMPLOYEE CODE",
+                "last_name": "Danh",
+                "first_name": "Nguyen",
+                "maiden_name": null,
+                "previous_name_flg": 1
+              },
+              "my_company_person_id": 59,
+              "my_company_person": {
+                "id": 59,
+                "code": "EMPLOYEE CODE",
+                "last_name": "Danh",
+                "first_name": "Nguyen",
+                "maiden_name": null,
+                "previous_name_flg": 1
+              },
+              "display_order": 1,
+              "use_classification": 2,
+              "created_info": {
+                "date": "2024/09/26 15:54:43",
+                "name": "Danh　Nguyen"
+              },
+              "updated_info": {
+                "date": "2024/09/26 15:54:43",
+                "name": "Danh　Nguyen"
+              }
+            },
+            "message": "登録しました。",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "name",
+                "message": [
+                  "このイベント区分名は、すでに存在します。"
+                ]
+              }
+            ]
+          }
+get:
+  tags:
+    - Supplier
+  summary: Paginated list of supplier
+  description: Paginated list of supplier
+  parameters:
+    - in: query
+      name: filter[supplier_classification]
+      type: integer
+      enum: [ 1, 2 ]
+      default:
+      description: >
+        Filter by Supplier classification
+          * `1` - Food
+          * `2` - Tableware
+    - in: query
+      name: filter[use_classification]
+      type: integer
+      enum: [ 1, 2 ]
+      default:
+      description: >
+        Filter by Use classification
+          * `1` - Not use
+          * `2` - Use
+    - in: query
+      name: sort
+      schema:
+        type: string
+      description: >
+        Sort order:
+         * `-sortKey` - Ascending, from A to Z
+         * `sortKey` - Descending, from Z to A
+         * List sortKey: company_name, site_name, site_address, site_phone, company_person, supplier_person, updated_at.
+    - in: query
+      name: perPage
+      type: integer
+      description: The number of items of each page.
+    - in: query
+      name: page
+      type: integer
+      description: Page.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "collection": [
+                {
+                  "id": 49,
+                  "sales_store_id": 67,
+                  "sale_store": {
+                    "id": 67,
+                    "company_id": 45,
+                    "code": "mkudo",
+                    "long_name": "有限会社 小林",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "佐藤市",
+                    "address_2": "ea",
+                    "address_3": "voluptatem",
+                    "phone": "0233-73-8742",
+                    "company": {
+                      "id": 45,
+                      "code": "i037",
+                      "long_name": "株式会社 笹田",
+                      "previous_name": "quia",
+                      "previous_name_flg": 1
+                    }
+                  },
+                  "supplier_classification": 2,
+                  "supplier_person_id": 70,
+                  "supplier_person": {
+                    "id": 70,
+                    "code": null,
+                    "last_name": "My",
+                    "first_name": "Nguyen",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 32,
+                  "my_company_person": {
+                    "id": 32,
+                    "code": "1561950",
+                    "last_name": "Ngan",
+                    "first_name": "Ham",
+                    "maiden_name": "Mama",
+                    "previous_name_flg": 2
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "1982/09/25"
+                },
+                {
+                  "id": 28,
+                  "sales_store_id": 29,
+                  "sale_store": {
+                    "id": 29,
+                    "company_id": 26,
+                    "code": "kenichi63",
+                    "long_name": "株式会社 杉山",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "江古田市",
+                    "address_2": "nostrum",
+                    "address_3": "tempora",
+                    "phone": "06697-7-7028",
+                    "company": {
+                      "id": 26,
+                      "code": "q107",
+                      "long_name": "株式会社 大垣",
+                      "previous_name": "illo",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 1,
+                  "supplier_person_id": 88,
+                  "supplier_person": {
+                    "id": 88,
+                    "code": "EMPLOYEE TEST 5",
+                    "last_name": "来週",
+                    "first_name": "勉強",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 61,
+                  "my_company_person": {
+                    "id": 61,
+                    "code": null,
+                    "last_name": "Ngan Ngan",
+                    "first_name": "Kỳ Duyên",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "2020/04/08"
+                },
+                {
+                  "id": 10,
+                  "sales_store_id": 29,
+                  "sale_store": {
+                    "id": 29,
+                    "company_id": 26,
+                    "code": "kenichi63",
+                    "long_name": "株式会社 杉山",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "江古田市",
+                    "address_2": "nostrum",
+                    "address_3": "tempora",
+                    "phone": "06697-7-7028",
+                    "company": {
+                      "id": 26,
+                      "code": "q107",
+                      "long_name": "株式会社 大垣",
+                      "previous_name": "illo",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 1,
+                  "supplier_person_id": 60,
+                  "supplier_person": {
+                    "id": 60,
+                    "code": null,
+                    "last_name": "Cao",
+                    "first_name": "Kỳ Duyên",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 84,
+                  "my_company_person": {
+                    "id": 84,
+                    "code": null,
+                    "last_name": "employee",
+                    "first_name": "name",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "2017/05/21"
+                },
+                {
+                  "id": 42,
+                  "sales_store_id": 29,
+                  "sale_store": {
+                    "id": 29,
+                    "company_id": 26,
+                    "code": "kenichi63",
+                    "long_name": "株式会社 杉山",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "江古田市",
+                    "address_2": "nostrum",
+                    "address_3": "tempora",
+                    "phone": "06697-7-7028",
+                    "company": {
+                      "id": 26,
+                      "code": "q107",
+                      "long_name": "株式会社 大垣",
+                      "previous_name": "illo",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 1,
+                  "supplier_person_id": 75,
+                  "supplier_person": {
+                    "id": 75,
+                    "code": null,
+                    "last_name": "姓",
+                    "first_name": "名",
+                    "maiden_name": "旧姓",
+                    "previous_name_flg": 2
+                  },
+                  "my_company_person_id": 34,
+                  "my_company_person": {
+                    "id": 34,
+                    "code": "5748408",
+                    "last_name": "山田",
+                    "first_name": "翼",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "1999/08/04"
+                },
+                {
+                  "id": 19,
+                  "sales_store_id": 29,
+                  "sale_store": {
+                    "id": 29,
+                    "company_id": 26,
+                    "code": "kenichi63",
+                    "long_name": "株式会社 杉山",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "江古田市",
+                    "address_2": "nostrum",
+                    "address_3": "tempora",
+                    "phone": "06697-7-7028",
+                    "company": {
+                      "id": 26,
+                      "code": "q107",
+                      "long_name": "株式会社 大垣",
+                      "previous_name": "illo",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 1,
+                  "supplier_person_id": 26,
+                  "supplier_person": {
+                    "id": 26,
+                    "code": "9539229",
+                    "last_name": "斉藤",
+                    "first_name": "亮介",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 82,
+                  "my_company_person": {
+                    "id": 82,
+                    "code": null,
+                    "last_name": "A",
+                    "first_name": "B",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "1979/12/01"
+                },
+                {
+                  "id": 5,
+                  "sales_store_id": 13,
+                  "sale_store": {
+                    "id": 13,
+                    "company_id": 14,
+                    "code": "osamu75",
+                    "long_name": "株式会社 小泉",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "中津川市",
+                    "address_2": "consequatur",
+                    "address_3": "eveniet",
+                    "phone": "0459-62-4600",
+                    "company": {
+                      "id": 14,
+                      "code": "t333",
+                      "long_name": "有限会社 山口",
+                      "previous_name": "ea",
+                      "previous_name_flg": 1
+                    }
+                  },
+                  "supplier_classification": 2,
+                  "supplier_person_id": 66,
+                  "supplier_person": {
+                    "id": 66,
+                    "code": null,
+                    "last_name": "Hoang",
+                    "first_name": "Nguyen",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 84,
+                  "my_company_person": {
+                    "id": 84,
+                    "code": null,
+                    "last_name": "employee",
+                    "first_name": "name",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "2024/03/26"
+                },
+                {
+                  "id": 40,
+                  "sales_store_id": 13,
+                  "sale_store": {
+                    "id": 13,
+                    "company_id": 14,
+                    "code": "osamu75",
+                    "long_name": "株式会社 小泉",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "中津川市",
+                    "address_2": "consequatur",
+                    "address_3": "eveniet",
+                    "phone": "0459-62-4600",
+                    "company": {
+                      "id": 14,
+                      "code": "t333",
+                      "long_name": "有限会社 山口",
+                      "previous_name": "ea",
+                      "previous_name_flg": 1
+                    }
+                  },
+                  "supplier_classification": 2,
+                  "supplier_person_id": 71,
+                  "supplier_person": {
+                    "id": 71,
+                    "code": null,
+                    "last_name": "Danh",
+                    "first_name": "Nguyen",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 59,
+                  "my_company_person": {
+                    "id": 59,
+                    "code": "EMPLOYEE CODE",
+                    "last_name": "Danh",
+                    "first_name": "Nguyen",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "2016/04/26"
+                },
+                {
+                  "id": 24,
+                  "sales_store_id": 13,
+                  "sale_store": {
+                    "id": 13,
+                    "company_id": 14,
+                    "code": "osamu75",
+                    "long_name": "株式会社 小泉",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "中津川市",
+                    "address_2": "consequatur",
+                    "address_3": "eveniet",
+                    "phone": "0459-62-4600",
+                    "company": {
+                      "id": 14,
+                      "code": "t333",
+                      "long_name": "有限会社 山口",
+                      "previous_name": "ea",
+                      "previous_name_flg": 1
+                    }
+                  },
+                  "supplier_classification": 1,
+                  "supplier_person_id": 75,
+                  "supplier_person": {
+                    "id": 75,
+                    "code": null,
+                    "last_name": "姓",
+                    "first_name": "名",
+                    "maiden_name": "旧姓",
+                    "previous_name_flg": 2
+                  },
+                  "my_company_person_id": 60,
+                  "my_company_person": {
+                    "id": 60,
+                    "code": null,
+                    "last_name": "Cao",
+                    "first_name": "Kỳ Duyên",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "2000/12/28"
+                },
+                {
+                  "id": 4,
+                  "sales_store_id": 41,
+                  "sale_store": {
+                    "id": 41,
+                    "company_id": 32,
+                    "code": "taichi.nagisa",
+                    "long_name": "有限会社 木村",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "田中市",
+                    "address_2": "dicta",
+                    "address_3": "nemo",
+                    "phone": "02-7263-2069",
+                    "company": {
+                      "id": 32,
+                      "code": "u474",
+                      "long_name": "株式会社 井上",
+                      "previous_name": "labore",
+                      "previous_name_flg": 1
+                    }
+                  },
+                  "supplier_classification": 2,
+                  "supplier_person_id": 30,
+                  "supplier_person": {
+                    "id": 30,
+                    "code": "1894003",
+                    "last_name": "Japan",
+                    "first_name": "Ngan test",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 88,
+                  "my_company_person": {
+                    "id": 88,
+                    "code": "EMPLOYEE TEST 5",
+                    "last_name": "来週",
+                    "first_name": "勉強",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "1981/12/28"
+                },
+                {
+                  "id": 38,
+                  "sales_store_id": 38,
+                  "sale_store": {
+                    "id": 38,
+                    "company_id": 30,
+                    "code": "sayuri.kudo",
+                    "long_name": "株式会社 小泉",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "工藤市",
+                    "address_2": "laborum",
+                    "address_3": "ab",
+                    "phone": "045-171-0208",
+                    "company": {
+                      "id": 30,
+                      "code": "x946",
+                      "long_name": "株式会社 中津川",
+                      "previous_name": "eligendi",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 1,
+                  "supplier_person_id": 81,
+                  "supplier_person": {
+                    "id": 81,
+                    "code": null,
+                    "last_name": "Mơ",
+                    "first_name": "Mai",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 70,
+                  "my_company_person": {
+                    "id": 70,
+                    "code": null,
+                    "last_name": "My",
+                    "first_name": "Nguyen",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "1978/12/22"
+                },
+                {
+                  "id": 13,
+                  "sales_store_id": 35,
+                  "sale_store": {
+                    "id": 35,
+                    "company_id": 29,
+                    "code": "tomoya.yamamoto",
+                    "long_name": "有限会社 青山",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "渡辺市",
+                    "address_2": "commodi",
+                    "address_3": "quas",
+                    "phone": "080-6353-7357",
+                    "company": {
+                      "id": 29,
+                      "code": "w685",
+                      "long_name": "株式会社 江古田",
+                      "previous_name": "itaque",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 2,
+                  "supplier_person_id": 34,
+                  "supplier_person": {
+                    "id": 34,
+                    "code": "5748408",
+                    "last_name": "山田",
+                    "first_name": "翼",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 68,
+                  "my_company_person": {
+                    "id": 68,
+                    "code": null,
+                    "last_name": "Sa",
+                    "first_name": "Chiko",
+                    "maiden_name": null,
+                    "previous_name_flg": 2
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "2005/03/02"
+                },
+                {
+                  "id": 43,
+                  "sales_store_id": 35,
+                  "sale_store": {
+                    "id": 35,
+                    "company_id": 29,
+                    "code": "tomoya.yamamoto",
+                    "long_name": "有限会社 青山",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "渡辺市",
+                    "address_2": "commodi",
+                    "address_3": "quas",
+                    "phone": "080-6353-7357",
+                    "company": {
+                      "id": 29,
+                      "code": "w685",
+                      "long_name": "株式会社 江古田",
+                      "previous_name": "itaque",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 2,
+                  "supplier_person_id": 65,
+                  "supplier_person": {
+                    "id": 65,
+                    "code": null,
+                    "last_name": "Ngan",
+                    "first_name": "Nguyen",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 32,
+                  "my_company_person": {
+                    "id": 32,
+                    "code": "1561950",
+                    "last_name": "Ngan",
+                    "first_name": "Ham",
+                    "maiden_name": "Mama",
+                    "previous_name_flg": 2
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "1989/10/13"
+                },
+                {
+                  "id": 46,
+                  "sales_store_id": 35,
+                  "sale_store": {
+                    "id": 35,
+                    "company_id": 29,
+                    "code": "tomoya.yamamoto",
+                    "long_name": "有限会社 青山",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "渡辺市",
+                    "address_2": "commodi",
+                    "address_3": "quas",
+                    "phone": "080-6353-7357",
+                    "company": {
+                      "id": 29,
+                      "code": "w685",
+                      "long_name": "株式会社 江古田",
+                      "previous_name": "itaque",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 2,
+                  "supplier_person_id": 65,
+                  "supplier_person": {
+                    "id": 65,
+                    "code": null,
+                    "last_name": "Ngan",
+                    "first_name": "Nguyen",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 64,
+                  "my_company_person": {
+                    "id": 64,
+                    "code": null,
+                    "last_name": "Hoang",
+                    "first_name": "Thao",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "1978/05/05"
+                },
+                {
+                  "id": 18,
+                  "sales_store_id": 35,
+                  "sale_store": {
+                    "id": 35,
+                    "company_id": 29,
+                    "code": "tomoya.yamamoto",
+                    "long_name": "有限会社 青山",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "渡辺市",
+                    "address_2": "commodi",
+                    "address_3": "quas",
+                    "phone": "080-6353-7357",
+                    "company": {
+                      "id": 29,
+                      "code": "w685",
+                      "long_name": "株式会社 江古田",
+                      "previous_name": "itaque",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 1,
+                  "supplier_person_id": 32,
+                  "supplier_person": {
+                    "id": 32,
+                    "code": "1561950",
+                    "last_name": "Ngan",
+                    "first_name": "Ham",
+                    "maiden_name": "Mama",
+                    "previous_name_flg": 2
+                  },
+                  "my_company_person_id": 60,
+                  "my_company_person": {
+                    "id": 60,
+                    "code": null,
+                    "last_name": "Cao",
+                    "first_name": "Kỳ Duyên",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "1973/05/11"
+                },
+                {
+                  "id": 29,
+                  "sales_store_id": 43,
+                  "sale_store": {
+                    "id": 43,
+                    "company_id": 33,
+                    "code": "youichi45",
+                    "long_name": "有限会社 斉藤",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "加藤市",
+                    "address_2": "est",
+                    "address_3": "quod",
+                    "phone": "080-0927-5915",
+                    "company": {
+                      "id": 33,
+                      "code": "z052",
+                      "long_name": "有限会社 山田",
+                      "previous_name": "neque",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 2,
+                  "supplier_person_id": 63,
+                  "supplier_person": {
+                    "id": 63,
+                    "code": null,
+                    "last_name": "La",
+                    "first_name": "Minh",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 34,
+                  "my_company_person": {
+                    "id": 34,
+                    "code": "5748408",
+                    "last_name": "山田",
+                    "first_name": "翼",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "2009/12/10"
+                },
+                {
+                  "id": 7,
+                  "sales_store_id": 43,
+                  "sale_store": {
+                    "id": 43,
+                    "company_id": 33,
+                    "code": "youichi45",
+                    "long_name": "有限会社 斉藤",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "加藤市",
+                    "address_2": "est",
+                    "address_3": "quod",
+                    "phone": "080-0927-5915",
+                    "company": {
+                      "id": 33,
+                      "code": "z052",
+                      "long_name": "有限会社 山田",
+                      "previous_name": "neque",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 1,
+                  "supplier_person_id": 81,
+                  "supplier_person": {
+                    "id": 81,
+                    "code": null,
+                    "last_name": "Mơ",
+                    "first_name": "Mai",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 85,
+                  "my_company_person": {
+                    "id": 85,
+                    "code": null,
+                    "last_name": "田中",
+                    "first_name": "太郎",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "2005/09/28"
+                },
+                {
+                  "id": 45,
+                  "sales_store_id": 43,
+                  "sale_store": {
+                    "id": 43,
+                    "company_id": 33,
+                    "code": "youichi45",
+                    "long_name": "有限会社 斉藤",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "加藤市",
+                    "address_2": "est",
+                    "address_3": "quod",
+                    "phone": "080-0927-5915",
+                    "company": {
+                      "id": 33,
+                      "code": "z052",
+                      "long_name": "有限会社 山田",
+                      "previous_name": "neque",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 2,
+                  "supplier_person_id": 76,
+                  "supplier_person": {
+                    "id": 76,
+                    "code": null,
+                    "last_name": "Nhi",
+                    "first_name": "thi",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 80,
+                  "my_company_person": {
+                    "id": 80,
+                    "code": null,
+                    "last_name": "Ha",
+                    "first_name": "Ha",
+                    "maiden_name": "B^ờm B^ờm",
+                    "previous_name_flg": 2
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "1988/06/05"
+                },
+                {
+                  "id": 22,
+                  "sales_store_id": 43,
+                  "sale_store": {
+                    "id": 43,
+                    "company_id": 33,
+                    "code": "youichi45",
+                    "long_name": "有限会社 斉藤",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "加藤市",
+                    "address_2": "est",
+                    "address_3": "quod",
+                    "phone": "080-0927-5915",
+                    "company": {
+                      "id": 33,
+                      "code": "z052",
+                      "long_name": "有限会社 山田",
+                      "previous_name": "neque",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 2,
+                  "supplier_person_id": 66,
+                  "supplier_person": {
+                    "id": 66,
+                    "code": null,
+                    "last_name": "Hoang",
+                    "first_name": "Nguyen",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 73,
+                  "my_company_person": {
+                    "id": 73,
+                    "code": null,
+                    "last_name": "Hanh",
+                    "first_name": "Le Thuy",
+                    "maiden_name": "Nguyen",
+                    "previous_name_flg": 2
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "1987/01/22"
+                },
+                {
+                  "id": 26,
+                  "sales_store_id": 43,
+                  "sale_store": {
+                    "id": 43,
+                    "company_id": 33,
+                    "code": "youichi45",
+                    "long_name": "有限会社 斉藤",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "加藤市",
+                    "address_2": "est",
+                    "address_3": "quod",
+                    "phone": "080-0927-5915",
+                    "company": {
+                      "id": 33,
+                      "code": "z052",
+                      "long_name": "有限会社 山田",
+                      "previous_name": "neque",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 1,
+                  "supplier_person_id": 66,
+                  "supplier_person": {
+                    "id": 66,
+                    "code": null,
+                    "last_name": "Hoang",
+                    "first_name": "Nguyen",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 85,
+                  "my_company_person": {
+                    "id": 85,
+                    "code": null,
+                    "last_name": "田中",
+                    "first_name": "太郎",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "1983/01/23"
+                },
+                {
+                  "id": 35,
+                  "sales_store_id": 3,
+                  "sale_store": {
+                    "id": 3,
+                    "company_id": 4,
+                    "code": "koizumi.naoko",
+                    "long_name": "有限会社 中津川",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "伊藤市",
+                    "address_2": "fugit",
+                    "address_3": "sed",
+                    "phone": "0730-234-966",
+                    "company": {
+                      "id": 4,
+                      "code": "w072",
+                      "long_name": "株式会社 浜田",
+                      "previous_name": "suscipit",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 1,
+                  "supplier_person_id": 61,
+                  "supplier_person": {
+                    "id": 61,
+                    "code": null,
+                    "last_name": "Ngan Ngan",
+                    "first_name": "Kỳ Duyên",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 82,
+                  "my_company_person": {
+                    "id": 82,
+                    "code": null,
+                    "last_name": "A",
+                    "first_name": "B",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "2001/05/06"
+                },
+                {
+                  "id": 8,
+                  "sales_store_id": 3,
+                  "sale_store": {
+                    "id": 3,
+                    "company_id": 4,
+                    "code": "koizumi.naoko",
+                    "long_name": "有限会社 中津川",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "伊藤市",
+                    "address_2": "fugit",
+                    "address_3": "sed",
+                    "phone": "0730-234-966",
+                    "company": {
+                      "id": 4,
+                      "code": "w072",
+                      "long_name": "株式会社 浜田",
+                      "previous_name": "suscipit",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 1,
+                  "supplier_person_id": 80,
+                  "supplier_person": {
+                    "id": 80,
+                    "code": null,
+                    "last_name": "Ha",
+                    "first_name": "Ha",
+                    "maiden_name": "B^ờm B^ờm",
+                    "previous_name_flg": 2
+                  },
+                  "my_company_person_id": 67,
+                  "my_company_person": {
+                    "id": 67,
+                    "code": null,
+                    "last_name": "La",
+                    "first_name": "Nguyen",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "1983/11/08"
+                },
+                {
+                  "id": 33,
+                  "sales_store_id": 3,
+                  "sale_store": {
+                    "id": 3,
+                    "company_id": 4,
+                    "code": "koizumi.naoko",
+                    "long_name": "有限会社 中津川",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "伊藤市",
+                    "address_2": "fugit",
+                    "address_3": "sed",
+                    "phone": "0730-234-966",
+                    "company": {
+                      "id": 4,
+                      "code": "w072",
+                      "long_name": "株式会社 浜田",
+                      "previous_name": "suscipit",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 2,
+                  "supplier_person_id": 69,
+                  "supplier_person": {
+                    "id": 69,
+                    "code": null,
+                    "last_name": "Hoang",
+                    "first_name": "Ham",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 60,
+                  "my_company_person": {
+                    "id": 60,
+                    "code": null,
+                    "last_name": "Cao",
+                    "first_name": "Kỳ Duyên",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "1973/10/06"
+                },
+                {
+                  "id": 20,
+                  "sales_store_id": 3,
+                  "sale_store": {
+                    "id": 3,
+                    "company_id": 4,
+                    "code": "koizumi.naoko",
+                    "long_name": "有限会社 中津川",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "伊藤市",
+                    "address_2": "fugit",
+                    "address_3": "sed",
+                    "phone": "0730-234-966",
+                    "company": {
+                      "id": 4,
+                      "code": "w072",
+                      "long_name": "株式会社 浜田",
+                      "previous_name": "suscipit",
+                      "previous_name_flg": 2
+                    }
+                  },
+                  "supplier_classification": 2,
+                  "supplier_person_id": 89,
+                  "supplier_person": {
+                    "id": 89,
+                    "code": null,
+                    "last_name": "Ngọc",
+                    "first_name": "Đoàn",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 34,
+                  "my_company_person": {
+                    "id": 34,
+                    "code": "5748408",
+                    "last_name": "山田",
+                    "first_name": "翼",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "1972/04/12"
+                },
+                {
+                  "id": 47,
+                  "sales_store_id": 53,
+                  "sale_store": {
+                    "id": 53,
+                    "company_id": 38,
+                    "code": "haruka00",
+                    "long_name": "有限会社 野村",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "石田市",
+                    "address_2": "autem",
+                    "address_3": "qui",
+                    "phone": "080-0600-5152",
+                    "company": {
+                      "id": 38,
+                      "code": "r391",
+                      "long_name": "有限会社 渚",
+                      "previous_name": "exercitationem",
+                      "previous_name_flg": 1
+                    }
+                  },
+                  "supplier_classification": 1,
+                  "supplier_person_id": 70,
+                  "supplier_person": {
+                    "id": 70,
+                    "code": null,
+                    "last_name": "My",
+                    "first_name": "Nguyen",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 81,
+                  "my_company_person": {
+                    "id": 81,
+                    "code": null,
+                    "last_name": "Mơ",
+                    "first_name": "Mai",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "2006/03/24"
+                },
+                {
+                  "id": 44,
+                  "sales_store_id": 53,
+                  "sale_store": {
+                    "id": 53,
+                    "company_id": 38,
+                    "code": "haruka00",
+                    "long_name": "有限会社 野村",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "post_code": null,
+                    "address_1": "石田市",
+                    "address_2": "autem",
+                    "address_3": "qui",
+                    "phone": "080-0600-5152",
+                    "company": {
+                      "id": 38,
+                      "code": "r391",
+                      "long_name": "有限会社 渚",
+                      "previous_name": "exercitationem",
+                      "previous_name_flg": 1
+                    }
+                  },
+                  "supplier_classification": 1,
+                  "supplier_person_id": 61,
+                  "supplier_person": {
+                    "id": 61,
+                    "code": null,
+                    "last_name": "Ngan Ngan",
+                    "first_name": "Kỳ Duyên",
+                    "maiden_name": null,
+                    "previous_name_flg": 1
+                  },
+                  "my_company_person_id": 31,
+                  "my_company_person": {
+                    "id": 31,
+                    "code": "5281127",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm Bờm",
+                    "previous_name_flg": 2
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "updated_at": "1974/01/02"
+                }
+              ],
+              "pagination": {
+                "total": 50,
+                "count": 25,
+                "perPage": 25,
+                "currentPage": 1,
+                "totalPages": 2
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }

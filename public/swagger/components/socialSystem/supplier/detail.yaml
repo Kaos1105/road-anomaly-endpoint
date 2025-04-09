@@ -1,0 +1,271 @@
+get:
+  tags:
+    - Supplier
+  summary: Show a supplier
+  description: Show detail of a supplier
+  parameters:
+    - in: path
+      name: id
+      type: integer
+      required: true
+      description: Numeric ID of the Supplier to get.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 1,
+              "sales_store_id": 24,
+              "sales_store": {
+                "id": 24,
+                "company_id": 23,
+                "code": "kyosuke.nishinosono",
+                "long_name": "有限会社 加藤",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "post_code": null,
+                "address_1": "山田市",
+                "address_2": "cum",
+                "address_3": "error",
+                "phone": "080-3766-4070",
+                "company": {
+                  "id": 23,
+                  "code": "r201",
+                  "long_name": "株式会社 加藤",
+                  "previous_name": "soluta",
+                  "previous_name_flg": 1
+                }
+              },
+              "supplier_classification": 1,
+              "supplier_person_id": 59,
+              "supplier_person": {
+                "id": 59,
+                "code": "EMPLOYEE CODE",
+                "last_name": "Danh",
+                "first_name": "Nguyen",
+                "maiden_name": null,
+                "previous_name_flg": 1
+              },
+              "my_company_person_id": 59,
+              "my_company_person": {
+                "id": 59,
+                "code": "EMPLOYEE CODE",
+                "last_name": "Danh",
+                "first_name": "Nguyen",
+                "maiden_name": null,
+                "previous_name_flg": 1
+              },
+              "display_order": 1,
+              "use_classification": 2,
+              "created_info": {
+                "date": "2024/09/26 17:08:24",
+                "name": "Danh　Nguyen"
+              },
+              "updated_info": {
+                "date": "2024/09/26 18:37:41",
+                "name": "Danh　Nguyen"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "The page could not be found.",
+            "errors": "No query results for model [App\\Models\\Supplier] 1"
+          }
+
+delete:
+  tags:
+    - Supplier
+  summary: Delete a Supplier
+  description: Delete a Supplier
+  parameters:
+    - in: path
+      name: id
+      type: integer
+      required: true
+      description: Numeric ID of the Supplier to delete.
+  responses:
+    204:
+      description: Success
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "The page could not be found.",
+            "errors": "No query results for model [App\\Models\\Supplier] 1"
+          }
+
+put:
+  tags:
+    - Supplier
+  summary: Update a Supplier
+  description: Update a Supplier
+  consumes:
+    - application/json
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: supplier_classification
+      description: Take value of [1, 2] in code master
+      in: formData
+      required: true
+      type: integer
+    - name: supplier_person_id
+      description: Employee Id of Supplier's employee
+      in: formData
+      required: true
+      type: integer
+    - name: my_company_person_id
+      description: Employee Id of Company's employee
+      in: formData
+      required: true
+      type: integer
+    - name: memo
+      description: memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: usage classification
+      in: formData
+      default: 2
+      required: true
+      type: integer
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 51,
+              "sales_store_id": 2,
+              "sale_store": {
+                "id": 2,
+                "company_id": 3,
+                "code": "yuta68",
+                "long_name": "株式会社 田辺",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "post_code": null,
+                "address_1": "石田市",
+                "address_2": "similique",
+                "address_3": "eum",
+                "phone": "06145-8-8347",
+                "company": {
+                  "id": 3,
+                  "code": "g331",
+                  "long_name": "有限会社 津田",
+                  "previous_name": "dolore",
+                  "previous_name_flg": 2
+                }
+              },
+              "supplier_classification": 1,
+              "supplier_person_id": 59,
+              "supplier_person": {
+                "id": 59,
+                "code": "EMPLOYEE CODE",
+                "last_name": "Danh",
+                "first_name": "Nguyen",
+                "maiden_name": null,
+                "previous_name_flg": 1
+              },
+              "my_company_person_id": 59,
+              "my_company_person": {
+                "id": 59,
+                "code": "EMPLOYEE CODE",
+                "last_name": "Danh",
+                "first_name": "Nguyen",
+                "maiden_name": null,
+                "previous_name_flg": 1
+              },
+              "memo": "memo",
+              "display_order": 1,
+              "use_classification": 2,
+              "created_info": {
+                "date": "2024/09/26 15:54:43",
+                "name": "Danh　Nguyen"
+              },
+              "updated_info": {
+                "date": "2024/09/26 15:54:43",
+                "name": "Danh　Nguyen"
+              }
+            },
+            "message": "登録しました。",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "name",
+                "message": [
+                  "このイベント区分名は、すでに存在します。"
+                ]
+              }
+            ]
+          }

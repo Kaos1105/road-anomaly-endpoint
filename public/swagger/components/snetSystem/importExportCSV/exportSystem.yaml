@@ -1,0 +1,26 @@
+get:
+  tags:
+    - Import Export CSV
+  summary: Import system
+  description: Import systems
+  parameters:
+    - in: query
+      name: filter[system_code]
+      type: string
+      required: false
+      description: >
+        Filter by system_code, example: 10000,20000
+  responses:
+    200:
+      description: Success
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

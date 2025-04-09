@@ -1,0 +1,830 @@
+get:
+  tags:
+    - Customers
+  summary: Show detail customers.
+  description: Show detail customers.
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: customer
+      description: customer ID
+      in: path
+      required: true
+      type: integer
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 6,
+              "employee": {
+                "id": 109,
+                "code": null,
+                "last_name": "山下",
+                "first_name": "達也",
+                "maiden_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 2
+              },
+              "display_transfer_id": 102,
+              "display_transfer": {
+                "id": 102,
+                "employee_id": 109,
+                "start_date": "2024/10/01",
+                "end_date": "2024/10/31",
+                "position": null,
+                "major_history_flg": 2,
+                "updated_at": "2024/10/01",
+                "company": {
+                  "id": 81,
+                  "code": "C103",
+                  "long_name": "岡山情報ビジネス学院",
+                  "previous_name": "OIC",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "site": {
+                  "id": 134,
+                  "company_id": 81,
+                  "code": null,
+                  "long_name": "OIC 岡山",
+                  "previous_name": null,
+                  "previous_name_flg": 1,
+                  "phone": "08056163044",
+                  "post_code": "709-0826",
+                  "address_1": "岡山県",
+                  "address_2": "赤磐市",
+                  "address_3": "和田",
+                  "use_classification": 2
+                },
+                "department": {
+                  "id": 140,
+                  "site_id": 134,
+                  "code": "SOCIAL_TRANSFER",
+                  "long_name": "TRANSFER CUSTOMER NAME",
+                  "previous_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "division": {
+                  "id": 243,
+                  "department_id": 140,
+                  "code": "DI SOCIAL",
+                  "long_name": "Phòng Nhân Sự SOCIAL",
+                  "previous_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                }
+              },
+              "responsible_id": 100,
+              "responsible_employee": {
+                "id": 100,
+                "code": "E100",
+                "last_name": "Lê Thụy",
+                "first_name": "Ngọc Hạnh",
+                "maiden_name": "Sachiko",
+                "previous_name_flg": 2,
+                "use_classification": 2
+              },
+              "processing_site": 1,
+              "accounting_company": 1,
+              "accounting_department_id": 132,
+              "accounting_department": {
+                "id": 132,
+                "site_id": 129,
+                "code": "C300",
+                "long_name": "技術開発企画部VN",
+                "previous_name": "Kỹ thuật",
+                "previous_name_flg": 2,
+                "use_classification": 2
+              },
+              "category_name": "OIC 関係",
+              "address_printing_1": true,
+              "address_printing_2": false,
+              "address_printing_3": false,
+              "address_printing_4": false,
+              "address_printing_5": false,
+              "address_printing_6": true,
+              "address_printing_7": true,
+              "specified_post_code": null,
+              "specified_address_1": null,
+              "specified_address_2": null,
+              "specified_address_3": null,
+              "specified_phone": null,
+              "address_classification": 1,
+              "shipping_info": {
+                "post_code": "709-0861",
+                "address_1": "岡山県",
+                "address_2": "岡山市東区",
+                "address_3": "瀬戸町瀬戸385-1",
+                "phone": "09051428538"
+              },
+              "update_order": "update 1",
+              "memo": null,
+              "display_order": 999999,
+              "use_classification": 2,
+              "social_data": [
+                {
+                  "id": 2,
+                  "social_event_id": 2,
+                  "execution_at": null,
+                  "social_event": {
+                    "id": 2,
+                    "event_id": 2,
+                    "event_classification": {
+                      "id": 2,
+                      "name": "中元",
+                      "description": null,
+                      "operation_rule": null,
+                      "use_classification": 2,
+                      "social_criteria": null
+                    },
+                    "event_title": "七夏",
+                    "use_classification": 1
+                  },
+                  "customer_id": 6,
+                  "display_transfer_id": 102,
+                  "display_transfer": {
+                    "id": 102,
+                    "position": null,
+                    "company": {
+                      "id": 81,
+                      "code": "C103",
+                      "long_name": "岡山情報ビジネス学院",
+                      "previous_name": "OIC",
+                      "previous_name_flg": 2,
+                      "use_classification": 2
+                    },
+                    "site": {
+                      "id": 134,
+                      "company_id": 81,
+                      "code": null,
+                      "long_name": "OIC 岡山",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "phone": "08056163044",
+                      "post_code": "709-0826",
+                      "address_1": "岡山県",
+                      "address_2": "赤磐市",
+                      "address_3": "和田",
+                      "use_classification": 2
+                    },
+                    "department": {
+                      "id": 140,
+                      "site_id": 134,
+                      "code": "SOCIAL_TRANSFER",
+                      "long_name": "TRANSFER CUSTOMER NAME",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "use_classification": 2
+                    },
+                    "division": {
+                      "id": 243,
+                      "department_id": 140,
+                      "code": "DI SOCIAL",
+                      "long_name": "Phòng Nhân Sự SOCIAL",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "use_classification": 2
+                    }
+                  },
+                  "product_id": 1,
+                  "product": {
+                    "id": 1,
+                    "name": "桃岡山",
+                    "code": null,
+                    "product_classification": 1,
+                    "supplier_id": 7,
+                    "supplier": {
+                      "id": 7,
+                      "sales_store_id": 141,
+                      "use_classification": 2
+                    },
+                    "site": {
+                      "id": 141,
+                      "company_id": 85,
+                      "code": "S301",
+                      "long_name": "北区支店",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "phone": "321536522563",
+                      "post_code": "700-0865",
+                      "address_1": "岡山県",
+                      "address_2": "岡山市北区",
+                      "address_3": "旭本町385－1",
+                      "use_classification": 2
+                    },
+                    "company": {
+                      "id": 85,
+                      "code": "C300",
+                      "long_name": "岡山大学院",
+                      "previous_name": "大学院",
+                      "previous_name_flg": 2,
+                      "use_classification": 2
+                    },
+                    "use_classification": 2
+                  },
+                  "tax_3": 1,
+                  "total_amount": 120,
+                  "receipt": null
+                },
+                {
+                  "id": 1,
+                  "social_event_id": 1,
+                  "execution_at": null,
+                  "social_event": {
+                    "id": 1,
+                    "event_id": 2,
+                    "event_classification": {
+                      "id": 2,
+                      "name": "中元",
+                      "description": null,
+                      "operation_rule": null,
+                      "use_classification": 2,
+                      "social_criteria": null
+                    },
+                    "event_title": "翔太",
+                    "use_classification": 2
+                  },
+                  "customer_id": 6,
+                  "display_transfer_id": 102,
+                  "display_transfer": {
+                    "id": 102,
+                    "position": null,
+                    "company": {
+                      "id": 81,
+                      "code": "C103",
+                      "long_name": "岡山情報ビジネス学院",
+                      "previous_name": "OIC",
+                      "previous_name_flg": 2,
+                      "use_classification": 2
+                    },
+                    "site": {
+                      "id": 134,
+                      "company_id": 81,
+                      "code": null,
+                      "long_name": "OIC 岡山",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "phone": "08056163044",
+                      "post_code": "709-0826",
+                      "address_1": "岡山県",
+                      "address_2": "赤磐市",
+                      "address_3": "和田",
+                      "use_classification": 2
+                    },
+                    "department": {
+                      "id": 140,
+                      "site_id": 134,
+                      "code": "SOCIAL_TRANSFER",
+                      "long_name": "TRANSFER CUSTOMER NAME",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "use_classification": 2
+                    },
+                    "division": {
+                      "id": 243,
+                      "department_id": 140,
+                      "code": "DI SOCIAL",
+                      "long_name": "Phòng Nhân Sự SOCIAL",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "use_classification": 2
+                    }
+                  },
+                  "product_id": 1,
+                  "product": {
+                    "id": 1,
+                    "name": "桃岡山",
+                    "code": null,
+                    "product_classification": 1,
+                    "supplier_id": 7,
+                    "supplier": {
+                      "id": 7,
+                      "sales_store_id": 141,
+                      "use_classification": 2
+                    },
+                    "site": {
+                      "id": 141,
+                      "company_id": 85,
+                      "code": "S301",
+                      "long_name": "北区支店",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "phone": "321536522563",
+                      "post_code": "700-0865",
+                      "address_1": "岡山県",
+                      "address_2": "岡山市北区",
+                      "address_3": "旭本町385－1",
+                      "use_classification": 2
+                    },
+                    "company": {
+                      "id": 85,
+                      "code": "C300",
+                      "long_name": "岡山大学院",
+                      "previous_name": "大学院",
+                      "previous_name_flg": 2,
+                      "use_classification": 2
+                    },
+                    "use_classification": 2
+                  },
+                  "tax_3": null,
+                  "total_amount": 12000,
+                  "receipt": 2
+                },
+                {
+                  "id": 1,
+                  "social_event_id": 1,
+                  "execution_at": null,
+                  "social_event": {
+                    "id": 1,
+                    "event_id": 2,
+                    "event_classification": {
+                      "id": 2,
+                      "name": "中元",
+                      "description": null,
+                      "operation_rule": null,
+                      "use_classification": 2,
+                      "social_criteria": null
+                    },
+                    "event_title": "翔太",
+                    "use_classification": 2
+                  },
+                  "customer_id": 6,
+                  "display_transfer_id": 102,
+                  "display_transfer": {
+                    "id": 102,
+                    "position": null,
+                    "company": {
+                      "id": 81,
+                      "code": "C103",
+                      "long_name": "岡山情報ビジネス学院",
+                      "previous_name": "OIC",
+                      "previous_name_flg": 2,
+                      "use_classification": 2
+                    },
+                    "site": {
+                      "id": 134,
+                      "company_id": 81,
+                      "code": null,
+                      "long_name": "OIC 岡山",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "phone": "08056163044",
+                      "post_code": "709-0826",
+                      "address_1": "岡山県",
+                      "address_2": "赤磐市",
+                      "address_3": "和田",
+                      "use_classification": 2
+                    },
+                    "department": {
+                      "id": 140,
+                      "site_id": 134,
+                      "code": "SOCIAL_TRANSFER",
+                      "long_name": "TRANSFER CUSTOMER NAME",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "use_classification": 2
+                    },
+                    "division": {
+                      "id": 243,
+                      "department_id": 140,
+                      "code": "DI SOCIAL",
+                      "long_name": "Phòng Nhân Sự SOCIAL",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "use_classification": 2
+                    }
+                  },
+                  "product_id": 1,
+                  "product": {
+                    "id": 1,
+                    "name": "桃岡山",
+                    "code": null,
+                    "product_classification": 1,
+                    "supplier_id": 7,
+                    "supplier": {
+                      "id": 7,
+                      "sales_store_id": 141,
+                      "use_classification": 2
+                    },
+                    "site": {
+                      "id": 141,
+                      "company_id": 85,
+                      "code": "S301",
+                      "long_name": "北区支店",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "phone": "321536522563",
+                      "post_code": "700-0865",
+                      "address_1": "岡山県",
+                      "address_2": "岡山市北区",
+                      "address_3": "旭本町385－1",
+                      "use_classification": 2
+                    },
+                    "company": {
+                      "id": 85,
+                      "code": "C300",
+                      "long_name": "岡山大学院",
+                      "previous_name": "大学院",
+                      "previous_name_flg": 2,
+                      "use_classification": 2
+                    },
+                    "use_classification": 2
+                  },
+                  "tax_3": null,
+                  "total_amount": 12000,
+                  "receipt": 2
+                }
+              ],
+              "created_info": {
+                "date": "2024/10/08 16:31:05",
+                "name": "Lê Thụy　Ngọc Hạnh"
+              },
+              "updated_info": {
+                "date": "2024/10/17 16:50:01",
+                "name": "Danh　Nguyen"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    404:
+      description: Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\Customer] 4"
+          }
+delete:
+  tags:
+    - Customers
+  summary: Delete customer.
+  description: Delete a customer
+  parameters:
+    - name: customer
+      description: customer ID
+      in: path
+      required: true
+      type: integer
+  responses:
+    204:
+      description: Success
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\Customer] 4"
+          }
+put:
+  tags:
+    - Customers
+  summary: Edit customer.
+  description: Edit customer.
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - in: path
+      name: customer
+      type: integer
+      required: true
+      description: Numeric ID of the customer.
+    - name: display_transfer_id
+      description: Display transfer id
+      in: formData
+      required: true
+      type: integer
+    - name: responsible_id
+      description: Responsible id
+      in: formData
+      required: true
+      type: integer
+    - name: category_name
+      description: Category name
+      in: formData
+      required: true
+      type: string
+    - name: processing_site
+      description: Processing site
+        * `1` - OKAYAMA
+        * `2` - MIZUSHIMA
+      in: formData
+      required: true
+      enum: [ 1, 2 ]
+      type: integer
+    - name: accounting_company
+      description: Accounting company
+        * `1` - SHINNICHIRO
+        * `2` - ROSHIN_KOGYO
+        * `3` - DAYU_TRANSPORT
+      in: formData
+      required: true
+      enum: [ 1, 2, 3 ]
+      type: integer
+    - name: accounting_department_id
+      description: Accounting department id
+      in: formData
+      required: true
+      type: integer
+    - name: address_classification
+      description: Address classification
+        * `1` - HOME
+        * `2` - COMPANY
+        * `3` - DESIGNATION
+        * `4` - HAND_DELIVERY
+      in: formData
+      required: true
+      enum: [ 1, 2, 3, 4 ]
+      type: integer
+    - name: address_printing_1
+      description: Address printing 1
+        * `1` - true
+        * `2` - false
+      in: formData
+      required: false
+      type: boolean
+      default: 1
+    - name: address_printing_2
+      description: Address printing 2
+        * `1` - true
+        * `2` - false
+      in: formData
+      required: false
+      type: boolean
+      default: 1
+    - name: address_printing_3
+      description: Address printing 3
+        * `1` - true
+        * `2` - false
+      in: formData
+      required: false
+      type: boolean
+      default: 1
+    - name: address_printing_4
+      description: Address printing 4
+        * `1` - true
+        * `2` - false
+      in: formData
+      required: false
+      type: boolean
+      default: 1
+    - name: address_printing_5
+      description: Address printing 5
+        * `1` - true
+        * `2` - false
+      in: formData
+      required: false
+      type: boolean
+      default: 1
+    - name: address_printing_6
+      description: Address printing 6
+        * `1` - true
+        * `2` - false
+      in: formData
+      required: false
+      type: boolean
+      default: 1
+    - name: address_printing_7
+      description: Address printing 7
+        * `1` - true
+        * `2` - false
+      in: formData
+      required: false
+      type: boolean
+      default: 1
+    - name: specified_post_code
+      description: Specified post code
+      in: formData
+      required: false
+      type: string
+    - name: specified_phone
+      description: Specified phone
+      in: formData
+      required: false
+      type: string
+    - name: specified_address_1
+      description: Specified address 1
+      in: formData
+      required: false
+      type: string
+    - name: specified_address_2
+      description: Specified address 2
+      in: formData
+      required: false
+      type: string
+    - name: specified_address_3
+      description: Specified address 3
+      in: formData
+      required: false
+      type: string
+    - name: update_order
+      description: Update_order
+      in: formData
+      required: false
+      type: string
+    - name: memo
+      description: Memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: Display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Usage classification
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      default: 2
+      required: true
+      enum: [ 1, 2 ]
+      type: integer
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 2,
+              "employee": {
+                "id": 69,
+                "code": null,
+                "last_name": "Hoang",
+                "first_name": "Ham",
+                "maiden_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 2
+              },
+              "display_transfer_id": 33,
+              "display_transfer": {
+                "id": 33,
+                "start_date": "2024/09/02",
+                "end_date": null,
+                "position": null,
+                "major_history_flg": 2,
+                "updated_at": "2024/08/27",
+                "company": {
+                  "id": 69,
+                  "code": null,
+                  "long_name": "NTP",
+                  "previous_name": "huế",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "site": {
+                  "id": 120,
+                  "company_id": 69,
+                  "code": null,
+                  "long_name": "拠点名拠点名",
+                  "previous_name": null,
+                  "previous_name_flg": 1,
+                  "post_code": null,
+                  "address_1": null,
+                  "address_2": null,
+                  "address_3": null,
+                  "use_classification": 2
+                },
+                "department": {
+                  "id": 122,
+                  "site_id": 120,
+                  "code": null,
+                  "long_name": "Department4",
+                  "previous_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "division": null
+              },
+              "responsible_id": 91,
+              "responsible_employee": {
+                "id": 91,
+                "code": null,
+                "last_name": "employee",
+                "first_name": "name",
+                "maiden_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 2
+              },
+              "processing_site": "1",
+              "accounting_company": "1",
+              "accounting_department_id": 108,
+              "accounting_department": {
+                "id": 108,
+                "site_id": 109,
+                "code": null,
+                "long_name": "Q308 NAME 1",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 1
+              },
+              "category_name": "1",
+              "address_printing_1": true,
+              "address_printing_2": true,
+              "address_printing_3": true,
+              "address_printing_4": true,
+              "address_printing_5": true,
+              "address_printing_6": true,
+              "address_printing_7": true,
+              "specified_post_code": "1",
+              "specified_address_1": "2",
+              "specified_address_2": "3",
+              "specified_address_3": "4",
+              "specified_phone": "078654",
+              "address_classification": "1",
+              "shipping_info": {
+                "post_code": null,
+                "address_1": null,
+                "address_2": null,
+                "address_3": null,
+                "phone": null
+              },
+              "update_order": "hhdhgjsdg",
+              "memo": null,
+              "display_order": 1,
+              "use_classification": 2,
+              "created_info": {
+                "date": "2024/09/27 16:11:09",
+                "name": "吉田　直人"
+              },
+              "updated_info": {
+                "date": "2024/10/02 11:56:45",
+                "name": "吉田　直人"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "processing_site",
+                "message": [
+                  "経費処理拠点区分は必須項目です。"
+                ]
+              }
+            ]
+          }

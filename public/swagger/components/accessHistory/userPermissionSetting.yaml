@@ -1,0 +1,130 @@
+get:
+  tags:
+    - Access History
+  summary: List Access History of User Permission Setting
+  description: Get the n last records of access histories by system_id
+  parameters:
+    - in: query
+      name: filter[system_id]
+      type: integer
+      required: true
+      description: >
+        Filter by system_id, example: 1
+    - in: query
+      name: records
+      type: integer
+      default: 3
+      description: >
+        Number of records, example: 5
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "is_accessible": true,
+              "records": [
+                {
+                  "id": 28484,
+                  "employee": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 1,
+                  "accessible_type": "snet_access_permissions",
+                  "accessible_id": 835,
+                  "message": "Ha　Ngan",
+                  "access_at": "2025-02-17 16:21:06"
+                },
+                {
+                  "id": 28479,
+                  "employee": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 1,
+                  "accessible_type": "snet_access_permissions",
+                  "accessible_id": 835,
+                  "message": "Ha　Ngan",
+                  "access_at": "2025-02-17 16:17:24"
+                },
+                {
+                  "id": 28480,
+                  "employee": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 1,
+                  "accessible_type": "snet_access_permissions",
+                  "accessible_id": 865,
+                  "message": "Ha　Ngan",
+                  "access_at": "2025-02-17 16:17:24"
+                },
+                {
+                  "id": 28481,
+                  "employee": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 1,
+                  "accessible_type": "snet_access_permissions",
+                  "accessible_id": 885,
+                  "message": "Ha　Ngan",
+                  "access_at": "2025-02-17 16:17:24"
+                },
+                {
+                  "id": 28482,
+                  "employee": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 1,
+                  "accessible_type": "snet_access_permissions",
+                  "accessible_id": 860,
+                  "message": "Ha　Ngan",
+                  "access_at": "2025-02-17 16:17:24"
+                }
+              ]
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

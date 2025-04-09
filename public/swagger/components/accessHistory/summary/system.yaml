@@ -1,0 +1,274 @@
+get:
+  tags:
+    - Access History Summary
+  summary: Summary for Access history for each system
+  description: Count the total number of access histories each month for each system.
+  parameters:
+    - in: query
+      name: filter[year]
+      required: true
+      type: string
+      description: Filter by year in list dropdown year.
+    - in: query
+      name: filter[result_classification]
+      required: true
+      type: string
+      enum: [ 'OK', 'ERROR' ]
+      description: >
+        Choose classification:
+          * `OK` - OK
+          * `ERROR` - all errors
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "collection": [
+                {
+                  "system": {
+                    "id": 1,
+                    "code": "MAIN",
+                    "name": "S-NET",
+                    "operation_classification": 2,
+                    "use_classification": 2,
+                    "number_of_users": 42,
+                    "start_date": "2025/03/13",
+                    "end_date": null
+                  },
+                  "summary": {
+                    "jan": 2879,
+                    "feb": 3129,
+                    "mar": 959,
+                    "apr": 0,
+                    "may": 0,
+                    "jun": 0,
+                    "jul": 0,
+                    "aug": 0,
+                    "sep": 0,
+                    "oct": 0,
+                    "nov": 0,
+                    "dec": 0,
+                    "year": 3583,
+                    "last_year": 6967,
+                    "two_year_ago": 0
+                  }
+                },
+                {
+                  "system": {
+                    "id": 2,
+                    "code": "ORGANIZATION",
+                    "name": "組織管理システム",
+                    "operation_classification": 1,
+                    "use_classification": 1,
+                    "number_of_users": 38,
+                    "start_date": "2024/07/28",
+                    "end_date": null
+                  },
+                  "summary": {
+                    "jan": 795,
+                    "feb": 1336,
+                    "mar": 260,
+                    "apr": 0,
+                    "may": 0,
+                    "jun": 0,
+                    "jul": 0,
+                    "aug": 0,
+                    "sep": 0,
+                    "oct": 0,
+                    "nov": 0,
+                    "dec": 0,
+                    "year": 2895,
+                    "last_year": 2391,
+                    "two_year_ago": 0
+                  }
+                },
+                {
+                  "system": {
+                    "id": 3,
+                    "code": "NEGOTIATION",
+                    "name": "商談管理システム",
+                    "operation_classification": 2,
+                    "use_classification": 2,
+                    "number_of_users": 33,
+                    "start_date": "2024/12/24",
+                    "end_date": null
+                  },
+                  "summary": {
+                    "jan": 487,
+                    "feb": 510,
+                    "mar": 85,
+                    "apr": 0,
+                    "may": 0,
+                    "jun": 0,
+                    "jul": 0,
+                    "aug": 0,
+                    "sep": 0,
+                    "oct": 0,
+                    "nov": 0,
+                    "dec": 0,
+                    "year": 5716,
+                    "last_year": 1082,
+                    "two_year_ago": 0
+                  }
+                },
+                {
+                  "system": {
+                    "id": 4,
+                    "code": "S-NET",
+                    "name": "S-NET管理システム",
+                    "operation_classification": 2,
+                    "use_classification": 2,
+                    "number_of_users": 32,
+                    "start_date": "2024/08/27",
+                    "end_date": null
+                  },
+                  "summary": {
+                    "jan": 2755,
+                    "feb": 2616,
+                    "mar": 731,
+                    "apr": 0,
+                    "may": 0,
+                    "jun": 0,
+                    "jul": 0,
+                    "aug": 0,
+                    "sep": 0,
+                    "oct": 0,
+                    "nov": 0,
+                    "dec": 0,
+                    "year": 9090,
+                    "last_year": 6102,
+                    "two_year_ago": 0
+                  }
+                },
+                {
+                  "system": {
+                    "id": 21,
+                    "code": "SOCIAL",
+                    "name": "交際管理システム",
+                    "operation_classification": 2,
+                    "use_classification": 2,
+                    "number_of_users": 32,
+                    "start_date": "2024/09/17",
+                    "end_date": null
+                  },
+                  "summary": {
+                    "jan": 519,
+                    "feb": 548,
+                    "mar": 166,
+                    "apr": 0,
+                    "may": 0,
+                    "jun": 0,
+                    "jul": 0,
+                    "aug": 0,
+                    "sep": 0,
+                    "oct": 0,
+                    "nov": 0,
+                    "dec": 0,
+                    "year": 3914,
+                    "last_year": 1233,
+                    "two_year_ago": 0
+                  }
+                },
+                {
+                  "system": {
+                    "id": 38,
+                    "code": "SCHEDULE",
+                    "name": "予定管理システム",
+                    "operation_classification": 2,
+                    "use_classification": 2,
+                    "number_of_users": 15,
+                    "start_date": "2025/01/10",
+                    "end_date": null
+                  },
+                  "summary": {
+                    "jan": 1010,
+                    "feb": 181,
+                    "mar": 62,
+                    "apr": 0,
+                    "may": 0,
+                    "jun": 0,
+                    "jul": 0,
+                    "aug": 0,
+                    "sep": 0,
+                    "oct": 0,
+                    "nov": 0,
+                    "dec": 0,
+                    "year": 7,
+                    "last_year": 1253,
+                    "two_year_ago": 0
+                  }
+                },
+                {
+                  "system": {
+                    "id": 39,
+                    "code": "FACILITY",
+                    "name": "設備予約システム",
+                    "operation_classification": 2,
+                    "use_classification": 2,
+                    "number_of_users": 13,
+                    "start_date": "2025/01/23",
+                    "end_date": null
+                  },
+                  "summary": {
+                    "jan": 1754,
+                    "feb": 1282,
+                    "mar": 229,
+                    "apr": 0,
+                    "may": 0,
+                    "jun": 0,
+                    "jul": 0,
+                    "aug": 0,
+                    "sep": 0,
+                    "oct": 0,
+                    "nov": 0,
+                    "dec": 0,
+                    "year": 3265,
+                    "last_year": 0,
+                    "two_year_ago": 0
+                  }
+                },
+                {
+                  "system": null,
+                  "summary": {
+                    "jan": 10199,
+                    "feb": 9602,
+                    "mar": 2492,
+                    "apr": 0,
+                    "may": 0,
+                    "jun": 0,
+                    "jul": 0,
+                    "aug": 0,
+                    "sep": 0,
+                    "oct": 0,
+                    "nov": 0,
+                    "dec": 0,
+                    "year": 25205,
+                    "last_year": 22293,
+                    "two_year_ago": 0
+                  }
+                }
+              ]
+            },
+            "message": "OK",
+            "errors": null
+          }
+  401:
+    description: Unauthorized
+    schema:
+      type: object
+      example:
+        {
+          "code": 401,
+          "data": null,
+          "message": "アクセスが拒否されました",
+          "errors": null
+        }

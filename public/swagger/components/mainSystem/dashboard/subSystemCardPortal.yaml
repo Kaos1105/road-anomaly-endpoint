@@ -1,0 +1,181 @@
+get:
+  tags:
+    - Portal
+  summary: Subsystem card in 10Portal
+  parameters:
+    - in: query
+      name: filter[system_id]
+      type: int
+      required: true
+      description: System id to get
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "is_accessible": true,
+              "is_operation_system": true,
+              "message": null,
+              "access_histories": [
+                {
+                  "id": 28484,
+                  "employee": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 1,
+                  "accessible_type": "snet_access_permissions",
+                  "accessible_id": 835,
+                  "action": "EDIT",
+                  "message": "Ha　Ngan",
+                  "access_at": "2025-02-17 16:21:06"
+                },
+                {
+                  "id": 28482,
+                  "employee": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 1,
+                  "accessible_type": "snet_access_permissions",
+                  "accessible_id": 860,
+                  "action": "EDIT",
+                  "message": "Ha　Ngan",
+                  "access_at": "2025-02-17 16:17:24"
+                },
+                {
+                  "id": 28481,
+                  "employee": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 1,
+                  "accessible_type": "snet_access_permissions",
+                  "accessible_id": 885,
+                  "action": "EDIT",
+                  "message": "Ha　Ngan",
+                  "access_at": "2025-02-17 16:17:24"
+                },
+                {
+                  "id": 28480,
+                  "employee": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 1,
+                  "accessible_type": "snet_access_permissions",
+                  "accessible_id": 865,
+                  "action": "EDIT",
+                  "message": "Ha　Ngan",
+                  "access_at": "2025-02-17 16:17:24"
+                },
+                {
+                  "id": 28479,
+                  "employee": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 1,
+                  "accessible_type": "snet_access_permissions",
+                  "accessible_id": 835,
+                  "action": "EDIT",
+                  "message": "Ha　Ngan",
+                  "access_at": "2025-02-17 16:17:24"
+                }
+              ],
+              "announcements": [
+                {
+                  "id": 30,
+                  "announcement_classification": 2,
+                  "title": "animation",
+                  "start_time": "2025/02/17 00:00:00",
+                  "end_time": null
+                },
+                {
+                  "id": 1,
+                  "announcement_classification": 1,
+                  "title": "設定",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null
+                },
+                {
+                  "id": 2,
+                  "announcement_classification": 1,
+                  "title": "グループ登録",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null
+                },
+                {
+                  "id": 3,
+                  "announcement_classification": 1,
+                  "title": "ハザードマップ情報",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null
+                },
+                {
+                  "id": 4,
+                  "announcement_classification": 1,
+                  "title": "ハザードマップ追加",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null
+                },
+                {
+                  "id": 5,
+                  "announcement_classification": 1,
+                  "title": "ダッシュボード",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null
+                },
+                {
+                  "id": 6,
+                  "announcement_classification": 1,
+                  "title": "会社一覧",
+                  "start_time": "2025/02/09 00:00:00",
+                  "end_time": null
+                }
+              ]
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+

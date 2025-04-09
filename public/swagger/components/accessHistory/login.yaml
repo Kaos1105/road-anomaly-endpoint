@@ -1,0 +1,202 @@
+get:
+  tags:
+    - Access History
+  summary: Login Access History
+  description: Get the n last records of access histories by action of the organization system
+  parameters:
+    - in: query
+      name: filter[action]
+      type: string
+      required: true
+      description: >
+        Filter by action, example: CREATE,EDIT
+    - in: query
+      name: filter[system_id]
+      type: integer
+      description: >
+        Filter by system_id, example: 18
+    - in: query
+      name: records
+      type: integer
+      default: 3
+      description: >
+        Number of records, example: 3
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 7950,
+                "employee": {
+                  "id": 59,
+                  "code": "EMPLOYEE CODE",
+                  "last_name": "Danh",
+                  "first_name": "Nguyen",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "login": {
+                  "id": 53,
+                  "employee": {
+                    "id": 88,
+                    "code": "EMPLOYEE TEST 5",
+                    "last_name": "来週",
+                    "first_name": "勉強",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "employee_id": 88
+                },
+                "system_id": 4,
+                "accessible_type": "snet_logins",
+                "accessible_id": 53,
+                "action": "CREATE",
+                "message": "来週　勉強",
+                "access_at": "2024-09-13 15:41:56"
+              },
+              {
+                "id": 7801,
+                "employee": {
+                  "id": 31,
+                  "code": "5281127",
+                  "last_name": "Ha",
+                  "first_name": "Ngan",
+                  "maiden_name": "Bờm Bờm",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "login": {
+                  "id": 52,
+                  "employee": {
+                    "id": 85,
+                    "code": null,
+                    "last_name": "田中",
+                    "first_name": "太郎",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "employee_id": 85
+                },
+                "system_id": 4,
+                "accessible_type": "snet_logins",
+                "accessible_id": 52,
+                "action": "CREATE",
+                "message": "田中　太郎",
+                "access_at": "2024-09-12 16:49:18"
+              },
+              {
+                "id": 7789,
+                "employee": {
+                  "id": 31,
+                  "code": "5281127",
+                  "last_name": "Ha",
+                  "first_name": "Ngan",
+                  "maiden_name": "Bờm Bờm",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "login": {
+                  "id": 51,
+                  "employee": {
+                    "id": 76,
+                    "code": null,
+                    "last_name": "Nhi",
+                    "first_name": "thi",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "employee_id": 76
+                },
+                "system_id": 4,
+                "accessible_type": "snet_logins",
+                "accessible_id": 51,
+                "action": "CREATE",
+                "message": "Nhi　thi",
+                "access_at": "2024-09-12 16:42:15"
+              },
+              {
+                "id": 5991,
+                "employee": {
+                  "id": 31,
+                  "code": "5281127",
+                  "last_name": "Ha",
+                  "first_name": "Ngan",
+                  "maiden_name": "Bờm Bờm",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "login": {
+                  "id": 50,
+                  "employee": {
+                    "id": 79,
+                    "code": null,
+                    "last_name": "Thuy",
+                    "first_name": "Phuoc",
+                    "maiden_name": "Thu Thuy",
+                    "previous_name_flg": 2,
+                    "use_classification": 1
+                  },
+                  "employee_id": 79
+                },
+                "system_id": 4,
+                "accessible_type": "snet_logins",
+                "accessible_id": 50,
+                "action": "CREATE",
+                "message": "Thuy　Phuoc",
+                "access_at": "2024-08-29 08:55:44"
+              },
+              {
+                "id": 5354,
+                "employee": {
+                  "id": 74,
+                  "code": null,
+                  "last_name": "Le",
+                  "first_name": "Hanh",
+                  "maiden_name": "Le",
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "login": {
+                  "id": 49,
+                  "employee": {
+                    "id": 75,
+                    "code": null,
+                    "last_name": "姓",
+                    "first_name": "名",
+                    "maiden_name": "旧姓",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "employee_id": 75
+                },
+                "system_id": 4,
+                "accessible_type": "snet_logins",
+                "accessible_id": 49,
+                "action": "CREATE",
+                "message": "姓　名",
+                "access_at": "2024-08-28 13:17:21"
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

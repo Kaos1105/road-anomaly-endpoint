@@ -1,0 +1,379 @@
+get:
+  tags:
+    - Access History
+  summary: List access history
+  description: List access history, pagination with 1000 records per page
+  parameters:
+    - in: query
+      name: filter[action]
+      type: string
+      description: >
+        Filter by action in code master:
+         *  LOGIN
+         *  LOGOUT
+         *  START
+         *  LIST
+         *  VIEW
+         *  CREATE
+         *  EDIT
+         *  DELETE
+         *  DOWNLOAD
+         *  UPLOAD
+         *  PRINT
+         *  INSERT_PRINT
+         *  ERROR
+         *  SEARCH
+         *  HELP
+         *  USER_VIEW_QUESTION
+         *  CHAT_LIST
+         *  ADMIN_VIEW_CHAT
+         *  USER_VIEW_CHAT
+         *  ADMIN_CHAT
+         *  USER_CHAT
+    - in: query
+      name: filter[system_id]
+      type: integer
+      description: >
+        Filter by system_id, example: 1
+    - in: query
+      name: filter[employee_id]
+      type: integer
+      description: >
+        Filter by employee_id, example: 18
+    - in: query
+      name: filter[result_classification]
+      required: true
+      type: string
+      enum: [ 'OK', 'DB', 'TABLE', 'INPUT', 'FILE', 'DOWNLOAD', 'UPLOAD', 'SYSTEM', 'OTHER' ]
+    - in: query
+      name: sort
+      schema:
+        type: string
+      description: >
+        Sort order:
+         * `-sortKey` - Ascending, from A to Z
+         * `sortKey` - Descending, from Z to A
+         * List sortKey: id, access_at, user_order, system_order, action, data, message, result_classification
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "collection": [
+                {
+                  "id": 17635,
+                  "employee": {
+                    "id": 103,
+                    "code": "E404",
+                    "last_name": "Nguyễn Hoàng",
+                    "first_name": "Nhật Thảo",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "accessible": false,
+                  "system_id": 1,
+                  "system": {
+                    "id": 1,
+                    "code": "10000",
+                    "name": "マインシステム",
+                    "operation_classification": null,
+                    "start_date": "2024/05/15",
+                    "end_date": "2026/02/07",
+                    "use_classification": 2,
+                    "display_order": 1
+                  },
+                  "accessible_type": null,
+                  "accessible_id": null,
+                  "action": "START",
+                  "message": null,
+                  "access_at": "2024-11-08 16:33:19"
+                },
+                {
+                  "id": 17631,
+                  "employee": {
+                    "id": 103,
+                    "code": "E404",
+                    "last_name": "Nguyễn Hoàng",
+                    "first_name": "Nhật Thảo",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "accessible": false,
+                  "system_id": 1,
+                  "system": {
+                    "id": 1,
+                    "code": "10000",
+                    "name": "マインシステム",
+                    "operation_classification": null,
+                    "start_date": "2024/05/15",
+                    "end_date": "2026/02/07",
+                    "use_classification": 2,
+                    "display_order": 1
+                  },
+                  "accessible_type": null,
+                  "accessible_id": null,
+                  "action": "START",
+                  "message": null,
+                  "access_at": "2024-11-08 15:59:44"
+                },
+                {
+                  "id": 17610,
+                  "employee": {
+                    "id": 103,
+                    "code": "E404",
+                    "last_name": "Nguyễn Hoàng",
+                    "first_name": "Nhật Thảo",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "accessible": false,
+                  "system_id": 1,
+                  "system": {
+                    "id": 1,
+                    "code": "10000",
+                    "name": "マインシステム",
+                    "operation_classification": null,
+                    "start_date": "2024/05/15",
+                    "end_date": "2026/02/07",
+                    "use_classification": 2,
+                    "display_order": 1
+                  },
+                  "accessible_type": null,
+                  "accessible_id": null,
+                  "action": "START",
+                  "message": null,
+                  "access_at": "2024-11-08 13:44:45"
+                },
+                {
+                  "id": 17543,
+                  "employee": {
+                    "id": 103,
+                    "code": "E404",
+                    "last_name": "Nguyễn Hoàng",
+                    "first_name": "Nhật Thảo",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "accessible": false,
+                  "system_id": 1,
+                  "system": {
+                    "id": 1,
+                    "code": "10000",
+                    "name": "マインシステム",
+                    "operation_classification": null,
+                    "start_date": "2024/05/15",
+                    "end_date": "2026/02/07",
+                    "use_classification": 2,
+                    "display_order": 1
+                  },
+                  "accessible_type": null,
+                  "accessible_id": null,
+                  "action": "START",
+                  "message": null,
+                  "access_at": "2024-11-08 12:41:21"
+                },
+                {
+                  "id": 17534,
+                  "employee": {
+                    "id": 103,
+                    "code": "E404",
+                    "last_name": "Nguyễn Hoàng",
+                    "first_name": "Nhật Thảo",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "accessible": false,
+                  "system_id": 1,
+                  "system": {
+                    "id": 1,
+                    "code": "10000",
+                    "name": "マインシステム",
+                    "operation_classification": null,
+                    "start_date": "2024/05/15",
+                    "end_date": "2026/02/07",
+                    "use_classification": 2,
+                    "display_order": 1
+                  },
+                  "accessible_type": null,
+                  "accessible_id": null,
+                  "action": "START",
+                  "message": null,
+                  "access_at": "2024-11-08 12:40:12"
+                },
+                {
+                  "id": 17488,
+                  "employee": {
+                    "id": 103,
+                    "code": "E404",
+                    "last_name": "Nguyễn Hoàng",
+                    "first_name": "Nhật Thảo",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "accessible": false,
+                  "system_id": 1,
+                  "system": {
+                    "id": 1,
+                    "code": "10000",
+                    "name": "マインシステム",
+                    "operation_classification": null,
+                    "start_date": "2024/05/15",
+                    "end_date": "2026/02/07",
+                    "use_classification": 2,
+                    "display_order": 1
+                  },
+                  "accessible_type": null,
+                  "accessible_id": null,
+                  "action": "START",
+                  "message": null,
+                  "access_at": "2024-11-08 11:56:06"
+                },
+                {
+                  "id": 17487,
+                  "employee": {
+                    "id": 103,
+                    "code": "E404",
+                    "last_name": "Nguyễn Hoàng",
+                    "first_name": "Nhật Thảo",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "accessible": false,
+                  "system_id": 1,
+                  "system": {
+                    "id": 1,
+                    "code": "10000",
+                    "name": "マインシステム",
+                    "operation_classification": null,
+                    "start_date": "2024/05/15",
+                    "end_date": "2026/02/07",
+                    "use_classification": 2,
+                    "display_order": 1
+                  },
+                  "accessible_type": null,
+                  "accessible_id": null,
+                  "action": "LOGIN",
+                  "message": null,
+                  "access_at": "2024-11-08 11:56:06"
+                },
+                {
+                  "id": 17473,
+                  "employee": {
+                    "id": 103,
+                    "code": "E404",
+                    "last_name": "Nguyễn Hoàng",
+                    "first_name": "Nhật Thảo",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "accessible": false,
+                  "system_id": 1,
+                  "system": {
+                    "id": 1,
+                    "code": "10000",
+                    "name": "マインシステム",
+                    "operation_classification": null,
+                    "start_date": "2024/05/15",
+                    "end_date": "2026/02/07",
+                    "use_classification": 2,
+                    "display_order": 1
+                  },
+                  "accessible_type": null,
+                  "accessible_id": null,
+                  "action": "START",
+                  "message": null,
+                  "access_at": "2024-11-07 18:59:01"
+                },
+                {
+                  "id": 17472,
+                  "employee": {
+                    "id": 103,
+                    "code": "E404",
+                    "last_name": "Nguyễn Hoàng",
+                    "first_name": "Nhật Thảo",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "accessible": false,
+                  "system_id": 1,
+                  "system": {
+                    "id": 1,
+                    "code": "10000",
+                    "name": "マインシステム",
+                    "operation_classification": null,
+                    "start_date": "2024/05/15",
+                    "end_date": "2026/02/07",
+                    "use_classification": 2,
+                    "display_order": 1
+                  },
+                  "accessible_type": null,
+                  "accessible_id": null,
+                  "action": "LOGIN",
+                  "message": null,
+                  "access_at": "2024-11-07 18:59:00"
+                },
+                {
+                  "id": 17369,
+                  "employee": {
+                    "id": 103,
+                    "code": "E404",
+                    "last_name": "Nguyễn Hoàng",
+                    "first_name": "Nhật Thảo",
+                    "maiden_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "accessible": false,
+                  "system_id": 1,
+                  "system": {
+                    "id": 1,
+                    "code": "10000",
+                    "name": "マインシステム",
+                    "operation_classification": null,
+                    "start_date": "2024/05/15",
+                    "end_date": "2026/02/07",
+                    "use_classification": 2,
+                    "display_order": 1
+                  },
+                  "accessible_type": null,
+                  "accessible_id": null,
+                  "action": "START",
+                  "message": null,
+                  "access_at": "2024-11-07 13:57:25"
+                }
+              ],
+              "pagination": {
+                "total": 17673,
+                "count": 1000,
+                "perPage": 1000,
+                "currentPage": 1,
+                "totalPages": 18
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

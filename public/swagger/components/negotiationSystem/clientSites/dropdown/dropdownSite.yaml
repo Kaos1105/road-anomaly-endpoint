@@ -1,0 +1,67 @@
+get:
+  tags:
+    - Clients
+  summary: List sites.
+  description: Get all site by company
+  parameters:
+    - in: query
+      name: company_id
+      type: integer
+      required: true
+      description: Filter by company_id
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 136,
+                "company_id": 83,
+                "code": "C5001",
+                "long_name": "東京事務所",
+                "short_name": "東京",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "phone": "075-4587-5632",
+                "post_code": "700-0864",
+                "address_1": "岡山県",
+                "address_2": "岡山市北区",
+                "address_3": "旭町",
+                "use_classification": 2,
+                "display_order": 999999
+              },
+              {
+                "id": 137,
+                "company_id": 83,
+                "code": "S1002",
+                "long_name": "名古屋営業所",
+                "short_name": "名古屋",
+                "previous_name": "ADVANCE",
+                "previous_name_flg": 2,
+                "phone": "032518654",
+                "post_code": "700-0856",
+                "address_1": "岡山県",
+                "address_2": "岡山市北区",
+                "address_3": "十日市西町",
+                "use_classification": 2,
+                "display_order": 999999
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }

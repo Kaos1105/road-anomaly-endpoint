@@ -1,0 +1,135 @@
+get:
+  tags:
+    - Access History
+  summary: Client Site
+  description: Get the n last records of access histories by action of the client site of Negotiation system
+  parameters:
+    - in: query
+      name: filter[action]
+      type: string
+      required: true
+      description: >
+        Filter by action, example: CREATE,EDIT,DELETE
+    - in: query
+      name: records
+      type: integer
+      default: 3
+      description: >
+        Number of records, example: 3
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "is_enable_btn": true,
+              "records": [
+                {
+                  "id": 23467,
+                  "employee": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 3,
+                  "accessible_type": "negotiation_client_sites",
+                  "accessible_id": 18,
+                  "action": "EDIT",
+                  "message": "S002 大阪ADVANCE",
+                  "access_at": "2024-12-23 18:10:16"
+                },
+                {
+                  "id": 23465,
+                  "employee": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 3,
+                  "accessible_type": "negotiation_client_sites",
+                  "accessible_id": 18,
+                  "action": "EDIT",
+                  "message": "S002 大阪ADVANCE",
+                  "access_at": "2024-12-23 18:10:12"
+                },
+                {
+                  "id": 23463,
+                  "employee": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 3,
+                  "accessible_type": "negotiation_client_sites",
+                  "accessible_id": 18,
+                  "action": "EDIT",
+                  "message": "S002 大阪ADVANCE",
+                  "access_at": "2024-12-23 18:09:44"
+                },
+                {
+                  "id": 23461,
+                  "employee": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 3,
+                  "accessible_type": "negotiation_client_sites",
+                  "accessible_id": 18,
+                  "action": "EDIT",
+                  "message": "S002 大阪ADVANCE",
+                  "access_at": "2024-12-23 18:09:40"
+                },
+                {
+                  "id": 23187,
+                  "employee": {
+                    "id": 31,
+                    "code": "E001",
+                    "last_name": "Ha",
+                    "first_name": "Ngan",
+                    "maiden_name": "Bờm",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 3,
+                  "accessible_type": "negotiation_client_sites",
+                  "accessible_id": 19,
+                  "action": "EDIT",
+                  "message": "C5001 東京事務所",
+                  "access_at": "2024-12-23 16:54:34"
+                }
+              ]
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

@@ -1,0 +1,151 @@
+get:
+  tags:
+    - Device Information
+  summary: Show all device information of user
+  parameters:
+    - in: query
+      name: filter[use_classification]
+      type: integer
+      enum: [ 1, 2 ]
+      default:
+      description: >
+        Filter by Use classification
+          * `1` - Not use
+          * `2` - Use
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 4,
+                "name": "Postmain4",
+                "device_information": "PostmanRuntime/7.43.0",
+                "use_classification": 2,
+                "updated_at": "2025/03/12 18:31:03"
+              },
+              {
+                "id": 2,
+                "name": "Postmain1",
+                "device_information": "PostmanRuntime/7.43.0",
+                "use_classification": 1,
+                "updated_at": "2025/03/12 17:05:36"
+              },
+              {
+                "id": 5,
+                "name": "Postman5",
+                "device_information": "PostmanRuntime/7.43.0",
+                "use_classification": 2,
+                "updated_at": "2025/03/12 16:36:53"
+              },
+              {
+                "id": 3,
+                "name": "Postman",
+                "device_information": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/600.8.9 (KHTML, like Gecko) Version/8.0.8 Safari/600.8.9",
+                "use_classification": 2,
+                "updated_at": "2025/03/12 15:30:04"
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+
+post:
+  tags:
+    - Device Information
+  summary: Create new device information.
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: name
+      description: Device name
+      in: formData
+      required: true
+      type: string
+    - name: device_token
+      description: device token
+      in: formData
+      type: string
+      required: true
+    - name: use_classification
+      description: Company usage classification.
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      default: 2
+      required: true
+      type: integer
+      enum: [ 1, 2 ]
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 201,
+            "data": {
+              "id": 6,
+              "name": "Postman6",
+              "device_information": "PostmanRuntime/7.43.0",
+              "device_token": "134324324234",
+              "use_classification": 2,
+              "created_info": {
+                "date": "2025/03/12 18:33:59",
+                "name": "Nguyễn Hoàng　Nhật Thảo"
+              },
+              "updated_info": {
+                "date": "2025/03/12 18:33:59",
+                "name": "Nguyễn Hoàng　Nhật Thảo"
+              }
+            },
+            "message": "登録しました。",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "name",
+                "message": [
+                  "この端末名は、すでに存在します。"
+                ]
+              }
+            ]
+          }
+

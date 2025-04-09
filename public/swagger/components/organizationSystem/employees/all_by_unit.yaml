@@ -1,0 +1,589 @@
+get:
+  tags:
+    - Employees
+  summary: All employees.
+  description: Get all employees by unit
+  parameters:
+    - in: query
+      name: filter[company_id]
+      type: string
+      description: >
+        Filter by company_id found in company dropdown list.
+    - in: query
+      name: filter[site_id]
+      type: string
+      description: >
+        Filter by site_id found in site dropdown list.
+    - in: query
+      name: filter[department_id]
+      type: string
+      description: >
+        Filter by department_id found in department dropdown list.
+    - in: query
+      name: filter[division_id]
+      type: string
+      description: >
+        Filter by division_id found in division dropdown list.
+    - in: query
+      name: sort
+      schema:
+        type: string
+      description: >
+        Sort order:
+         * `-sortKey` - Ascending, from A to Z
+         * `sortKey` - Descending, from Z to A
+         * List sortKey: code, represent_flg, position, display_order, favorite, updated_at.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 28,
+                "has_favorite": false,
+                "code": "1229397",
+                "transfer_position": "Bailey-Gulgowski",
+                "last_name": "藤本",
+                "first_name": "充",
+                "maiden_name": null,
+                "previous_name_flg": 1,
+                "transfers": [
+                  {
+                    "id": 179,
+                    "represent_flg": 1,
+                    "contract_classification": 3,
+                    "position": "Bailey-Gulgowski",
+                    "company": {
+                      "id": 10,
+                      "code": "t118",
+                      "long_name": "有限会社 渡辺",
+                      "previous_name": "inventore",
+                      "previous_name_flg": 2
+                    },
+                    "site": {
+                      "id": 9,
+                      "company_id": 10,
+                      "code": "satomi.ishida",
+                      "long_name": "株式会社 井上",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "post_code": null,
+                      "address_1": "佐々木市",
+                      "address_2": "eaque",
+                      "address_3": "et"
+                    },
+                    "department": {
+                      "id": 61,
+                      "site_id": 9,
+                      "code": "nagisa.naoko",
+                      "long_name": "株式会社 鈴木",
+                      "previous_name": "有限会社 小泉",
+                      "previous_name_flg": 2
+                    },
+                    "division": {
+                      "id": 67,
+                      "department_id": 61,
+                      "code": "vyamamoto",
+                      "long_name": "有限会社 佐藤",
+                      "previous_name": "株式会社 伊藤",
+                      "previous_name_flg": 1
+                    }
+                  }
+                ],
+                "use_classification": 2,
+                "display_order": 999999,
+                "updated_at": "2024/08/02"
+              },
+              {
+                "id": 37,
+                "has_favorite": false,
+                "code": "1363435",
+                "transfer_position": "Okuneva, Wyman and O'Connell",
+                "last_name": "藤本",
+                "first_name": "拓真",
+                "maiden_name": null,
+                "previous_name_flg": 1,
+                "transfers": [
+                  {
+                    "id": 162,
+                    "represent_flg": 1,
+                    "contract_classification": 2,
+                    "position": "Turcotte, Doyle and Hyatt",
+                    "company": {
+                      "id": 10,
+                      "code": "t118",
+                      "long_name": "有限会社 渡辺",
+                      "previous_name": "inventore",
+                      "previous_name_flg": 2
+                    },
+                    "site": {
+                      "id": 9,
+                      "company_id": 10,
+                      "code": "satomi.ishida",
+                      "long_name": "株式会社 井上",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "post_code": null,
+                      "address_1": "佐々木市",
+                      "address_2": "eaque",
+                      "address_3": "et"
+                    },
+                    "department": {
+                      "id": 61,
+                      "site_id": 9,
+                      "code": "nagisa.naoko",
+                      "long_name": "株式会社 鈴木",
+                      "previous_name": "有限会社 小泉",
+                      "previous_name_flg": 2
+                    },
+                    "division": {
+                      "id": 94,
+                      "department_id": 61,
+                      "code": "takuma.ishida",
+                      "long_name": "株式会社 加藤",
+                      "previous_name": "有限会社 若松",
+                      "previous_name_flg": 2
+                    }
+                  }
+                ],
+                "use_classification": 2,
+                "display_order": 999999,
+                "updated_at": "2024/08/02"
+              },
+              {
+                "id": 23,
+                "has_favorite": false,
+                "code": "1522991",
+                "transfer_position": "Kemmer, Harvey and Moen",
+                "last_name": "井高",
+                "first_name": "里佳",
+                "maiden_name": null,
+                "previous_name_flg": 1,
+                "transfers": [
+                  {
+                    "id": 13,
+                    "represent_flg": 1,
+                    "contract_classification": 1,
+                    "position": "Hagenes Inc",
+                    "company": {
+                      "id": 10,
+                      "code": "t118",
+                      "long_name": "有限会社 渡辺",
+                      "previous_name": "inventore",
+                      "previous_name_flg": 2
+                    },
+                    "site": {
+                      "id": 9,
+                      "company_id": 10,
+                      "code": "satomi.ishida",
+                      "long_name": "株式会社 井上",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "post_code": null,
+                      "address_1": "佐々木市",
+                      "address_2": "eaque",
+                      "address_3": "et"
+                    },
+                    "department": {
+                      "id": 61,
+                      "site_id": 9,
+                      "code": "nagisa.naoko",
+                      "long_name": "株式会社 鈴木",
+                      "previous_name": "有限会社 小泉",
+                      "previous_name_flg": 2
+                    },
+                    "division": {
+                      "id": 129,
+                      "department_id": 61,
+                      "code": "fsaito",
+                      "long_name": "有限会社 田辺",
+                      "previous_name": "有限会社 山口",
+                      "previous_name_flg": 1
+                    }
+                  },
+                  {
+                    "id": 105,
+                    "represent_flg": 1,
+                    "contract_classification": 1,
+                    "position": "Marvin-Huel",
+                    "company": {
+                      "id": 10,
+                      "code": "t118",
+                      "long_name": "有限会社 渡辺",
+                      "previous_name": "inventore",
+                      "previous_name_flg": 2
+                    },
+                    "site": {
+                      "id": 9,
+                      "company_id": 10,
+                      "code": "satomi.ishida",
+                      "long_name": "株式会社 井上",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "post_code": null,
+                      "address_1": "佐々木市",
+                      "address_2": "eaque",
+                      "address_3": "et"
+                    },
+                    "department": {
+                      "id": 61,
+                      "site_id": 9,
+                      "code": "nagisa.naoko",
+                      "long_name": "株式会社 鈴木",
+                      "previous_name": "有限会社 小泉",
+                      "previous_name_flg": 2
+                    },
+                    "division": {
+                      "id": 129,
+                      "department_id": 61,
+                      "code": "fsaito",
+                      "long_name": "有限会社 田辺",
+                      "previous_name": "有限会社 山口",
+                      "previous_name_flg": 1
+                    }
+                  }
+                ],
+                "use_classification": 2,
+                "display_order": 999999,
+                "updated_at": "2024/08/02"
+              },
+              {
+                "id": 20,
+                "has_favorite": false,
+                "code": "4954537",
+                "transfer_position": "Beatty-Kemmer",
+                "last_name": "吉本",
+                "first_name": "陽子",
+                "maiden_name": null,
+                "previous_name_flg": 1,
+                "transfers": [
+                  {
+                    "id": 17,
+                    "represent_flg": 1,
+                    "contract_classification": 3,
+                    "position": "Lynch-Hessel",
+                    "company": {
+                      "id": 10,
+                      "code": "t118",
+                      "long_name": "有限会社 渡辺",
+                      "previous_name": "inventore",
+                      "previous_name_flg": 2
+                    },
+                    "site": {
+                      "id": 9,
+                      "company_id": 10,
+                      "code": "satomi.ishida",
+                      "long_name": "株式会社 井上",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "post_code": null,
+                      "address_1": "佐々木市",
+                      "address_2": "eaque",
+                      "address_3": "et"
+                    },
+                    "department": {
+                      "id": 61,
+                      "site_id": 9,
+                      "code": "nagisa.naoko",
+                      "long_name": "株式会社 鈴木",
+                      "previous_name": "有限会社 小泉",
+                      "previous_name_flg": 2
+                    },
+                    "division": {
+                      "id": 129,
+                      "department_id": 61,
+                      "code": "fsaito",
+                      "long_name": "有限会社 田辺",
+                      "previous_name": "有限会社 山口",
+                      "previous_name_flg": 1
+                    }
+                  }
+                ],
+                "use_classification": 2,
+                "display_order": 999999,
+                "updated_at": "2024/08/02"
+              },
+              {
+                "id": 34,
+                "has_favorite": false,
+                "code": "5748408",
+                "transfer_position": "Maggio, Gibson and Abbott",
+                "last_name": "山田",
+                "first_name": "翼",
+                "maiden_name": null,
+                "previous_name_flg": 1,
+                "transfers": [
+                  {
+                    "id": 7,
+                    "represent_flg": 1,
+                    "contract_classification": 2,
+                    "position": "Maggio, Gibson and Abbott",
+                    "company": {
+                      "id": 10,
+                      "code": "t118",
+                      "long_name": "有限会社 渡辺",
+                      "previous_name": "inventore",
+                      "previous_name_flg": 2
+                    },
+                    "site": {
+                      "id": 9,
+                      "company_id": 10,
+                      "code": "satomi.ishida",
+                      "long_name": "株式会社 井上",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "post_code": null,
+                      "address_1": "佐々木市",
+                      "address_2": "eaque",
+                      "address_3": "et"
+                    },
+                    "department": {
+                      "id": 61,
+                      "site_id": 9,
+                      "code": "nagisa.naoko",
+                      "long_name": "株式会社 鈴木",
+                      "previous_name": "有限会社 小泉",
+                      "previous_name_flg": 2
+                    },
+                    "division": {
+                      "id": 94,
+                      "department_id": 61,
+                      "code": "takuma.ishida",
+                      "long_name": "株式会社 加藤",
+                      "previous_name": "有限会社 若松",
+                      "previous_name_flg": 2
+                    }
+                  }
+                ],
+                "use_classification": 2,
+                "display_order": 999999,
+                "updated_at": "2024/08/02"
+              },
+              {
+                "id": 39,
+                "has_favorite": false,
+                "code": "5975590",
+                "transfer_position": "Friesen, Wolff and Hermiston",
+                "last_name": "松本",
+                "first_name": "淳",
+                "maiden_name": null,
+                "previous_name_flg": 1,
+                "transfers": [
+                  {
+                    "id": 110,
+                    "represent_flg": 1,
+                    "contract_classification": 2,
+                    "position": "Fritsch Inc",
+                    "company": {
+                      "id": 10,
+                      "code": "t118",
+                      "long_name": "有限会社 渡辺",
+                      "previous_name": "inventore",
+                      "previous_name_flg": 2
+                    },
+                    "site": {
+                      "id": 9,
+                      "company_id": 10,
+                      "code": "satomi.ishida",
+                      "long_name": "株式会社 井上",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "post_code": null,
+                      "address_1": "佐々木市",
+                      "address_2": "eaque",
+                      "address_3": "et"
+                    },
+                    "department": {
+                      "id": 61,
+                      "site_id": 9,
+                      "code": "nagisa.naoko",
+                      "long_name": "株式会社 鈴木",
+                      "previous_name": "有限会社 小泉",
+                      "previous_name_flg": 2
+                    },
+                    "division": {
+                      "id": 67,
+                      "department_id": 61,
+                      "code": "vyamamoto",
+                      "long_name": "有限会社 佐藤",
+                      "previous_name": "株式会社 伊藤",
+                      "previous_name_flg": 1
+                    }
+                  }
+                ],
+                "use_classification": 2,
+                "display_order": 999999,
+                "updated_at": "2024/08/02"
+              },
+              {
+                "id": 6,
+                "has_favorite": false,
+                "code": "8077611",
+                "transfer_position": "Cronin PLC",
+                "last_name": "木村",
+                "first_name": "稔",
+                "maiden_name": null,
+                "previous_name_flg": 1,
+                "transfers": [
+                  {
+                    "id": 127,
+                    "represent_flg": 1,
+                    "contract_classification": 2,
+                    "position": "Cronin PLC",
+                    "company": {
+                      "id": 10,
+                      "code": "t118",
+                      "long_name": "有限会社 渡辺",
+                      "previous_name": "inventore",
+                      "previous_name_flg": 2
+                    },
+                    "site": {
+                      "id": 9,
+                      "company_id": 10,
+                      "code": "satomi.ishida",
+                      "long_name": "株式会社 井上",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "post_code": null,
+                      "address_1": "佐々木市",
+                      "address_2": "eaque",
+                      "address_3": "et"
+                    },
+                    "department": {
+                      "id": 61,
+                      "site_id": 9,
+                      "code": "nagisa.naoko",
+                      "long_name": "株式会社 鈴木",
+                      "previous_name": "有限会社 小泉",
+                      "previous_name_flg": 2
+                    },
+                    "division": {
+                      "id": 129,
+                      "department_id": 61,
+                      "code": "fsaito",
+                      "long_name": "有限会社 田辺",
+                      "previous_name": "有限会社 山口",
+                      "previous_name_flg": 1
+                    }
+                  }
+                ],
+                "use_classification": 2,
+                "display_order": 999999,
+                "updated_at": "2024/08/02"
+              },
+              {
+                "id": 24,
+                "has_favorite": false,
+                "code": "9249619",
+                "transfer_position": "Corkery, Larkin and Schroeder",
+                "last_name": "中島",
+                "first_name": "太一",
+                "maiden_name": null,
+                "previous_name_flg": 1,
+                "transfers": [
+                  {
+                    "id": 147,
+                    "represent_flg": 1,
+                    "contract_classification": 1,
+                    "position": "Corkery, Larkin and Schroeder",
+                    "company": {
+                      "id": 10,
+                      "code": "t118",
+                      "long_name": "有限会社 渡辺",
+                      "previous_name": "inventore",
+                      "previous_name_flg": 2
+                    },
+                    "site": {
+                      "id": 9,
+                      "company_id": 10,
+                      "code": "satomi.ishida",
+                      "long_name": "株式会社 井上",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "post_code": null,
+                      "address_1": "佐々木市",
+                      "address_2": "eaque",
+                      "address_3": "et"
+                    },
+                    "department": {
+                      "id": 61,
+                      "site_id": 9,
+                      "code": "nagisa.naoko",
+                      "long_name": "株式会社 鈴木",
+                      "previous_name": "有限会社 小泉",
+                      "previous_name_flg": 2
+                    },
+                    "division": {
+                      "id": 129,
+                      "department_id": 61,
+                      "code": "fsaito",
+                      "long_name": "有限会社 田辺",
+                      "previous_name": "有限会社 山口",
+                      "previous_name_flg": 1
+                    }
+                  },
+                  {
+                    "id": 37,
+                    "represent_flg": 1,
+                    "contract_classification": 3,
+                    "position": "Harris Inc",
+                    "company": {
+                      "id": 10,
+                      "code": "t118",
+                      "long_name": "有限会社 渡辺",
+                      "previous_name": "inventore",
+                      "previous_name_flg": 2
+                    },
+                    "site": {
+                      "id": 9,
+                      "company_id": 10,
+                      "code": "satomi.ishida",
+                      "long_name": "株式会社 井上",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "post_code": null,
+                      "address_1": "佐々木市",
+                      "address_2": "eaque",
+                      "address_3": "et"
+                    },
+                    "department": {
+                      "id": 61,
+                      "site_id": 9,
+                      "code": "nagisa.naoko",
+                      "long_name": "株式会社 鈴木",
+                      "previous_name": "有限会社 小泉",
+                      "previous_name_flg": 2
+                    },
+                    "division": {
+                      "id": 129,
+                      "department_id": 61,
+                      "code": "fsaito",
+                      "long_name": "有限会社 田辺",
+                      "previous_name": "有限会社 山口",
+                      "previous_name_flg": 1
+                    }
+                  }
+                ],
+                "use_classification": 2,
+                "display_order": 999999,
+                "updated_at": "2024/08/02"
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

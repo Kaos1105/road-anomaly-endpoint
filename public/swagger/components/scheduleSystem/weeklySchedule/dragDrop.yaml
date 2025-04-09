@@ -1,0 +1,329 @@
+post:
+  tags:
+    - Schedule Weekly Setting
+  summary: Drag drop weekly
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: schedule_start
+      type: object
+      properties:
+        id:
+          type: integer
+          required: true
+          description: Numeric ID of the weekly.
+        display_order:
+          type: integer
+          required: true
+          description: Display order of the weekly.
+    - name: schedule_end
+      type: object
+      properties:
+        id:
+          type: integer
+          required: true
+          description: Numeric ID of the weekly.
+        display_order:
+          type: integer
+          required: true
+          description: Display order of the weekly.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 47,
+                "user_id": 103,
+                "user": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "display_employee_id": 119,
+                "display_employee": {
+                  "id": 119,
+                  "code": null,
+                  "last_name": "Xuân",
+                  "first_name": "Lộc",
+                  "maiden_name": "123456",
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "display_weekly_classification": 1,
+                "display_order": 1
+              },
+              {
+                "id": 48,
+                "user_id": 103,
+                "user": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "display_employee_id": 103,
+                "display_employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "display_weekly_classification": 2,
+                "display_order": 2
+              },
+              {
+                "id": 49,
+                "user_id": 103,
+                "user": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "display_employee_id": 103,
+                "display_employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "display_weekly_classification": 3,
+                "display_order": 3
+              },
+              {
+                "id": 50,
+                "user_id": 103,
+                "user": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "display_employee_id": 103,
+                "display_employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "display_weekly_classification": 4,
+                "display_order": 4
+              },
+              {
+                "id": 51,
+                "user_id": 103,
+                "user": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "display_employee_id": 103,
+                "display_employee": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "display_weekly_classification": 5,
+                "display_order": 5
+              },
+              {
+                "id": 52,
+                "user_id": 103,
+                "user": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "display_employee_id": 100,
+                "display_employee": {
+                  "id": 100,
+                  "code": "E100",
+                  "last_name": "Lê Thụy",
+                  "first_name": "Ngọc Hạnh",
+                  "maiden_name": "Sachiko",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "display_weekly_classification": 1,
+                "display_order": 6
+              },
+              {
+                "id": 53,
+                "user_id": 103,
+                "user": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "display_employee_id": 100,
+                "display_employee": {
+                  "id": 100,
+                  "code": "E100",
+                  "last_name": "Lê Thụy",
+                  "first_name": "Ngọc Hạnh",
+                  "maiden_name": "Sachiko",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "display_weekly_classification": 2,
+                "display_order": 7
+              },
+              {
+                "id": 54,
+                "user_id": 103,
+                "user": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "display_employee_id": 100,
+                "display_employee": {
+                  "id": 100,
+                  "code": "E100",
+                  "last_name": "Lê Thụy",
+                  "first_name": "Ngọc Hạnh",
+                  "maiden_name": "Sachiko",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "display_weekly_classification": 3,
+                "display_order": 8
+              },
+              {
+                "id": 55,
+                "user_id": 103,
+                "user": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "display_employee_id": 100,
+                "display_employee": {
+                  "id": 100,
+                  "code": "E100",
+                  "last_name": "Lê Thụy",
+                  "first_name": "Ngọc Hạnh",
+                  "maiden_name": "Sachiko",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "display_weekly_classification": 4,
+                "display_order": 9
+              },
+              {
+                "id": 56,
+                "user_id": 103,
+                "user": {
+                  "id": 103,
+                  "code": "E404",
+                  "last_name": "Nguyễn Hoàng",
+                  "first_name": "Nhật Thảo",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "display_employee_id": 100,
+                "display_employee": {
+                  "id": 100,
+                  "code": "E100",
+                  "last_name": "Lê Thụy",
+                  "first_name": "Ngọc Hạnh",
+                  "maiden_name": "Sachiko",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "display_weekly_classification": 5,
+                "display_order": 10
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "schedule_start.id",
+                "message": [
+                  "schedule start.id無効な値です。"
+                ]
+              },
+              {
+                "field": "schedule_end.id",
+                "message": [
+                  "schedule end.id無効な値です。"
+                ]
+              }
+            ]
+          }

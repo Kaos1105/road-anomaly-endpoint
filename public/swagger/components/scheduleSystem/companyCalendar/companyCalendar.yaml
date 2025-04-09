@@ -1,0 +1,164 @@
+get:
+  tags:
+    - Company Calendar
+  summary: get Company Calendar
+  parameters:
+    - name: filter[year]
+      in: query
+      description: Filter by year
+      required: true
+      type: integer
+      example: 2025
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "date": "2024/12/29",
+                "calendar_classification": 2,
+                "calendar_contents": "23",
+                "work_classification": 1
+              },
+              {
+                "date": "2024/12/29",
+                "calendar_classification": 1,
+                "calendar_contents": "gfsg12h",
+                "work_classification": 1
+              },
+              {
+                "date": "2024/12/29",
+                "calendar_classification": 1,
+                "calendar_contents": "gfsgfh344",
+                "work_classification": 2
+              }
+            ],
+            "message": "登録しました。",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+
+post:
+  tags:
+    - Company Calendar
+  summary: Create or update company calendar
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - name: company_calendar
+      description: List of calendar entries for the company
+      in: body
+      required: true
+      schema:
+        type: object
+        properties:
+          company_calendar:
+            type: array
+            items:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date
+                  example: "2024-12-02"
+                calendar_classification:
+                  type: integer
+                  example: 5
+                calendar_contents:
+                  type: string
+                  example: "tyryytu"
+                work_classification:
+                  type: integer
+                  description: Work classification.
+                    * `1` - Work Day
+                    * `2` - Day Off
+                  enum: [ 1, 2 ]
+                  default: 1
+  responses:
+    201:
+      description: Created
+      schema:
+        type: object
+        example:
+          {
+            "code": 201,
+            "data": [
+              {
+                "date": "2024/12/29",
+                "calendar_classification": 2,
+                "calendar_contents": "23",
+                "work_classification": 1
+              },
+              {
+                "date": "2024/12/29",
+                "calendar_classification": 1,
+                "calendar_contents": "gfsg12h",
+                "work_classification": 1
+              }
+            ],
+            "message": "登録しました。",
+            "errors": null
+          }
+    400:
+      description: Bad Request
+      schema:
+        type: object
+        example:
+          {
+            "code": 400,
+            "data": null,
+            "message": "無効なリクエストです。",
+            "errors": [
+              {
+                "field": "calendar_contents",
+                "message": [
+                  "内容が無効です。"
+                ]
+              }
+            ]
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました。",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Entity
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "work_classification",
+                "message": [
+                  "勤務区分無効な値です。"
+                ]
+              }
+            ]
+          }

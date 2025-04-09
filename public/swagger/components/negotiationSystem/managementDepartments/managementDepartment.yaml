@@ -1,0 +1,347 @@
+get:
+  tags:
+    - Management Departments
+  summary: List management departments.
+  description: Get management departments
+  parameters:
+    - in: query
+      name: filter[search]
+      type: string
+      description: Search
+    - in: query
+      name: filter[use_classification]
+      type: integer
+      enum: [ 1, 2 ]
+      default:
+      description: >
+        Filter by Use classification
+          * `1` - Not use
+          * `2` - Use
+    - in: query
+      name: sort
+      schema:
+        type: string
+      description: >
+        Sort order:
+         * `-sortKey` - Ascending, from A to Z
+         * `sortKey` - Descending, from Z to A
+         * List sortKey: management_department, department, number_of_users, display_order, updated_at.
+    - in: query
+      name: perPage
+      type: integer
+      description: The number of items of each page.
+    - in: query
+      name: page
+      type: integer
+      description: Page.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "collection": [
+                {
+                  "id": 2,
+                  "name": "技術開g発",
+                  "department": {
+                    "id": 134,
+                    "site_id": 131,
+                    "code": "DE 100",
+                    "long_name": "業務管理部",
+                    "short_name": "業務",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "memo": "1",
+                  "display_order": 1,
+                  "use_classification": 2,
+                  "updated_at": "2024/11/27",
+                  "number_of_users": 1
+                },
+                {
+                  "id": 10,
+                  "name": "技術開発企画部 2",
+                  "department": {
+                    "id": 132,
+                    "site_id": 129,
+                    "code": "C300",
+                    "long_name": "技術開発企画部VN",
+                    "short_name": "技術",
+                    "previous_name": "Kỹ thuật",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "memo": "1",
+                  "display_order": 2,
+                  "use_classification": 2,
+                  "updated_at": "2024/11/27",
+                  "number_of_users": 1
+                },
+                {
+                  "id": 6,
+                  "name": "技術開発企画部VN Comtor",
+                  "department": {
+                    "id": 132,
+                    "site_id": 129,
+                    "code": "C300",
+                    "long_name": "技術開発企画部VN",
+                    "short_name": "技術",
+                    "previous_name": "Kỹ thuật",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "memo": "1",
+                  "display_order": 2,
+                  "use_classification": 2,
+                  "updated_at": "2024/11/25",
+                  "number_of_users": 20
+                },
+                {
+                  "id": 5,
+                  "name": "技術開発企画部VN Tester",
+                  "department": {
+                    "id": 132,
+                    "site_id": 129,
+                    "code": "C300",
+                    "long_name": "技術開発企画部VN",
+                    "short_name": "技術",
+                    "previous_name": "Kỹ thuật",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "memo": "1",
+                  "display_order": 2,
+                  "use_classification": 2,
+                  "updated_at": "2024/11/25",
+                  "number_of_users": 0
+                },
+                {
+                  "id": 4,
+                  "name": "技術開発企画部VN BrSE",
+                  "department": {
+                    "id": 132,
+                    "site_id": 129,
+                    "code": "C300",
+                    "long_name": "技術開発企画部VN",
+                    "short_name": "技術",
+                    "previous_name": "Kỹ thuật",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "memo": "1",
+                  "display_order": 2,
+                  "use_classification": 2,
+                  "updated_at": "2024/11/25",
+                  "number_of_users": 0
+                },
+                {
+                  "id": 3,
+                  "name": "技術開発企画部VN IT",
+                  "department": {
+                    "id": 132,
+                    "site_id": 129,
+                    "code": "C300",
+                    "long_name": "技術開発企画部VN",
+                    "short_name": "技術",
+                    "previous_name": "Kỹ thuật",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "memo": "1",
+                  "display_order": 2,
+                  "use_classification": 2,
+                  "updated_at": "2024/11/25",
+                  "number_of_users": 1
+                },
+                {
+                  "id": 9,
+                  "name": "技術開発企画部 2",
+                  "department": {
+                    "id": 137,
+                    "site_id": 130,
+                    "code": "DE101",
+                    "long_name": "技術開発企画部",
+                    "short_name": "技術",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "memo": "1",
+                  "display_order": 2,
+                  "use_classification": 2,
+                  "updated_at": "2024/11/26",
+                  "number_of_users": 0
+                },
+                {
+                  "id": 8,
+                  "name": "技術開発企画部 1",
+                  "department": {
+                    "id": 137,
+                    "site_id": 130,
+                    "code": "DE101",
+                    "long_name": "技術開発企画部",
+                    "short_name": "技術",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "memo": "1",
+                  "display_order": 2,
+                  "use_classification": 2,
+                  "updated_at": "2024/11/26",
+                  "number_of_users": 0
+                },
+                {
+                  "id": 7,
+                  "name": "技術開発企画部VN Comtor",
+                  "department": {
+                    "id": 137,
+                    "site_id": 130,
+                    "code": "DE101",
+                    "long_name": "技術開発企画部",
+                    "short_name": "技術",
+                    "previous_name": null,
+                    "previous_name_flg": 1,
+                    "use_classification": 2
+                  },
+                  "memo": "1",
+                  "display_order": 2,
+                  "use_classification": 2,
+                  "updated_at": "2024/11/26",
+                  "number_of_users": 0
+                }
+              ],
+              "pagination": {
+                "total": 9,
+                "count": 9,
+                "perPage": 25,
+                "currentPage": 1,
+                "totalPages": 1
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+
+post:
+  tags:
+    - Management Departments
+  summary: Create a management department.
+  description: Create a management department
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: department_id
+      description: Choose id in list dropdown
+      in: formData
+      required: true
+      type: number
+    - name: name
+      description: Name
+      in: formData
+      required: true
+      type: string
+    - name: memo
+      description: Memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: Display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Usage classification.
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      default: 2
+      required: true
+      type: integer
+      enum: [ 1, 2 ]
+  responses:
+    201:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 201,
+            "data": {
+              "id": 11,
+              "name": "技術開発企画部1",
+              "department_id": 137,
+              "department": {
+                "id": 137,
+                "site_id": 130,
+                "code": "DE101",
+                "long_name": "技術開発企画部",
+                "short_name": "技術",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 2
+              },
+              "memo": "1",
+              "display_order": 2,
+              "use_classification": 2,
+              "created_info": {
+                "date": "2024/12/04 18:10:02",
+                "name": "Nguyễn Hoàng　Nhật Thảo"
+              },
+              "updated_info": {
+                "date": "2024/12/04 18:10:02",
+                "name": "Nguyễn Hoàng　Nhật Thảo"
+              }
+            },
+            "message": "登録しました。",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "name",
+                "message": [
+                  "この管理部門名は、すでに存在します。"
+                ]
+              }
+            ]
+          }

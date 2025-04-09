@@ -1,0 +1,115 @@
+get:
+  tags:
+    - Import Export CSV
+  summary: Import system
+  description: Export 1 or many systems
+  parameters:
+    - in: query
+      name: file
+      type: file
+      required: true
+      description: >
+        Action import by file name. **_ADD.csv or **_EDIT.csv or **_DELETE.csv
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "code": 200,
+              "action": "ADD",
+              "data": [
+                {
+                  "row": 2,
+                  "code": "15000",
+                  "name": "Schedule",
+                  "overview": null,
+                  "start_date": "2024-10-10 00:00:00",
+                  "end_date": null,
+                  "default_permission_2": 1,
+                  "default_permission_3": 2,
+                  "default_permission_4": 1,
+                  "memo": null,
+                  "display_order": 1,
+                  "use_classification": 2
+                },
+                {
+                  "row": 3,
+                  "code": "16000",
+                  "name": "Schedule",
+                  "overview": null,
+                  "start_date": "2024-10-10 00:00:00",
+                  "end_date": null,
+                  "default_permission_2": 1,
+                  "default_permission_3": 1,
+                  "default_permission_4": 1,
+                  "memo": null,
+                  "display_order": 2,
+                  "use_classification": 1
+                },
+                {
+                  "row": 4,
+                  "code": "17000",
+                  "name": "Schedule",
+                  "overview": null,
+                  "start_date": "2024-10-10 00:00:00",
+                  "end_date": null,
+                  "default_permission_2": 1,
+                  "default_permission_3": 1,
+                  "default_permission_4": 1,
+                  "memo": null,
+                  "display_order": 2,
+                  "use_classification": 1
+                },
+                {
+                  "row": 5,
+                  "code": "18000",
+                  "name": "Schedule",
+                  "overview": null,
+                  "start_date": "2024-10-10 00:00:00",
+                  "end_date": null,
+                  "default_permission_2": 1,
+                  "default_permission_3": 1,
+                  "default_permission_4": 1,
+                  "memo": null,
+                  "display_order": 3,
+                  "use_classification": 1
+                }
+              ],
+              "message": "処理されたレコードが4件あります。"
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "file",
+                "message": [
+                  "ファイルは必須項目です。"
+                ]
+              }
+            ]
+          }

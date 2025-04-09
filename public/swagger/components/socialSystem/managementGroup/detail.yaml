@@ -1,0 +1,541 @@
+get:
+  tags:
+    - Management Groups
+  summary: Show detail management group.
+  description: Show detail management group.
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: management_group
+      description: management group ID
+      in: path
+      required: true
+      type: integer
+  responses:
+    201:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 2,
+              "name": "水島",
+              "sender_post_code": "700-0852",
+              "sender_address_1": "岡山県",
+              "sender_address_2": "岡山市北区",
+              "sender_address_3": "七日市東町",
+              "sender_name": "須澤　義男",
+              "contact_point": "重政　千穂",
+              "contact_phone": "086-250-1280",
+              "preparatory_personnel_info": {
+                "id": 85,
+                "code": "C300",
+                "last_name": "Arumi",
+                "first_name": "kun",
+                "maiden_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 1
+              },
+              "applicant_info": {
+                "id": 85,
+                "code": "C300",
+                "last_name": "Arumi",
+                "first_name": "kun",
+                "maiden_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 1
+              },
+              "approver_info": {
+                "id": 31,
+                "code": "E001",
+                "last_name": "Ha",
+                "first_name": "Ngan",
+                "maiden_name": "Bờm",
+                "previous_name_flg": 2,
+                "use_classification": 2
+              },
+              "final_decision_maker_info": {
+                "id": 31,
+                "code": "E001",
+                "last_name": "Ha",
+                "first_name": "Ngan",
+                "maiden_name": "Bờm",
+                "previous_name_flg": 2,
+                "use_classification": 2
+              },
+              "ordering_personnel_info": {
+                "id": 85,
+                "code": "C300",
+                "last_name": "Arumi",
+                "first_name": "kun",
+                "maiden_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 1
+              },
+              "payment_personnel_info": {
+                "id": 31,
+                "code": "E001",
+                "last_name": "Ha",
+                "first_name": "Ngan",
+                "maiden_name": "Bờm",
+                "previous_name_flg": 2,
+                "use_classification": 2
+              },
+              "completion_personnel_info": {
+                "id": 85,
+                "code": "C300",
+                "last_name": "Arumi",
+                "first_name": "kun",
+                "maiden_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 1
+              },
+              "categories": [
+                {
+                  "name": "JFE関係"
+                },
+                {
+                  "name": "官公庁関係"
+                },
+                {
+                  "name": "OIC 関係"
+                }
+              ],
+              "social_events": [
+                {
+                  "id": 1,
+                  "event_id": 2,
+                  "event_classification": {
+                    "id": 2,
+                    "name": "中元",
+                    "description": null,
+                    "operation_rule": null,
+                    "use_classification": 2,
+                    "social_criteria": null
+                  },
+                  "group_id": 2,
+                  "event_title": "翔太",
+                  "event_progress": 3,
+                  "planned_start": "1971/05/28",
+                  "planned_completion": "2023/11/04",
+                  "social_data_count": 3,
+                  "number_of_receipt": 1,
+                  "number_of_rejected": 1,
+                  "number_of_cancelled": 0,
+                  "number_of_payment": 1,
+                  "amount_of_payment": 140,
+                  "use_classification": 2
+                },
+                {
+                  "id": 10,
+                  "event_id": 2,
+                  "event_classification": {
+                    "id": 2,
+                    "name": "中元",
+                    "description": null,
+                    "operation_rule": null,
+                    "use_classification": 2,
+                    "social_criteria": null
+                  },
+                  "group_id": 2,
+                  "event_title": "あすか",
+                  "event_progress": 2,
+                  "planned_start": "1971/07/04",
+                  "planned_completion": "2017/05/25",
+                  "social_data_count": 0,
+                  "number_of_receipt": 0,
+                  "number_of_rejected": 0,
+                  "number_of_cancelled": 0,
+                  "number_of_payment": 0,
+                  "amount_of_payment": 0,
+                  "use_classification": 1
+                },
+                {
+                  "id": 15,
+                  "event_id": 3,
+                  "event_classification": {
+                    "id": 3,
+                    "name": "歳暮",
+                    "description": null,
+                    "operation_rule": null,
+                    "use_classification": 2,
+                    "social_criteria": null
+                  },
+                  "group_id": 2,
+                  "event_title": "舞",
+                  "event_progress": 1,
+                  "planned_start": "1974/03/10",
+                  "planned_completion": "2008/12/26",
+                  "social_data_count": 0,
+                  "number_of_receipt": 0,
+                  "number_of_rejected": 0,
+                  "number_of_cancelled": 0,
+                  "number_of_payment": 0,
+                  "amount_of_payment": 0,
+                  "use_classification": 1
+                },
+                {
+                  "id": 5,
+                  "event_id": 4,
+                  "event_classification": {
+                    "id": 4,
+                    "name": "餞別",
+                    "description": null,
+                    "operation_rule": null,
+                    "use_classification": 2,
+                    "social_criteria": null
+                  },
+                  "group_id": 2,
+                  "event_title": "加奈",
+                  "event_progress": 1,
+                  "planned_start": "1989/12/07",
+                  "planned_completion": "2020/05/02",
+                  "social_data_count": 0,
+                  "number_of_receipt": 0,
+                  "number_of_rejected": 0,
+                  "number_of_cancelled": 0,
+                  "number_of_payment": 0,
+                  "amount_of_payment": 0,
+                  "use_classification": 2
+                },
+                {
+                  "id": 12,
+                  "event_id": 3,
+                  "event_classification": {
+                    "id": 3,
+                    "name": "歳暮",
+                    "description": null,
+                    "operation_rule": null,
+                    "use_classification": 2,
+                    "social_criteria": null
+                  },
+                  "group_id": 2,
+                  "event_title": "京助",
+                  "event_progress": 3,
+                  "planned_start": "2000/04/03",
+                  "planned_completion": "1998/05/30",
+                  "social_data_count": 0,
+                  "number_of_receipt": 0,
+                  "number_of_rejected": 0,
+                  "number_of_cancelled": 0,
+                  "number_of_payment": 0,
+                  "amount_of_payment": 0,
+                  "use_classification": 2
+                },
+                {
+                  "id": 6,
+                  "event_id": 5,
+                  "event_classification": {
+                    "id": 5,
+                    "name": "御祝",
+                    "description": null,
+                    "operation_rule": null,
+                    "use_classification": 2,
+                    "social_criteria": null
+                  },
+                  "group_id": 2,
+                  "event_title": "翼",
+                  "event_progress": 2,
+                  "planned_start": "2001/06/19",
+                  "planned_completion": "1974/09/17",
+                  "social_data_count": 0,
+                  "number_of_receipt": 0,
+                  "number_of_rejected": 0,
+                  "number_of_cancelled": 0,
+                  "number_of_payment": 0,
+                  "amount_of_payment": 0,
+                  "use_classification": 1
+                },
+                {
+                  "id": 2,
+                  "event_id": 2,
+                  "event_classification": {
+                    "id": 2,
+                    "name": "中元",
+                    "description": null,
+                    "operation_rule": null,
+                    "use_classification": 2,
+                    "social_criteria": null
+                  },
+                  "group_id": 2,
+                  "event_title": "七夏",
+                  "event_progress": 3,
+                  "planned_start": "2019/11/17",
+                  "planned_completion": "1988/04/10",
+                  "social_data_count": 1,
+                  "number_of_receipt": 0,
+                  "number_of_rejected": 0,
+                  "number_of_cancelled": 0,
+                  "number_of_payment": 1,
+                  "amount_of_payment": 120,
+                  "use_classification": 1
+                }
+              ],
+              "memo": null,
+              "display_order": 999999,
+              "use_classification": 2,
+              "created_info": {
+                "date": "2024/10/02 14:31:40",
+                "name": "Ha　Ngan"
+              },
+              "updated_info": {
+                "date": "2024/10/02 14:31:40",
+                "name": "Ha　Ngan"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    404:
+      description: Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\ManagementGroup] 4"
+          }
+delete:
+  tags:
+    - Management Groups
+  summary: Delete Management Group.
+  description: Delete a Management Group
+  parameters:
+    - name: management_group
+      description: management group ID
+      in: path
+      required: true
+      type: integer
+  responses:
+    204:
+      description: Success
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\ManagementGroup] 4"
+          }
+put:
+  tags:
+    - Management Groups
+  summary: Edit management group.
+  description: Edit management group.
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - in: path
+      name: management_group
+      type: integer
+      required: true
+      description: Numeric ID of the management group.
+    - name: name
+      description: Name
+      in: formData
+      required: true
+      type: string
+    - name: sender_post_code
+      description: Sender post code
+      in: formData
+      required: false
+      type: string
+    - name: sender_address_1
+      description: Sender address 1
+      in: formData
+      required: false
+      type: string
+    - name: sender_address_2
+      description: Sender address 2
+      in: formData
+      required: false
+      type: string
+    - name: sender_address_3
+      description: Sender address 3
+      in: formData
+      required: false
+      type: string
+    - name: sender_name
+      description: Sender name
+      in: formData
+      required: false
+      type: string
+    - name: contact_point
+      description: Maiden name
+      in: formData
+      required: false
+      type: string
+    - name: contact_phone
+      description: Employee name in English notation
+      in: formData
+      required: false
+      type: string
+    - name: memo
+      description: Memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: Display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Usage classification
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      default: 2
+      required: true
+      enum: [ 1, 2 ]
+      type: integer
+    - name: preparatory_personnel_id
+      description: Preparatory personnel Id
+      in: formData
+      required: true
+      type: integer
+    - name: applicant_id
+      description: Applicant id
+      in: formData
+      required: true
+      type: integer
+    - name: approver_id
+      description: Approver ID
+      in: formData
+      required: true
+      type: integer
+    - name: final_decision_maker_id
+      description: Final decision maker ID
+      in: formData
+      required: true
+      type: integer
+    - name: ordering_personnel_id
+      description: Ordering personnel ID
+      in: formData
+      required: true
+      type: integer
+    - name: payment_personnel_id
+      description: Payment personnel ID
+      in: formData
+      required: true
+      type: integer
+    - name: completion_personnel_id
+      description: Completion personnel ID
+      in: formData
+      required: true
+      type: integer
+    - name: categories
+      description: Categories
+      in: formData
+      required: true
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+            description: name
+            required: true
+  responses:
+    201:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 201,
+            "data": {
+              "id": 1,
+              "name": "winter",
+              "sender_post_code": null,
+              "sender_address_1": null,
+              "sender_address_2": null,
+              "sender_address_3": null,
+              "sender_name": null,
+              "contact_point": null,
+              "contact_phone": null,
+              "preparatory_personnel_info": null,
+              "applicant_info": null,
+              "approver_info": null,
+              "final_decision_maker_info": null,
+              "ordering_personnel_info": null,
+              "payment_personnel_info": null,
+              "completion_personnel_info": null,
+              "memo": null,
+              "display_order": 1,
+              "use_classification": null,
+              "created_info": {
+                "date": "2024/09/18 12:39:43",
+                "name": "吉田　直人"
+              },
+              "updated_info": {
+                "date": "2024/09/18 12:39:43",
+                "name": "吉田　直人"
+              }
+            },
+            "message": "登録しました。",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "name",
+                "message": [
+                  "管理グループ名は必須項目です。"
+                ]
+              }
+            ]
+          }

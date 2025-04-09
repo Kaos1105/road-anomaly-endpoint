@@ -1,0 +1,96 @@
+post:
+  tags:
+    - Schedule Daily Schedule
+  summary: Create/edit dialog 1
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: employee_id
+      description: Employee ID
+      in: formData
+      required: true
+      type: string
+    - name: date
+      description: Date. Example "2024-01-02"
+      in: formData
+      required: true
+      type: string
+    - name: work_classification
+      description: work classification.
+        * `1` - Work Day
+        * `2` - Day Off
+        * `3` - Absence
+        * `4` - Paid Leave
+        * `5` - Paid Leave (AM)
+        * `6` - Paid Leave (PM)
+        * `7` - Absence (AM)
+        * `8` - Absence (PM)
+        * `9` - Shifted Holiday
+        * `10` - Compensatory Holiday
+        * `11` - Special Leave
+        * `12` - Leave of Absence (Employee)
+        * `13` - Sick Leave
+        * `14` - Other
+      in: formData
+      required: true
+      type: integer
+      enum: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
+      default: 1
+
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 125,
+              "date": "2024-01-02",
+              "work_classification": 1,
+              "employee_id": 100,
+              "employee": {
+                "id": 100,
+                "code": "E100",
+                "last_name": "Lê Thụy",
+                "first_name": "Ngọc Hạnh",
+                "maiden_name": "Sachiko",
+                "previous_name_flg": 2,
+                "use_classification": 2
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "work_classification",
+                "message": [
+                  "勤務区分無効な値です。"
+                ]
+              }
+            ]
+          }

@@ -1,0 +1,301 @@
+get:
+  tags:
+    - Products
+  summary: Show detail product.
+  description: Show detail product.
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: product
+      description: product ID
+      in: path
+      required: true
+      type: integer
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 1,
+              "product_classification": 1,
+              "site": {
+                "id": 12,
+                "company_id": 13,
+                "code": "ryosuke.ishida",
+                "long_name": "株式会社 高橋",
+                "short_name": null,
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 1,
+                "post_code": null,
+                "address_1": "加藤市",
+                "address_2": "rerum",
+                "address_3": "nihil",
+                "phone": "090-8655-1575",
+                "company": {
+                  "id": 13,
+                  "code": "e641",
+                  "long_name": "株式会社 宮沢",
+                  "previous_name": "repellendus",
+                  "previous_name_flg": 2,
+                  "use_classification": 1,
+                  "short_name": "illum"
+                }
+              },
+              "code": "PO1",
+              "name": "Bánh",
+              "unit_price": 2000,
+              "tax_classification_1": 1,
+              "tax_classification_2": 2,
+              "tax_classification_3": 3,
+              "display_order": 1,
+              "use_classification": 2,
+              "memo": "bánh",
+              "created_info": {
+                "date": "2024/10/02 16:15:32",
+                "name": "吉田　直人"
+              },
+              "updated_info": {
+                "date": "2024/10/02 17:50:01",
+                "name": "吉田　直人"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    404:
+      description: Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\Customer] 4"
+          }
+delete:
+  tags:
+    - Products
+  summary: Delete product.
+  description: Delete a product
+  parameters:
+    - name: product
+      description: product ID
+      in: path
+      required: true
+      type: integer
+  responses:
+    204:
+      description: Success
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\Product] 4"
+          }
+put:
+  tags:
+    - Products
+  summary: Edit product.
+  description: Edit product.
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - in: path
+      name: product
+      type: integer
+      required: true
+      description: Numeric ID of the product.
+    - name: product_classification
+      description: Product classification
+        * `1` - FOOD
+        * `2` - CASH
+      in: formData
+      required: true
+      enum: [ 1, 2 ]
+      type: integer
+    - name: code
+      description: Code
+      in: formData
+      required: false
+      type: string
+    - name: name
+      description: Product name
+      in: formData
+      required: true
+      type: string
+    - name: unit_price
+      description: Unit price
+      in: formData
+      required: true
+      type: double
+    - name: tax_classification_1
+      description: Tax classification 1
+        * `1` - FREE
+        * `2` - EIGHT_PERCENT
+        * `3` - TEN_PERCENT
+      in: formData
+      required: true
+      enum: [ 1, 2, 3 ]
+      type: integer
+      default: 3
+    - name: tax_classification_2
+      description: Tax classification 2
+        * `1` - FREE
+        * `2` - EIGHT_PERCENT
+        * `3` - TEN_PERCENT
+      in: formData
+      required: true
+      enum: [ 1, 2, 3 ]
+      type: integer
+      default: 3
+    - name: tax_classification_3
+      description: Tax classification 3
+        * `1` - FREE
+        * `2` - EIGHT_PERCENT
+        * `3` - TEN_PERCENT
+      in: formData
+      required: true
+      enum: [ 1, 2, 3 ]
+      type: integer
+      default: 3
+    - name: memo
+      description: Memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: Display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Usage classification
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      default: 2
+      required: true
+      enum: [ 1, 2 ]
+      type: integer
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 1,
+              "product_classification": 1,
+              "site": {
+                "id": 12,
+                "company_id": 13,
+                "code": "ryosuke.ishida",
+                "long_name": "株式会社 高橋",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "use_classification": 1,
+                "post_code": null,
+                "address_1": "加藤市",
+                "address_2": "rerum",
+                "address_3": "nihil",
+                "phone": "090-8655-1575",
+                "company": {
+                  "id": 13,
+                  "code": "e641",
+                  "long_name": "株式会社 宮沢",
+                  "previous_name": "repellendus",
+                  "previous_name_flg": 2,
+                  "use_classification": 1,
+                  "short_name": "illum"
+                }
+              },
+              "code": "PO1",
+              "name": "Bánh",
+              "unit_price": 2000,
+              "tax_classification_1": 1,
+              "tax_classification_2": 2,
+              "tax_classification_3": 3,
+              "display_order": 1,
+              "use_classification": 2,
+              "memo": "bánh",
+              "created_info": {
+                "date": "2024/10/02 16:15:32",
+                "name": "吉田　直人"
+              },
+              "updated_info": {
+                "date": "2024/10/02 17:50:01",
+                "name": "吉田　直人"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "name",
+                "message": [
+                  "顧客カテゴリは必須項目です。"
+                ]
+              }
+            ]
+          }

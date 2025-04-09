@@ -1,0 +1,69 @@
+get:
+  tags:
+    - Social Data
+  summary: Get list of Customer Category for No.37000 dropdown
+  description: Get list of Customer Category for No.37000 dropdown
+  parameters:
+    - in: query
+      name: filter[group_use_classification]
+      type: integer
+      enum: [ 1, 2 ]
+      default: 2
+      description: >
+        Filter by Use classification
+          * `1` - Not use
+          * `2` - Use
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "name": "Foods"
+              },
+              {
+                "name": "Gặp mặt cuối năm"
+              },
+              {
+                "name": "JFE関係"
+              },
+              {
+                "name": "OIC 関係"
+              },
+              {
+                "name": "Tri Ân Customer"
+              },
+              {
+                "name": "すごく大事なお客さん"
+              },
+              {
+                "name": "とても大事なお客さん"
+              },
+              {
+                "name": "トライエス関係"
+              },
+              {
+                "name": "大事なお客さん"
+              },
+              {
+                "name": "官公庁関係"
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

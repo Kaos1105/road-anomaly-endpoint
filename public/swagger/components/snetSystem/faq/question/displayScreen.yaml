@@ -1,0 +1,131 @@
+get:
+  tags:
+    - FAQs
+  summary: List questions by display
+  parameters:
+    - in: path
+      name: display
+      type: integer
+      required: true
+      description: Numeric ID of the screen.
+    - in: query
+      name: sort
+      schema:
+        type: string
+      description: >
+        Sort order:
+         * `-sortKey` - Ascending, from A to Z
+         * `sortKey` - Descending, from Z to A
+         * List sortKey: code, title, display_order, updated_at.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 14,
+                "code": "ee",
+                "classification": "すか",
+                "title": "はるさんハウスはどこですか.タムです。学生です. ベトナムから来ました",
+                "similar_faq_1": {
+                  "id": 10,
+                  "code": "Q1",
+                  "title": "Question 10",
+                  "classification": "ボード"
+                },
+                "similar_faq_2": null,
+                "similar_faq_3": null,
+                "display_order": 1,
+                "use_classification": 2,
+                "updated_at": "2024/11/01"
+              },
+              {
+                "id": 4,
+                "code": "Q1",
+                "classification": "ボード",
+                "title": "Question 4",
+                "similar_faq_1": null,
+                "similar_faq_2": null,
+                "similar_faq_3": null,
+                "display_order": 1,
+                "use_classification": 2,
+                "updated_at": "2024/10/30"
+              },
+              {
+                "id": 3,
+                "code": "Q1",
+                "classification": "ボード",
+                "title": "Question 3",
+                "similar_faq_1": null,
+                "similar_faq_2": null,
+                "similar_faq_3": null,
+                "display_order": 1,
+                "use_classification": 2,
+                "updated_at": "2024/10/30"
+              },
+              {
+                "id": 2,
+                "code": "Q1",
+                "classification": "ボード",
+                "title": "Question 2",
+                "similar_faq_1": null,
+                "similar_faq_2": null,
+                "similar_faq_3": null,
+                "display_order": 1,
+                "use_classification": 2,
+                "updated_at": "2024/10/30"
+              },
+              {
+                "id": 1,
+                "code": "Q1",
+                "classification": "ボード",
+                "title": "はるさんハウスはどこですか",
+                "similar_faq_1": null,
+                "similar_faq_2": null,
+                "similar_faq_3": null,
+                "display_order": 1,
+                "use_classification": 2,
+                "updated_at": "2024/10/30"
+              },
+              {
+                "id": 11,
+                "code": "test",
+                "classification": "ダッシュボード",
+                "title": "ttttt",
+                "similar_faq_1": null,
+                "similar_faq_2": null,
+                "similar_faq_3": null,
+                "display_order": 999999,
+                "use_classification": 2,
+                "updated_at": "2024/10/31"
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "The page could not be found.",
+            "errors": "No query results for model [App\\Models\\Display] 1"
+          }

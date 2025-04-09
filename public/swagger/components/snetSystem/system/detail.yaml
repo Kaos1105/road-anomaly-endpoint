@@ -1,0 +1,223 @@
+get:
+  tags:
+    - System
+  summary: Show a system
+  description: Show detail system
+  parameters:
+    - in: path
+      name: id
+      type: integer
+      required: true
+      description: Numeric ID of the System to get.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 1,
+              "code": "MAIN",
+              "name": "MAIN",
+              "start_date": "2024/07/19",
+              "end_date": null,
+              "default_permission_2": 1,
+              "default_permission_3": 1,
+              "default_permission_4": 1,
+              "memo": null,
+              "display_order": 999999,
+              "use_classification": 2,
+              "created_info": null,
+              "updated_info": null
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "The page could not be found.",
+            "errors": "No query results for model [App\\Models\\System] 1"
+          }
+
+delete:
+  tags:
+    - System
+  summary: Delete system.
+  description: Delete a system
+  parameters:
+    - in: path
+      name: id
+      type: integer
+      required: true
+      description: Numeric ID of the system to delete.
+  responses:
+    204:
+      description: Success
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "The page could not be found.",
+            "errors": "No query results for model [App\\Models\\System] 1"
+          }
+put:
+  tags:
+    - System
+  summary: Update a system
+  description: Update a system
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - in: path
+      name: id
+      type: integer
+      required: true
+      description: Numeric ID of the system.
+    - name: name
+      description: System's name
+      in: formData
+      required: true
+      type: string
+    - name: start_date
+      description: System's operation start date
+      in: formData
+      required: true
+      type: string
+    - name: end_date
+      description: System's operation end date
+      in: formData
+      required: false
+      type: string
+    - name: default_permission_2
+      description: System's default permission 2
+      in: formData
+      required: true
+      type: integer
+    - name: default_permission_3
+      description: System's default permission 3
+      in: formData
+      required: true
+      type: integer
+    - name: default_permission_4
+      description: System's default permission 4
+      in: formData
+      required: true
+      type: integer
+    - name: memo
+      description: Company memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: Company display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Company usage classification
+      in: formData
+      default: 2
+      required: true
+      type: integer
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 254,
+              "code": "code6",
+              "long_name": "qq cp",
+              "short_name": "qq",
+              "kana": null,
+              "start_date": null,
+              "end_date": null,
+              "company_classification": 1,
+              "group_name": "jaf",
+              "previous_name": null,
+              "previous_name_flg": 2,
+              "en_notation": null,
+              "memo": null,
+              "display_order": 9999,
+              "use_classification": null,
+              "created_info": {
+                "date": "2024/07/29 13:34:47",
+                "name": "直子 廣川"
+              },
+              "updated_info": {
+                "date": "2024/07/29 13:34:47",
+                "name": "直子 廣川"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "end_date",
+                "message": [
+                  "システム名はシステム名以降の日付にしてください。"
+                ]
+              }
+            ]
+          }

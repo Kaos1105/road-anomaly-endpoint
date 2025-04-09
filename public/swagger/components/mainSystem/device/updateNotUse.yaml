@@ -1,0 +1,59 @@
+patch:
+  tags:
+    - Device Information
+  summary: Update device information not use
+  parameters:
+    - in: device
+      name: group
+      type: integer
+      required: true
+      description: Numeric ID of the device to get.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 2,
+              "name": "Postmain1",
+              "device_information": "PostmanRuntime/7.43.0",
+              "device_token": null,
+              "use_classification": 1,
+              "created_info": {
+                "date": "2025/03/12 13:35:49",
+                "name": "Nguyễn Hoàng　Nhật Thảo"
+              },
+              "updated_info": {
+                "date": "2025/03/12 15:49:44",
+                "name": "Nguyễn Hoàng　Nhật Thảo"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+    404:
+      description: Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": [ ]
+          }
+

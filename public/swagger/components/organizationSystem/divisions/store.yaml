@@ -1,0 +1,217 @@
+post:
+  tags:
+    - Divisions
+  summary: Create a new division.
+  description: Create a new division
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: code
+      description: code
+      in: formData
+      required: false
+      type: string
+    - name: department_id
+      description: Id of department
+      in: formData
+      required: true
+      type: number
+    - name: long_name
+      description: Division long name
+      in: formData
+      required: true
+      type: string
+    - name: short_name
+      description: Division short name
+      in: formData
+      required: false
+      type: string
+    - name: kana
+      description: Division name in Kana
+      in: formData
+      required: false
+      type: string
+    - name: start_date
+      description: Division start date
+      in: formData
+      required: false
+      type: string
+      format: date
+    - name: end_date
+      description: Division end date
+      in: formData
+      required: false
+      type: string
+      format: date
+    - name: division_classification
+      description: Division classification ID
+        * `1` - GENERAL AFFAIRS
+        * `2` - HUMAN_RESOURCES
+        * `3` - LABOR
+        * `4` - LEGAL_AFFAIRS
+        * `11` - ACCOUNTING
+        * `12` - FINANCE
+        * `21` - CORPORATE_PLANNING
+        * `22` - CORPORATE_SOCIAL_RESPONSIBILITY
+        * `23` - RESPONSIBLE_CARE
+        * `31` - SYSTEM_DEVELOPMENT
+        * `32` - MEASUREMENT_ANALYSIS
+        * `33` - SYSTEM_INFORMATION
+        * `41` - SALES
+        * `42` - SALES_PLANNING
+        * `43` - SYSTEM_SALES
+        * `44` - MARKETING
+        * `51` - MANUFACTURING
+        * `54` - PRODUCTION_TECHNOLOGY
+        * `53` - PRODUCTION_MANAGEMENT
+        * `54` - DESIGN
+        * `55` - PRODUCT_DEVELOPMENT
+        * `61` - QUALITY_ASSURANCE
+        * `62` - QUALITY_CONTROL
+        * `71` - PURCHASING
+        * `72` - LOGISTICS
+        * `99` - OTHER
+      in: formData
+      required: false
+      type: number
+      default: 1
+    - name: previous_name
+      description: Division previous name
+      in: formData
+      required: false
+      type: string
+    - name: previous_name_flg
+      description: Flag to indicate if company had previous name
+        * `1` - Not combined
+        * `2` - Combine
+      in: formData
+      required: false
+      type: integer
+      enum: [ 1, 2 ]
+      default: 1
+    - name: en_notation
+      description: Division name in English notation
+      in: formData
+      required: false
+      type: string
+    - name: memo
+      description: division memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: Division display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Division usage classification
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      enum: [ 1, 2 ]
+      default: 2
+      required: true
+      type: integer
+  responses:
+    201:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 201,
+            "data": {
+              "id": 338,
+              "code": "nakajima.yuta.24",
+              "department_id": 1,
+              "company": {
+                "id": 6,
+                "code": "x567",
+                "long_name": "Sanford and Sons",
+                "previous_name": "voluptatibus",
+                "previous_name_flg": 1
+              },
+              "site": {
+                "id": 48,
+                "company_id": 6,
+                "code": "xpadberg",
+                "long_name": "Kutch-Windler",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "address_1": "Nikitashire",
+                "address_2": "et",
+                "address_3": "fuga"
+              },
+              "department": {
+                "id": 1,
+                "site_id": 48,
+                "code": "heathcote.jaiden",
+                "long_name": "Greenfelder-Koss",
+                "previous_name": "Schmidt-Macejkovic",
+                "previous_name_flg": 1
+              },
+              "long_name": "株式会社 渚",
+              "short_name": null,
+              "kana": null,
+              "start_date": "1986/06/03",
+              "end_date": "2024/09/03",
+              "represent_flg": null,
+              "division_classification": null,
+              "previous_name": null,
+              "previous_name_flg": 1,
+              "en_notation": null,
+              "phone": "090-7678-0764",
+              "memo": "Nam accusamus eaque ut sint illo aut voluptatem. Odio est nemo deserunt nulla qui odit et. Consequatur et eligendi ipsa ut accusamus minima.",
+              "display_order": 2,
+              "use_classification": 2,
+              "created_info": {
+                "date": "2024/08/01 12:39:10",
+                "name": "Greyson Labadie"
+              },
+              "updated_info": {
+                "date": "2024/08/01 12:39:10",
+                "name": "Greyson Labadie"
+              }
+            },
+            "message": "It has been registered.",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "code",
+                "message": [
+                  "この会社コードは、すでに存在します。"
+                ]
+              },
+              {
+                "field": "long_name",
+                "message": [
+                  "会社名は必須項目です。"
+                ]
+              }
+            ]
+          }

@@ -1,0 +1,62 @@
+get:
+  tags:
+    - Supplier
+  summary: Dropdown of company in Create/Edit screen
+  description: Dropdown of company in Create/Edit screen
+  parameters:
+    - in: query
+      name: filter[company_id]
+      type: integer
+      description: Id of Company
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 71,
+                "code": null,
+                "long_name": "TNHH Minh Hy.",
+                "previous_name": "Minh Hý",
+                "previous_name_flg": 2
+              },
+              {
+                "id": 68,
+                "code": "102",
+                "long_name": "Huế MTVHuế MTVHuế MTV",
+                "previous_name": "xyz",
+                "previous_name_flg": 2
+              },
+              {
+                "id": 69,
+                "code": null,
+                "long_name": "NTP",
+                "previous_name": "huế",
+                "previous_name_flg": 2
+              },
+              {
+                "id": 65,
+                "code": null,
+                "long_name": "Shinnichiro VN",
+                "previous_name": "SH System",
+                "previous_name_flg": 1
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }

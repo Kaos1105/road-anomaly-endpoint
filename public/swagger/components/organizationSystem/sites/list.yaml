@@ -1,0 +1,855 @@
+get:
+  tags:
+    - Sites
+  summary: List sites.
+  description: Get all sites
+  parameters:
+    - in: query
+      name: filter[name]
+      type: string
+      description: >
+        Search by code or long_name or previous_name or kana or address (1,2,3)
+    - in: query
+      name: filter[company_id]
+      type: string
+      description: >
+        Filter by company found in company name dropdown list.
+    - in: query
+      name: filter[site_classification]
+      type: integer
+      enum: [ 1, 2, 11, 12 ]
+      default:
+      description: >
+        Filter by Company classification
+          * `1` - Main Office
+          * `2` - Branch Office
+          * `11` - Main School
+          * `12` - Branch School
+    - in: query
+      name: filter[use_classification]
+      type: integer
+      enum: [ 1, 2 ]
+      default:
+      description: >
+        Filter by Use classification
+          * `1` - Not use
+          * `2` - Use
+    - in: query
+      name: sort
+      schema:
+        type: string
+      description: >
+        Sort order:
+         * `-sortKey` - Ascending, from A to Z
+         * `sortKey` - Descending, from Z to A
+         * List sortKey: code, name, company_name, address, display_order, use_classification, favorite, updated_at.
+    - in: query
+      name: perPage
+      type: integer
+      description: The number of items of each page.
+
+    - in: query
+      name: page
+      type: integer
+      description: Page.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "collection": [
+                {
+                  "id": 1,
+                  "has_favorite": false,
+                  "code": "code3",
+                  "long_name": "cty cu my",
+                  "phone": "940.783.0609",
+                  "address_1": "Reicherthaven",
+                  "address_2": "architecto",
+                  "address_3": "nobis",
+                  "site_classification": 1,
+                  "use_classification": 1,
+                  "display_order": 516181,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 1,
+                    "code": "code3",
+                    "long_name": "long name",
+                    "previous_name": null,
+                    "previous_name_flg": 1
+                  }
+                },
+                {
+                  "id": 2,
+                  "has_favorite": true,
+                  "code": "code3",
+                  "long_name": "cty cu my",
+                  "phone": "(352) 812-2261",
+                  "address_1": "South Zackary",
+                  "address_2": "repellendus",
+                  "address_3": "vitae",
+                  "site_classification": 1,
+                  "use_classification": 2,
+                  "display_order": 729974,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 1,
+                    "code": "code3",
+                    "long_name": "Sauer-Smitham",
+                    "previous_name": null,
+                    "previous_name_flg": 1
+                  }
+                },
+                {
+                  "id": 3,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Sauer-Smitham",
+                  "phone": "724-468-9427",
+                  "address_1": "East Eladio",
+                  "address_2": "quisquam",
+                  "address_3": "sit",
+                  "site_classification": 1,
+                  "use_classification": 1,
+                  "display_order": 690844,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 1,
+                    "code": "code3",
+                    "long_name": "cty cu my",
+                    "previous_name": null,
+                    "previous_name_flg": 1
+                  }
+                },
+                {
+                  "id": 4,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Bosco-Ritchie",
+                  "phone": "+1 (317) 273-7757",
+                  "address_1": "North Candice",
+                  "address_2": "quas",
+                  "address_3": "nihil",
+                  "site_classification": 1,
+                  "use_classification": 1,
+                  "display_order": 952558,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 1,
+                    "code": "code3",
+                    "long_name": "cty cu my",
+                    "previous_name": null,
+                    "previous_name_flg": 1
+                  }
+                },
+                {
+                  "id": 5,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Jacobi Inc",
+                  "phone": "+1 (616) 608-0162",
+                  "address_1": "North Lilliana",
+                  "address_2": "et",
+                  "address_3": "quidem",
+                  "site_classification": 1,
+                  "use_classification": 1,
+                  "display_order": 398340,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 1,
+                    "code": "code3",
+                    "long_name": "cty cu my",
+                    "previous_name": null,
+                    "previous_name_flg": 1
+                  }
+                },
+                {
+                  "id": 6,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Cruickshank, Schaefer and Blick",
+                  "phone": "+1.580.938.8908",
+                  "address_1": "East Casandraland",
+                  "address_2": "qui",
+                  "address_3": "doloremque",
+                  "site_classification": 1,
+                  "use_classification": 1,
+                  "display_order": 836921,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 1,
+                    "code": "code3",
+                    "long_name": "cty cu my",
+                    "previous_name": null,
+                    "previous_name_flg": 1
+                  }
+                },
+                {
+                  "id": 7,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Hauck PLC",
+                  "phone": "1-870-450-7603",
+                  "address_1": "Mervinberg",
+                  "address_2": "quod",
+                  "address_3": "rerum",
+                  "site_classification": 1,
+                  "use_classification": 1,
+                  "display_order": 718643,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 1,
+                    "code": "code3",
+                    "long_name": "cty cu my",
+                    "previous_name": null,
+                    "previous_name_flg": 1
+                  }
+                },
+                {
+                  "id": 8,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Waters-Ebert",
+                  "phone": "+1-657-705-0554",
+                  "address_1": "Rueckerborough",
+                  "address_2": "itaque",
+                  "address_3": "voluptatum",
+                  "site_classification": 1,
+                  "use_classification": 2,
+                  "display_order": 623679,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 1,
+                    "code": "code3",
+                    "long_name": "cty cu my",
+                    "previous_name": null,
+                    "previous_name_flg": 1
+                  }
+                },
+                {
+                  "id": 9,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Runolfsdottir-Smith",
+                  "phone": "(234) 448-2400",
+                  "address_1": "Schowalterburgh",
+                  "address_2": "et",
+                  "address_3": "eum",
+                  "site_classification": 1,
+                  "use_classification": 1,
+                  "display_order": 197736,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 1,
+                    "code": "code3",
+                    "long_name": "cty cu my",
+                    "previous_name": null,
+                    "previous_name_flg": 1
+                  }
+                },
+                {
+                  "id": 10,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Beier, Baumbach and Borer",
+                  "phone": "+1-629-894-0208",
+                  "address_1": "Rustyport",
+                  "address_2": "non",
+                  "address_3": "odit",
+                  "site_classification": 1,
+                  "use_classification": 2,
+                  "display_order": 169904,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 2,
+                    "code": "l927",
+                    "long_name": "Orn-Cartwright",
+                    "previous_name": "in",
+                    "previous_name_flg": 2
+                  }
+                },
+                {
+                  "id": 11,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Johnston LLC",
+                  "phone": "986-210-6150",
+                  "address_1": "Julianbury",
+                  "address_2": "vel",
+                  "address_3": "similique",
+                  "site_classification": 1,
+                  "use_classification": 2,
+                  "display_order": 870526,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 2,
+                    "code": "l927",
+                    "long_name": "Orn-Cartwright",
+                    "previous_name": "in",
+                    "previous_name_flg": 2
+                  }
+                },
+                {
+                  "id": 12,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Hayes-Littel",
+                  "phone": "+1 (989) 972-0051",
+                  "address_1": "Lake Rachelle",
+                  "address_2": "et",
+                  "address_3": "maxime",
+                  "site_classification": 1,
+                  "use_classification": 1,
+                  "display_order": 575902,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 2,
+                    "code": "l927",
+                    "long_name": "Orn-Cartwright",
+                    "previous_name": "in",
+                    "previous_name_flg": 2
+                  }
+                },
+                {
+                  "id": 13,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Cummings LLC",
+                  "phone": "469.802.6963",
+                  "address_1": "Lynchhaven",
+                  "address_2": "quisquam",
+                  "address_3": "quis",
+                  "site_classification": 1,
+                  "use_classification": 1,
+                  "display_order": 278881,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 2,
+                    "code": "l927",
+                    "long_name": "Orn-Cartwright",
+                    "previous_name": "in",
+                    "previous_name_flg": 2
+                  }
+                },
+                {
+                  "id": 14,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Ritchie-Bednar",
+                  "phone": "361.839.4818",
+                  "address_1": "East Glendaville",
+                  "address_2": "optio",
+                  "address_3": "omnis",
+                  "site_classification": 1,
+                  "use_classification": 1,
+                  "display_order": 554377,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 2,
+                    "code": "l927",
+                    "long_name": "Orn-Cartwright",
+                    "previous_name": "in",
+                    "previous_name_flg": 2
+                  }
+                },
+                {
+                  "id": 15,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Christiansen, Cassin and Goodwin",
+                  "phone": "+1-845-285-6801",
+                  "address_1": "Johnsonborough",
+                  "address_2": "culpa",
+                  "address_3": "rerum",
+                  "site_classification": 1,
+                  "use_classification": 1,
+                  "display_order": 638382,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 2,
+                    "code": "l927",
+                    "long_name": "Orn-Cartwright",
+                    "previous_name": "in",
+                    "previous_name_flg": 2
+                  }
+                },
+                {
+                  "id": 16,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Wiza-Pfannerstill",
+                  "phone": "1-424-644-9817",
+                  "address_1": "Lake Henriette",
+                  "address_2": "dolorum",
+                  "address_3": "aut",
+                  "site_classification": 1,
+                  "use_classification": 1,
+                  "display_order": 147400,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 2,
+                    "code": "l927",
+                    "long_name": "Orn-Cartwright",
+                    "previous_name": "in",
+                    "previous_name_flg": 2
+                  }
+                },
+                {
+                  "id": 17,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Gulgowski, Simonis and Bashirian",
+                  "phone": "248.861.9584",
+                  "address_1": "Trystanborough",
+                  "address_2": "eum",
+                  "address_3": "repellat",
+                  "site_classification": 1,
+                  "use_classification": 2,
+                  "display_order": 160474,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 2,
+                    "code": "l927",
+                    "long_name": "Orn-Cartwright",
+                    "previous_name": "in",
+                    "previous_name_flg": 2
+                  }
+                },
+                {
+                  "id": 18,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Hills-Douglas",
+                  "phone": "+1-419-814-6853",
+                  "address_1": "Hettingerstad",
+                  "address_2": "est",
+                  "address_3": "commodi",
+                  "site_classification": 1,
+                  "use_classification": 2,
+                  "display_order": 49264,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 2,
+                    "code": "l927",
+                    "long_name": "Orn-Cartwright",
+                    "previous_name": "in",
+                    "previous_name_flg": 2
+                  }
+                },
+                {
+                  "id": 19,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Schamberger Ltd",
+                  "phone": "1-470-686-2825",
+                  "address_1": "Hermanland",
+                  "address_2": "ipsam",
+                  "address_3": "facere",
+                  "site_classification": 1,
+                  "use_classification": 2,
+                  "display_order": 863075,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 3,
+                    "code": "l746",
+                    "long_name": "Carter, Rippin and Stamm",
+                    "previous_name": "dolore",
+                    "previous_name_flg": 2
+                  }
+                },
+                {
+                  "id": 20,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Bailey, Heathcote and Tillman",
+                  "phone": "218.561.8068",
+                  "address_1": "East Bobbymouth",
+                  "address_2": "adipisci",
+                  "address_3": "autem",
+                  "site_classification": 1,
+                  "use_classification": 1,
+                  "display_order": 549369,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 3,
+                    "code": "l746",
+                    "long_name": "Carter, Rippin and Stamm",
+                    "previous_name": "dolore",
+                    "previous_name_flg": 2
+                  }
+                },
+                {
+                  "id": 21,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Bergnaum, Bins and Beer",
+                  "phone": "+1-316-693-4487",
+                  "address_1": "Christineberg",
+                  "address_2": "ex",
+                  "address_3": "officiis",
+                  "site_classification": 1,
+                  "use_classification": 2,
+                  "display_order": 853342,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 3,
+                    "code": "l746",
+                    "long_name": "Carter, Rippin and Stamm",
+                    "previous_name": "dolore",
+                    "previous_name_flg": 2
+                  }
+                },
+                {
+                  "id": 22,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Schuster PLC",
+                  "phone": "+1-949-298-8526",
+                  "address_1": "Port Fredy",
+                  "address_2": "repellendus",
+                  "address_3": "optio",
+                  "site_classification": 1,
+                  "use_classification": 2,
+                  "display_order": 873627,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 3,
+                    "code": "l746",
+                    "long_name": "Carter, Rippin and Stamm",
+                    "previous_name": "dolore",
+                    "previous_name_flg": 2
+                  }
+                },
+                {
+                  "id": 23,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Steuber LLC",
+                  "phone": "(470) 869-7236",
+                  "address_1": "Kaileeside",
+                  "address_2": "nemo",
+                  "address_3": "facilis",
+                  "site_classification": 1,
+                  "use_classification": 1,
+                  "display_order": 952461,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 3,
+                    "code": "l746",
+                    "long_name": "Carter, Rippin and Stamm",
+                    "previous_name": "dolore",
+                    "previous_name_flg": 2
+                  }
+                },
+                {
+                  "id": 24,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Metz Ltd",
+                  "phone": "(442) 473-3553",
+                  "address_1": "Keltonburgh",
+                  "address_2": "velit",
+                  "address_3": "sapiente",
+                  "site_classification": 1,
+                  "use_classification": 2,
+                  "display_order": 137222,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 3,
+                    "code": "l746",
+                    "long_name": "Carter, Rippin and Stamm",
+                    "previous_name": "dolore",
+                    "previous_name_flg": 2
+                  }
+                },
+                {
+                  "id": 25,
+                  "has_favorite": false,
+                  "code": null,
+                  "kana": null,
+                  "long_name": "Wiegand, McKenzie and Marvin",
+                  "phone": "(609) 201-0747",
+                  "address_1": "New Hipolitoburgh",
+                  "address_2": "eum",
+                  "address_3": "deserunt",
+                  "site_classification": 1,
+                  "use_classification": 2,
+                  "display_order": 122868,
+                  "updated_at": "2024/07/22",
+                  "company": {
+                    "id": 3,
+                    "code": "l746",
+                    "long_name": "Carter, Rippin and Stamm",
+                    "previous_name": "dolore",
+                    "previous_name_flg": 2
+                  }
+                }
+              ],
+              "pagination": {
+                "total": 450,
+                "count": 25,
+                "perPage": 25,
+                "currentPage": 1,
+                "totalPages": 18
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+post:
+  tags:
+    - Sites
+  summary: Create a site.
+  description: Create a site
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: code
+      description: code
+      in: formData
+      required: false
+      type: string
+    - name: company_id
+      description: Id of Company
+      in: formData
+      required: true
+      type: number
+    - name: long_name
+      description: Site long name
+      in: formData
+      required: true
+      type: string
+    - name: short_name
+      description: Site short name
+      in: formData
+      required: false
+      type: string
+    - name: kana
+      description: Site name in Kana
+      in: formData
+      required: false
+      type: string
+    - name: start_date
+      description: Site start date
+      in: formData
+      required: false
+      type: string
+      format: date
+    - name: end_date
+      description: Site end date
+      in: formData
+      required: false
+      type: string
+      format: date
+    - name: represent_flg
+      description: Represent classification ID
+        * `1` - Not Represent
+        * `2` - Represent
+      in: formData
+      required: true
+      type: integer
+      enum: [ 1, 2 ]
+      default: 1
+    - name: site_classification
+      description: Site classification ID.
+        * `1` - Main Office
+        * `2` - Branch Office
+        * `11` - Main School
+        * `12` - Branch School
+      in: formData
+      required: false
+      type: number
+      enum: [ 1, 2, 11, 12 ]
+      default: 1
+    - name: previous_name
+      description: Site previous name
+      in: formData
+      required: false
+      type: string
+    - name: previous_name_flg
+      description: Flag to indicate if site had previous name
+        * `1` - Not combined
+        * `2` - Combined
+      in: formData
+      required: true
+      type: integer
+      enum: [1, 2]
+      default: 1
+    - name: en_notation
+      description: English notation
+      in: formData
+      required: false
+      type: string
+    - name: post_code
+      description: Site post code
+      in: formData
+      required: false
+      type: number
+    - name: address_1
+      description: Site address 1
+      in: formData
+      required: false
+      type: string
+    - name: address_2
+      description: Site address 2
+      in: formData
+      required: false
+      type: string
+    - name: address_3
+      description: Site address 3
+      in: formData
+      required: false
+      type: string
+    - name: phone
+      description: Site phone
+      in: formData
+      required: false
+      type: string
+    - name: area_name
+      description: Area name
+      in: formData
+      required: false
+      type: string
+    - name: memo
+      description: Site memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: Site display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Site usage classification
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      default: 2
+      required: true
+      type: integer
+      enum: [ 1, 2 ]
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 1201,
+              "code": "nakajima.yuta.144",
+              "company": {
+                "id": 256,
+                "code": "code65",
+                "long_name": "gfdg",
+                "previous_name": null,
+                "previous_name_flg": 2
+              },
+              "company_id": 256,
+              "long_name": "株式会社 渚",
+              "short_name": null,
+              "kana": null,
+              "start_date": "1986/06/03",
+              "end_date": null,
+              "represent_flg": 2,
+              "site_classification": 1,
+              "previous_name": null,
+              "previous_name_flg": 1,
+              "en_notation": null,
+              "post_code": null,
+              "address_1": "加納市",
+              "address_2": "quia",
+              "address_3": "culpa",
+              "phone": "090-7678-0764",
+              "memo": "Nam accusamus eaque ut sint illo aut voluptatem. Odio est nemo deserunt nulla qui odit et. Consequatur et eligendi ipsa ut accusamus minima.",
+              "display_order": 923916,
+              "use_classification": 2,
+              "created_info": {
+                "date": "2024/07/29 20:25:10",
+                "name": "直子 廣川"
+              },
+              "updated_info": {
+                "date": "2024/07/29 20:25:10",
+                "name": "直子 廣川"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "code",
+                "message": [
+                  "この会社コードは、すでに存在します。"
+                ]
+              },
+              {
+                "field": "long_name",
+                "message": [
+                  "会社名は必須項目です。"
+                ]
+              }
+            ]
+          }

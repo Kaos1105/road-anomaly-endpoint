@@ -1,0 +1,460 @@
+get:
+  tags:
+    - Social Data
+  summary: List of social data in Screen No.37000.
+  description: List of social data.
+  parameters:
+    - in: query
+      name: filter[social_event_id]
+      type: integer
+      description: >
+        Search by Social Event ID
+    - in: query
+      name: filter[data_progress]
+      type: integer
+      description: >
+        Filter by Data progress of Social Data
+      enum: [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90 ]
+    - in: query
+      name: filter[customer_responsible_id]
+      type: integer
+      description: >
+        Search by Responsible Id
+    - in: query
+      name: filter[customer_category]
+      type: string
+      default:
+      description: >
+        Search by Customer Category Name
+    - in: query
+      name: filter[use_classification]
+      type: integer
+      enum: [ 1, 2 ]
+      default: 2
+      description: >
+        Filter by Use classification
+          * `1` - Not use
+          * `2` - Use
+    - in: query
+      name: perPage
+      type: integer
+      description: The number of items of each page.
+    - in: query
+      name: page
+      type: integer
+      description: Page.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "collection": [
+                {
+                  "id": 1,
+                  "social_event": {
+                    "id": 2,
+                    "event_id": 2,
+                    "event_classification": {
+                      "id": 2,
+                      "name": "中元",
+                      "description": null,
+                      "operation_rule": null,
+                      "use_classification": 2,
+                      "social_criteria": null
+                    },
+                    "event_title": "七夏",
+                    "use_classification": 1
+                  },
+                  "customer_id": 6,
+                  "customer": {
+                    "id": 6,
+                    "category_name": "JFE関係",
+                    "accounting_company": 1,
+                    "update_order": "update 1",
+                    "employee_id": 109,
+                    "responsible_id": 100,
+                    "responsible_employee": {
+                      "id": 100,
+                      "code": "E100",
+                      "last_name": "Lê Thụy",
+                      "first_name": "Ngọc Hạnh",
+                      "maiden_name": "Sachiko",
+                      "previous_name_flg": 2,
+                      "use_classification": 2
+                    },
+                    "address_printing_1": 1,
+                    "address_printing_2": 0,
+                    "address_printing_3": 0,
+                    "address_printing_4": 0,
+                    "address_printing_5": 0,
+                    "address_printing_6": 1,
+                    "address_printing_7": 1,
+                    "specified_post_code": null,
+                    "specified_address_1": null,
+                    "specified_address_2": null,
+                    "specified_address_3": null,
+                    "specified_phone": null
+                  },
+                  "display_transfer_id": 102,
+                  "display_transfer": {
+                    "id": 102,
+                    "position": null,
+                    "employee": {
+                      "id": 109,
+                      "code": null,
+                      "last_name": "山下",
+                      "first_name": "達也",
+                      "maiden_name": null,
+                      "previous_name_flg": 1,
+                      "use_classification": 2
+                    },
+                    "company": {
+                      "id": 81,
+                      "code": "C103",
+                      "long_name": "岡山情報ビジネス学院",
+                      "previous_name": "OIC",
+                      "previous_name_flg": 2,
+                      "use_classification": 2
+                    },
+                    "site": {
+                      "id": 134,
+                      "company_id": 81,
+                      "code": null,
+                      "long_name": "OIC 岡山",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "phone": "08056163044",
+                      "post_code": "709-0826",
+                      "address_1": "岡山県",
+                      "address_2": "赤磐市",
+                      "address_3": "和田",
+                      "use_classification": 2
+                    },
+                    "department": {
+                      "id": 140,
+                      "site_id": 134,
+                      "code": "SOCIAL_TRANSFER",
+                      "long_name": "TRANSFER CUSTOMER NAME",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "use_classification": 2
+                    },
+                    "division": {
+                      "id": 243,
+                      "department_id": 140,
+                      "code": "DI SOCIAL",
+                      "long_name": "Phòng Nhân Sự SOCIAL",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "use_classification": 2
+                    }
+                  },
+                  "product_id": 1,
+                  "product": {
+                    "id": 1,
+                    "name": "桃岡山",
+                    "code": null,
+                    "product_classification": 1,
+                    "supplier": {
+                      "id": 7,
+                      "sales_store_id": 141,
+                      "use_classification": 2
+                    },
+                    "company": {
+                      "id": 85,
+                      "code": "C300",
+                      "long_name": "岡山大学院",
+                      "previous_name": "大学院",
+                      "previous_name_flg": 2,
+                      "use_classification": 2
+                    },
+                    "use_classification": 2
+                  },
+                  "product_name": "Product 1",
+                  "data_progress": 0,
+                  "total_amount": 12000,
+                  "total_tax": null,
+                  "accounting_department_id": 132,
+                  "accounting_department": {
+                    "id": 132,
+                    "site_id": 129,
+                    "code": "C300",
+                    "long_name": "技術開発企画部VN",
+                    "previous_name": "Kỹ thuật",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "display_order": 999999,
+                  "use_classification": 2,
+                  "workflow_message": "",
+                  "workflows": [ ],
+                  "is_enable_btn_flg": {
+                    "end_btn": null,
+                    "edit_btn": false,
+                    "workflow_btn": false
+                  }
+                },
+                {
+                  "id": 9,
+                  "social_event": {
+                    "id": 1,
+                    "event_id": 2,
+                    "event_classification": {
+                      "id": 2,
+                      "name": "中元",
+                      "description": null,
+                      "operation_rule": null,
+                      "use_classification": 2,
+                      "social_criteria": null
+                    },
+                    "event_title": "翔太",
+                    "use_classification": 2
+                  },
+                  "customer_id": 6,
+                  "customer": {
+                    "id": 6,
+                    "category_name": "JFE関係",
+                    "accounting_company": 1,
+                    "update_order": "update 1",
+                    "employee_id": 109,
+                    "responsible_id": 100,
+                    "responsible_employee": {
+                      "id": 100,
+                      "code": "E100",
+                      "last_name": "Lê Thụy",
+                      "first_name": "Ngọc Hạnh",
+                      "maiden_name": "Sachiko",
+                      "previous_name_flg": 2,
+                      "use_classification": 2
+                    },
+                    "address_printing_1": 1,
+                    "address_printing_2": 0,
+                    "address_printing_3": 0,
+                    "address_printing_4": 0,
+                    "address_printing_5": 0,
+                    "address_printing_6": 1,
+                    "address_printing_7": 1,
+                    "specified_post_code": null,
+                    "specified_address_1": null,
+                    "specified_address_2": null,
+                    "specified_address_3": null,
+                    "specified_phone": null
+                  },
+                  "display_transfer_id": 102,
+                  "display_transfer": {
+                    "id": 102,
+                    "position": null,
+                    "employee": {
+                      "id": 109,
+                      "code": null,
+                      "last_name": "山下",
+                      "first_name": "達也",
+                      "maiden_name": null,
+                      "previous_name_flg": 1,
+                      "use_classification": 2
+                    },
+                    "company": {
+                      "id": 81,
+                      "code": "C103",
+                      "long_name": "岡山情報ビジネス学院",
+                      "previous_name": "OIC",
+                      "previous_name_flg": 2,
+                      "use_classification": 2
+                    },
+                    "site": {
+                      "id": 134,
+                      "company_id": 81,
+                      "code": null,
+                      "long_name": "OIC 岡山",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "phone": "08056163044",
+                      "post_code": "709-0826",
+                      "address_1": "岡山県",
+                      "address_2": "赤磐市",
+                      "address_3": "和田",
+                      "use_classification": 2
+                    },
+                    "department": {
+                      "id": 140,
+                      "site_id": 134,
+                      "code": "SOCIAL_TRANSFER",
+                      "long_name": "TRANSFER CUSTOMER NAME",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "use_classification": 2
+                    },
+                    "division": {
+                      "id": 243,
+                      "department_id": 140,
+                      "code": "DI SOCIAL",
+                      "long_name": "Phòng Nhân Sự SOCIAL",
+                      "previous_name": null,
+                      "previous_name_flg": 1,
+                      "use_classification": 2
+                    }
+                  },
+                  "product_id": 1,
+                  "product": {
+                    "id": 1,
+                    "name": "桃岡山",
+                    "code": null,
+                    "product_classification": 1,
+                    "supplier": {
+                      "id": 7,
+                      "sales_store_id": 141,
+                      "use_classification": 2
+                    },
+                    "company": {
+                      "id": 85,
+                      "code": "C300",
+                      "long_name": "岡山大学院",
+                      "previous_name": "大学院",
+                      "previous_name_flg": 2,
+                      "use_classification": 2
+                    },
+                    "use_classification": 2
+                  },
+                  "product_name": "Sample Product",
+                  "data_progress": 0,
+                  "total_amount": 120,
+                  "total_tax": 9,
+                  "accounting_department_id": 132,
+                  "accounting_department": {
+                    "id": 132,
+                    "site_id": 129,
+                    "code": "C300",
+                    "long_name": "技術開発企画部VN",
+                    "previous_name": "Kỹ thuật",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "display_order": 1,
+                  "use_classification": 2,
+                  "workflow_message": "comment",
+                  "workflows": [
+                    {
+                      "id": 10,
+                      "social_data_id": 9,
+                      "workflow_order": 10,
+                      "scheduled_person_id": 59,
+                      "executor_id": null,
+                      "execution_type": 1,
+                      "execution_at": null,
+                      "deadline": null
+                    },
+                    {
+                      "id": 11,
+                      "social_data_id": 9,
+                      "workflow_order": 20,
+                      "scheduled_person_id": 100,
+                      "executor_id": null,
+                      "execution_type": 1,
+                      "execution_at": null,
+                      "deadline": "2023/01/31"
+                    },
+                    {
+                      "id": 12,
+                      "social_data_id": 9,
+                      "workflow_order": 30,
+                      "scheduled_person_id": 85,
+                      "executor_id": null,
+                      "execution_type": 1,
+                      "execution_at": null,
+                      "deadline": null
+                    },
+                    {
+                      "id": 13,
+                      "social_data_id": 9,
+                      "workflow_order": 40,
+                      "scheduled_person_id": 31,
+                      "executor_id": null,
+                      "execution_type": 1,
+                      "execution_at": null,
+                      "deadline": null
+                    },
+                    {
+                      "id": 14,
+                      "social_data_id": 9,
+                      "workflow_order": 50,
+                      "scheduled_person_id": 59,
+                      "executor_id": null,
+                      "execution_type": 1,
+                      "execution_at": null,
+                      "deadline": "1982/06/07"
+                    },
+                    {
+                      "id": 15,
+                      "social_data_id": 9,
+                      "workflow_order": 60,
+                      "scheduled_person_id": 85,
+                      "executor_id": null,
+                      "execution_type": 1,
+                      "execution_at": null,
+                      "deadline": "1984/03/18"
+                    },
+                    {
+                      "id": 16,
+                      "social_data_id": 9,
+                      "workflow_order": 70,
+                      "scheduled_person_id": 31,
+                      "executor_id": null,
+                      "execution_type": 1,
+                      "execution_at": null,
+                      "deadline": null
+                    },
+                    {
+                      "id": 17,
+                      "social_data_id": 9,
+                      "workflow_order": 80,
+                      "scheduled_person_id": 100,
+                      "executor_id": null,
+                      "execution_type": 1,
+                      "execution_at": null,
+                      "deadline": null
+                    },
+                    {
+                      "id": 18,
+                      "social_data_id": 9,
+                      "workflow_order": 90,
+                      "scheduled_person_id": 85,
+                      "executor_id": null,
+                      "execution_type": 1,
+                      "execution_at": null,
+                      "deadline": null
+                    }
+                  ],
+                  "is_enable_btn_flg": {
+                    "end_btn": null,
+                    "edit_btn": true,
+                    "workflow_btn": true
+                  }
+                }
+              ],
+              "pagination": {
+                "total": 2,
+                "count": 2,
+                "perPage": 25,
+                "currentPage": 1,
+                "totalPages": 1
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+

@@ -1,0 +1,198 @@
+get:
+  tags:
+    - Access Permission
+  summary: Get list of employee's permission
+  description: Get list of employee's permission
+  parameters:
+    - in: path
+      name: employee
+      type: integer
+      required: true
+      description: Numeric ID of the Employee to get.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              [
+                {
+                  "id": 1,
+                  "employee_id": 1,
+                  "system_id": 1,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "is_accessible": true,
+                  "system": {
+                    "id": 1,
+                    "code": "MAIN",
+                    "name": "Main SYSTEM",
+                    "operation_classification": 1,
+                    "start_date": "2024/07/21",
+                    "end_date": "2024/12/30",
+                    "use_classification": 2,
+                    "display_order": 999999
+                  },
+                  "start_date": "2024/05/22",
+                  "end_date": null,
+                  "updated_at": null
+                },
+                {
+                  "id": 448,
+                  "employee_id": 1,
+                  "system_id": 23,
+                  "permission_1": 1,
+                  "permission_2": 1,
+                  "permission_3": 2,
+                  "permission_4": 2,
+                  "is_accessible": false,
+                  "system": {
+                    "id": 23,
+                    "code": "SYSTEM TEST TEST",
+                    "name": "System name",
+                    "operation_classification": 0,
+                    "start_date": "2024/08/01",
+                    "end_date": null,
+                    "use_classification": 1,
+                    "display_order": 1
+                  },
+                  "start_date": "2024/08/01",
+                  "end_date": null,
+                  "updated_at": null
+                },
+                {
+                  "id": 325,
+                  "employee_id": 1,
+                  "system_id": 20,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "is_accessible": true,
+                  "system": {
+                    "id": 20,
+                    "code": "NET",
+                    "name": "NET System",
+                    "operation_classification": 1,
+                    "start_date": "2024/07/22",
+                    "end_date": "2024/12/31",
+                    "use_classification": 2,
+                    "display_order": 2
+                  },
+                  "start_date": "2024/07/22",
+                  "end_date": null,
+                  "updated_at": null
+                },
+                {
+                  "id": 121,
+                  "employee_id": 1,
+                  "system_id": 4,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "is_accessible": true,
+                  "system": {
+                    "id": 4,
+                    "code": "S-NET",
+                    "name": "SNET",
+                    "operation_classification": 1,
+                    "start_date": "2024/07/26",
+                    "end_date": null,
+                    "use_classification": 2,
+                    "display_order": 3
+                  },
+                  "start_date": "2024/07/13",
+                  "end_date": null,
+                  "updated_at": null
+                },
+                {
+                  "id": 81,
+                  "employee_id": 1,
+                  "system_id": 3,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "is_accessible": true,
+                  "system": {
+                    "id": 3,
+                    "code": "NEGOTIATION",
+                    "name": "NEGOTIATION",
+                    "operation_classification": 1,
+                    "start_date": "2024/05/31",
+                    "end_date": null,
+                    "use_classification": 2,
+                    "display_order": 4
+                  },
+                  "start_date": "2024/05/24",
+                  "end_date": null,
+                  "updated_at": null
+                },
+                {
+                  "id": 41,
+                  "employee_id": 1,
+                  "system_id": 2,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "is_accessible": true,
+                  "system": {
+                    "id": 2,
+                    "code": "ORGANIZATION",
+                    "name": "Main SYSTEM",
+                    "operation_classification": 1,
+                    "start_date": "2024/07/21",
+                    "end_date": "2024/08/31",
+                    "use_classification": 2,
+                    "display_order": 5
+                  },
+                  "start_date": "2024/06/28",
+                  "end_date": null,
+                  "updated_at": null
+                },
+                {
+                  "id": 489,
+                  "employee_id": 1,
+                  "system_id": 24,
+                  "permission_1": 1,
+                  "permission_2": 1,
+                  "permission_3": 2,
+                  "permission_4": 2,
+                  "is_accessible": false,
+                  "system": {
+                    "id": 24,
+                    "code": "SYSTEM TEST TEST 1",
+                    "name": "System name",
+                    "operation_classification": 1,
+                    "start_date": "2024/08/01",
+                    "end_date": null,
+                    "use_classification": 2,
+                    "display_order": 6
+                  },
+                  "start_date": "2024/08/01",
+                  "end_date": null,
+                  "updated_at": null
+                }
+              ]
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

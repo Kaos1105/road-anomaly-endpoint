@@ -1,0 +1,76 @@
+get:
+  tags:
+    - Negotiations
+  summary: List my company employee.
+  parameters:
+    - in: query
+      name: filter[management_department]
+      type: boolean
+      default: false
+      description: Filter by management department
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 137,
+                "code": "DE101",
+                "short_name": "技術",
+                "long_name": "技術開発企画部"
+              },
+              {
+                "id": 132,
+                "code": "C300",
+                "short_name": "技術",
+                "long_name": "技術開発企画部VN"
+              },
+              {
+                "id": 133,
+                "code": "D101",
+                "short_name": "総務",
+                "long_name": "水島総務部"
+              },
+              {
+                "id": 134,
+                "code": "DE 100",
+                "short_name": "業務",
+                "long_name": "業務管理部"
+              },
+              {
+                "id": 135,
+                "code": "DE 102",
+                "short_name": "Nhân sự",
+                "long_name": "Bộ Phận Nhân Sự"
+              },
+              {
+                "id": 136,
+                "code": "DE 103",
+                "short_name": "Kế Toán",
+                "long_name": "Bộ Phận Kế Toán"
+              },
+              {
+                "id": 143,
+                "code": "C300",
+                "short_name": null,
+                "long_name": "department 123"
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }

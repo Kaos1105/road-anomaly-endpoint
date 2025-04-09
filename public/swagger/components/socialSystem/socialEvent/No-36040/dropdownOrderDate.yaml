@@ -1,0 +1,38 @@
+get:
+  tags:
+    - Social Event
+  summary: Get list of Ordered date No.36040 dropdown
+  description: Get list of Ordered date for No.36040 dropdown
+  parameters:
+    - name: social_event
+      description: Social Event Id
+      in: path
+      required: true
+      type: integer
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "execution_at": "2024/10/16"
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

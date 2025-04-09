@@ -1,0 +1,36 @@
+delete:
+  tags:
+    - Schedule Time Schedule
+  summary: Delete Time Schedule.
+  description: Delete a Transfers
+  parameters:
+    - in: path
+      name: time
+      type: integer
+      required: true
+      description: Numeric ID of the time schedule to get.
+  responses:
+    204:
+      description: No content
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\TimeSchedule] 1"
+          }

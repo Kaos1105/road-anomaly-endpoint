@@ -1,0 +1,192 @@
+post:
+  tags:
+    - Departments
+  summary: Create a department.
+  description: Create a department
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: code
+      description: Department code
+      in: formData
+      required: false
+      type: string
+    - name: site_id
+      description: Site ID
+      in: formData
+      required: true
+      type: number
+    - name: long_name
+      description: Department long name
+      in: formData
+      required: true
+      type: string
+    - name: short_name
+      description: Department short name
+      in: formData
+      required: false
+      type: string
+    - name: kana
+      description: Department name in Kana
+      in: formData
+      required: false
+      type: string
+    - name: start_date
+      description: Department start date
+      in: formData
+      required: false
+      type: string
+      format: date
+    - name: end_date
+      description: Department end date
+      in: formData
+      required: false
+      type: string
+      format: date
+    - name: department_classification
+      description: Department classification
+        * `1` - GENERAL AFFAIRS
+        * `11` - ACCOUNTING
+        * `21` - CORPORATE PLANNING
+        * `31` - INFORMATION TECHNOLOGY
+        * `41` - SALES
+        * `51` - MANUFACTURING
+        * `61` - QUALITY ASSURANCE
+        * `71` - PURCHASE
+        * `72` - LOGISTICS
+        * `99` - OTHER
+      in: formData
+      required: true
+      type: integer
+      enum: [ 1, 11, 21, 31, 41, 51, 61, 71, 72, 99 ]
+    - name: previous_name
+      description: Department previous name
+      in: formData
+      required: false
+      type: string
+    - name: previous_name_flg
+      description: Flag to indicate if department had previous name.
+        * `1` - Not combined
+        * `2` - Combined
+      in: formData
+      required: true
+      type: integer
+      enum: [ 1, 2 ]
+    - name: en_notation
+      description: Department name in English notation
+      in: formData
+      required: false
+      type: string
+    - name: phone
+      description: Department phone number
+      in: formData
+      required: false
+      type: string
+    - name: memo
+      description: Department memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: Department display order
+      in: formData
+      required: true
+      type: integer
+      default: 999999
+    - name: use_classification
+      description: Department usage classification
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      required: true
+      type: integer
+      enum: [ 1, 2 ]
+      default: 2
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 5,
+              "code": "watanabe.nanami",
+              "site": {
+                "id": 8,
+                "code": "kyosuke40",
+                "long_name": "株式会社 井上",
+                "previous_name": null,
+                "previous_name_flg": 1,
+                "post_code": null,
+                "address_1": "佐藤市",
+                "address_2": "eius",
+                "address_3": "sed"
+              },
+              "site_id": 8,
+              "company": {
+                "id": 8,
+                "code": "f364",
+                "long_name": "株式会社 桐山",
+                "previous_name": "cum",
+                "previous_name_flg": 2
+              },
+              "company_id": 8,
+              "long_name": "有限会社 渚",
+              "short_name": "有限会社 藤本",
+              "kana": "株式会社 村山",
+              "start_date": "2004/04/17",
+              "end_date": null,
+              "represent_flg": 2,
+              "department_classification": 72,
+              "previous_name": "株式会社 青田",
+              "previous_name_flg": 1,
+              "en_notation": null,
+              "phone": null,
+              "memo": "Dolorem nobis veniam autem laboriosam. Sunt quasi voluptas veritatis hic facere. Facilis aut qui vitae hic quo. Porro nisi eos enim omnis iusto architecto et.",
+              "display_order": 618801,
+              "use_classification": 1,
+              "created_info": null,
+              "updated_info": null
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "code",
+                "message": [
+                  "この会社コードは、すでに存在します。"
+                ]
+              },
+              {
+                "field": "long_name",
+                "message": [
+                  "会社名は必須項目です。"
+                ]
+              }
+            ]
+          }

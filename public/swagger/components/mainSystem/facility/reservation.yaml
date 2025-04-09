@@ -1,0 +1,85 @@
+get:
+  tags:
+    - Main Facility
+  summary: Facility box
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "message": null,
+              "has_facility_group": true,
+              "has_facilities": true,
+              "facilities": [
+                {
+                  "id": 4,
+                  "name": "Xe buýt",
+                  "use_classification": 2,
+                  "display_order": 4,
+                  "reservation": {
+                    "id": 5,
+                    "facility_id": 4,
+                    "use_person_id": 59,
+                    "use_person": {
+                      "id": 59,
+                      "code": "E002",
+                      "last_name": "Danh",
+                      "first_name": "Nguyen",
+                      "maiden_name": "Dan",
+                      "previous_name_flg": 2,
+                      "use_classification": 2
+                    },
+                    "reservation_date": "2025/01/22",
+                    "start_time": "18:00",
+                    "end_time": "19:00",
+                    "work_contents": "work_content"
+                  }
+                },
+                {
+                  "id": 3,
+                  "name": "Xe hơi",
+                  "use_classification": 2,
+                  "display_order": 10,
+                  "reservation": null
+                },
+                {
+                  "id": 23,
+                  "name": "factility 1",
+                  "use_classification": 2,
+                  "display_order": 111,
+                  "reservation": null
+                },
+                {
+                  "id": 24,
+                  "name": "factility 2",
+                  "use_classification": 2,
+                  "display_order": 111,
+                  "reservation": null
+                },
+                {
+                  "id": 25,
+                  "name": "Thao Nguyen",
+                  "use_classification": 2,
+                  "display_order": 999,
+                  "reservation": null
+                }
+              ]
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }

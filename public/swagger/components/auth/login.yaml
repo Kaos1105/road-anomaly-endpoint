@@ -1,0 +1,100 @@
+post:
+  tags:
+    - Auth
+  summary: Login User
+  description: User login by Login Id and password
+  consumes:
+    - application/x-www-form-urlencoded
+  parameters:
+    - in: formData
+      name: login_id
+      type: string
+      required: true
+      example: 'login01'
+    - in: formData
+      name: password
+      type: string
+      required: true
+      maxLength: 20
+      example: 'passworD@1'
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "token": "8|Nt0eDqdFuQqtKnoDye7cdBeDSRyDSxyFxJ9cNpUR19092249",
+              "user": {
+                "id": 2,
+                "code": "9957871",
+                "access_permission": {
+                  "id": 2,
+                  "employee_id": 2,
+                  "system_id": 1,
+                  "permission_1": 2,
+                  "permission_2": 1,
+                  "permission_3": 1,
+                  "permission_4": 1,
+                  "system": {
+                    "id": 1,
+                    "code": "MAIN",
+                    "name": "MAIN"
+                  },
+                  "start_date": "2024/07/03",
+                  "end_date": null,
+                  "updated_at": "2024/08/07"
+                },
+                "last_name": "鈴木",
+                "first_name": "聡太郎",
+                "previous_name_flg": 1,
+                "maiden_name": null,
+                "display_order": 999999
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    422:
+      description: Bad request
+      schema:
+        type: object
+        example: {
+          "code": 422,
+          "data": null,
+          "message": "バリデーションエラーがあります。",
+          "errors": [
+            {
+              "field": "login_id",
+              "message": [
+                "ログインIDは必須項目です。"
+              ]
+            }
+          ]
+        }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "ログインＩＤまたはパスワードに誤りがあります。",
+            "errors": null
+          }
+    429:
+      description: Rate limit hit
+      schema:
+        type: object
+        example:
+          {
+            "code": 429,
+            "data": null,
+            "message": null,
+            "errors": {
+              "locked_seconds": 894
+            }
+          }

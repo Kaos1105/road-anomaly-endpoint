@@ -1,0 +1,119 @@
+get:
+  tags:
+    - Social Dashboard
+  summary: Management Group List
+  description: Get all records of the Management Group
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 6,
+                "name": "Addmin",
+                "use_classification": 1,
+                "number_of_events": 1
+              },
+              {
+                "id": 17,
+                "name": "Group BBBBBB",
+                "use_classification": 2,
+                "number_of_events": 2
+              },
+              {
+                "id": 2,
+                "name": "水島",
+                "use_classification": 2,
+                "number_of_events": 3
+              },
+              {
+                "id": 3,
+                "name": "松江",
+                "use_classification": 1,
+                "number_of_events": 2
+              },
+              {
+                "id": 1,
+                "name": "岡山本社",
+                "use_classification": 2,
+                "number_of_events": 7
+              },
+              {
+                "id": 5,
+                "name": "Group A",
+                "use_classification": 2,
+                "number_of_events": 1
+              },
+              {
+                "id": 7,
+                "name": "New post",
+                "use_classification": 2,
+                "number_of_events": 0
+              },
+              {
+                "id": 8,
+                "name": "Fukuyama",
+                "use_classification": 2,
+                "number_of_events": 1
+              },
+              {
+                "id": 9,
+                "name": "Group c",
+                "use_classification": 2,
+                "number_of_events": 3
+              },
+              {
+                "id": 10,
+                "name": "開発グループ",
+                "use_classification": 2,
+                "number_of_events": 0
+              },
+              {
+                "id": 11,
+                "name": "group event class",
+                "use_classification": 1,
+                "number_of_events": 0
+              },
+              {
+                "id": 12,
+                "name": "あいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこ",
+                "use_classification": 2,
+                "number_of_events": 1
+              },
+              {
+                "id": 13,
+                "name": "test group",
+                "use_classification": 2,
+                "number_of_events": 1
+              },
+              {
+                "id": 16,
+                "name": "test management group (11/21)",
+                "use_classification": 2,
+                "number_of_events": 1
+              },
+              {
+                "id": 18,
+                "name": "Ngan group",
+                "use_classification": 2,
+                "number_of_events": 0
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

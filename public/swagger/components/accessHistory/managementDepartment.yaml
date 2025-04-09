@@ -1,0 +1,135 @@
+get:
+  tags:
+    - Access History
+  summary: Management Department
+  description: Get the n last records of access histories by action of the management department of Negotiation system
+  parameters:
+    - in: query
+      name: filter[action]
+      type: string
+      required: true
+      description: >
+        Filter by action, example: CREATE,EDIT,DELETE
+    - in: query
+      name: records
+      type: integer
+      default: 3
+      description: >
+        Number of records, example: 3
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "is_accessible": true,
+              "records": [
+                {
+                  "id": 25390,
+                  "employee": {
+                    "id": 100,
+                    "code": "E100",
+                    "last_name": "Lê Thụy",
+                    "first_name": "Ngọc Hạnh",
+                    "maiden_name": "Sachiko",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 3,
+                  "accessible_type": "negotiation_management_departments",
+                  "accessible_id": 32,
+                  "action": "CREATE",
+                  "message": "C300 技術開発企画部VN MANAGEMENT",
+                  "access_at": "2025-01-02 17:07:18"
+                },
+                {
+                  "id": 25387,
+                  "employee": {
+                    "id": 100,
+                    "code": "E100",
+                    "last_name": "Lê Thụy",
+                    "first_name": "Ngọc Hạnh",
+                    "maiden_name": "Sachiko",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 3,
+                  "accessible_type": "negotiation_management_departments",
+                  "accessible_id": 31,
+                  "action": "EDIT",
+                  "message": "DE101 技術開発企画部 Tester",
+                  "access_at": "2025-01-02 17:05:47"
+                },
+                {
+                  "id": 25358,
+                  "employee": {
+                    "id": 100,
+                    "code": "E100",
+                    "last_name": "Lê Thụy",
+                    "first_name": "Ngọc Hạnh",
+                    "maiden_name": "Sachiko",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 3,
+                  "accessible_type": "negotiation_management_departments",
+                  "accessible_id": 31,
+                  "action": "EDIT",
+                  "message": "DE101 技術開発企画部 Tester",
+                  "access_at": "2025-01-02 17:03:05"
+                },
+                {
+                  "id": 25349,
+                  "employee": {
+                    "id": 100,
+                    "code": "E100",
+                    "last_name": "Lê Thụy",
+                    "first_name": "Ngọc Hạnh",
+                    "maiden_name": "Sachiko",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 3,
+                  "accessible_type": "negotiation_management_departments",
+                  "accessible_id": 31,
+                  "action": "EDIT",
+                  "message": "DE101 技術開発企画部 Tester",
+                  "access_at": "2025-01-02 17:02:35"
+                },
+                {
+                  "id": 25343,
+                  "employee": {
+                    "id": 100,
+                    "code": "E100",
+                    "last_name": "Lê Thụy",
+                    "first_name": "Ngọc Hạnh",
+                    "maiden_name": "Sachiko",
+                    "previous_name_flg": 2,
+                    "use_classification": 2
+                  },
+                  "system_id": 3,
+                  "accessible_type": "negotiation_management_departments",
+                  "accessible_id": 31,
+                  "action": "CREATE",
+                  "message": "DE101 技術開発企画部 Tester",
+                  "access_at": "2025-01-02 17:02:13"
+                }
+              ]
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

@@ -1,0 +1,52 @@
+post:
+  tags:
+    - External
+  summary: Japanese text convert to hiragana.
+  description: zipcode;
+  parameters:
+    - in: formData
+      name: sentence
+      type: string
+      required: true
+      example: '人事異動'
+  responses:
+    200:
+      description: Success
+      example:
+        {
+          "code": 200,
+          "data": {
+            "converted": "じんじいどう"
+          },
+          "message": "OK",
+          "errors": null
+        }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    422:
+      description: Bad request
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "sentence",
+                "message": [
+                  "解析対象テキストは必須項目です。"
+                ]
+              }
+            ]
+          }

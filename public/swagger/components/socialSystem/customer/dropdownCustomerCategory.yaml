@@ -1,0 +1,41 @@
+get:
+  tags:
+    - Customers
+  summary: Dropdown customer category.
+  description: Get list customer categories
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "name": "b"
+              },
+              {
+                "name": "a"
+              },
+              {
+                "name": "c"
+              },
+              {
+                "name": "d"
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

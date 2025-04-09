@@ -1,0 +1,46 @@
+get:
+  tags:
+    - Employee
+  summary: Get detail of employee
+  description: Get detail of employee
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 2,
+              "code": "9957871",
+              "last_name": "鈴木",
+              "first_name": "聡太郎",
+              "maiden_name": null,
+              "previous_name_flg": 1,
+              "email": "bsaito@yahoo.co.jp",
+              "phone": "080-2467-4334",
+              "company_email": null,
+              "company_phone": null,
+              "login": {
+                "id": 2,
+                "employee_id": 2,
+                "login_id": "qsakamoto",
+                "password_decrypt": "password"
+              },
+              "transfer": null
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

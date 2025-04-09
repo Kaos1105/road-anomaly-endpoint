@@ -1,0 +1,271 @@
+get:
+  tags:
+    - Companies
+  summary: Show a company.
+  description: Show detail company
+  parameters:
+    - in: path
+      name: company
+      type: integer
+      required: true
+      description: Numeric ID of the company to get.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 12,
+              "has_favorite": true,
+              "code": "g466",
+              "long_name": "O'Conner, Ortiz and McKenzie",
+              "short_name": "illum",
+              "kana": "nulla",
+              "start_date": "2022/07/10",
+              "end_date": "2020/01/05",
+              "company_classification": 1,
+              "group_name": "labore",
+              "previous_name": "rerum",
+              "previous_name_flg": 1,
+              "en_notation": "enim",
+              "memo": "Vero laboriosam alias deleniti ad dolore eum cum cupiditate in.",
+              "display_order": 858922,
+              "use_classification": 1,
+              "created_info": null,
+              "updated_info": null
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\Company] 80"
+          }
+put:
+  tags:
+    - Companies
+  summary: Update a company.
+  description: Update a company
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - in: path
+      name: company
+      type: integer
+      required: true
+      description: Numeric ID of the company.
+    - name: code
+      description: code unique
+      in: formData
+      required: false
+      type: string
+    - name: long_name
+      description: Company long name
+      in: formData
+      required: true
+      type: string
+    - name: short_name
+      description: Company short name
+      in: formData
+      required: false
+      type: string
+    - name: kana
+      description: Company name in Kana
+      in: formData
+      required: false
+      type: string
+    - name: start_date
+      description: Company start date
+      in: formData
+      required: false
+      type: string
+      format: date
+    - name: end_date
+      description: Company end date
+      in: formData
+      required: false
+      type: string
+      format: date
+    - name: company_classification
+      description: Company classification ID.
+        * `1` - Customer
+        * `2` - Shinnichiro
+        * `3` - School
+      in: formData
+      required: true
+      enum: [1, 2, 3]
+      type: integer
+    - name: group_name
+      description: Company group name
+      in: formData
+      required: false
+      type: string
+    - name: previous_name
+      description: Company previous name
+      in: formData
+      required: false
+      type: string
+    - name: previous_name_flg
+      description: Flag to indicate if company had previous name
+        * `1` - Not combined
+        * `2` - Combined
+      in: formData
+      required: true
+      type: integer
+      enum: [1, 2]
+      default: 1
+    - name: en_notation
+      description: Company name in English notation
+      in: formData
+      required: false
+      type: string
+    - name: memo
+      description: Company memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: Company display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Company usage classification.
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      default: 2
+      required: true
+      type: integer
+      enum: [1, 2]
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 254,
+              "code": "code6",
+              "long_name": "qq cp",
+              "short_name": "qq",
+              "kana": null,
+              "start_date": null,
+              "end_date": null,
+              "company_classification": 1,
+              "group_name": "jaf",
+              "previous_name": null,
+              "previous_name_flg": 2,
+              "en_notation": null,
+              "memo": null,
+              "display_order": 9999,
+              "use_classification": null,
+              "created_info": {
+                "date": "2024/07/29 13:34:47",
+                "name": "直子 廣川"
+              },
+              "updated_info": {
+                "date": "2024/07/29 13:34:47",
+                "name": "直子 廣川"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "code",
+                "message": [
+                  "この会社コードは、すでに存在します。"
+                ]
+              },
+              {
+                "field": "long_name",
+                "message": [
+                  "会社名は必須項目です。"
+                ]
+              }
+            ]
+          }
+delete:
+  tags:
+    - Companies
+  summary: Delete company.
+  description: Delete a company
+  parameters:
+    - in: path
+      name: company
+      type: integer
+      required: true
+      description: Numeric ID of the company to get.
+  responses:
+    204:
+      description: Success
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\Company] 80"
+          }

@@ -1,0 +1,332 @@
+get:
+  tags:
+    - Social Event
+  summary: Show Social Event detail in No.36010
+  description: Show Social Event detail in No.36010
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: social_event
+      description: Social Event Id
+      in: path
+      required: true
+      type: integer
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 1,
+              "event_id": 2,
+              "event_classification": {
+                "id": 2,
+                "name": "中元",
+                "description": null,
+                "operation_rule": null,
+                "use_classification": 2,
+                "social_criteria": null
+              },
+              "group_id": 2,
+              "management_group": {
+                "id": 2,
+                "name": "水島",
+                "use_classification": 2
+              },
+              "event_title": "翔太",
+              "event_progress": 3,
+              "planned_start": "1971/05/28",
+              "creation_deadline": "2023/01/31",
+              "approval_deadline": "1982/06/07",
+              "order_deadline": "1984/03/18",
+              "planned_completion": "2023/11/04",
+              "drafted_execution_at": null,
+              "approved_execution_at": null,
+              "ordered_execution_at": "2024/10/16",
+              "plan_comment": "Quia magnam totam doloribus. Et dolores architecto alias eum laudantium repellat molestias.",
+              "actual_comment": "Accusamus architecto consequatur nihil autem eligendi quasi. Quos dolor eaque quisquam illum id non magni. Qui non est asperiores in dignissimos natus tempora rerum. Est nesciunt et possimus voluptatem alias.",
+              "memo": "Similique dolorum reiciendis veniam consequatur sed rem. Non aliquam rem qui velit. Id cupiditate officia veritatis enim ipsa animi eum.",
+              "use_classification": 2,
+              "drafters": [
+                {
+                  "id": 100,
+                  "code": "E100",
+                  "last_name": "Lê Thụy",
+                  "first_name": "Ngọc Hạnh",
+                  "maiden_name": "Sachiko",
+                  "previous_name_flg": 2,
+                  "use_classification": 2,
+                  "served_customer_count": 3,
+                  "drafted_social_data_count": 0,
+                  "approved_social_data_count": 0,
+                  "decided_social_data_count": 0,
+                  "receipt_social_data_count": 1
+                },
+                {
+                  "id": 85,
+                  "code": "C300",
+                  "last_name": "Arumi",
+                  "first_name": "kun",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 1,
+                  "served_customer_count": 1,
+                  "drafted_social_data_count": 0,
+                  "approved_social_data_count": 0,
+                  "decided_social_data_count": 1,
+                  "receipt_social_data_count": 0
+                },
+                {
+                  "id": null,
+                  "code": null,
+                  "last_name": null,
+                  "first_name": null,
+                  "maiden_name": null,
+                  "previous_name_flg": null,
+                  "use_classification": null,
+                  "served_customer_count": 4,
+                  "drafted_social_data_count": 0,
+                  "approved_social_data_count": 0,
+                  "decided_social_data_count": 1,
+                  "receipt_social_data_count": 1
+                }
+              ],
+              "customer_categories": [
+                {
+                  "name": "OIC 関係",
+                  "number_of_payment": 2,
+                  "amount_of_payment": 24000
+                },
+                {
+                  "name": "JFE関係",
+                  "number_of_payment": 1,
+                  "amount_of_payment": 140
+                },
+                {
+                  "name": null,
+                  "number_of_payment": 3,
+                  "amount_of_payment": 24140
+                }
+              ],
+              "created_info": {
+                "date": "1986/12/25 00:08:43",
+                "name": "Lê Thụy　Ngọc Hạnh"
+              },
+              "updated_info": {
+                "date": "1983/03/01 04:33:51",
+                "name": "Huế　Thương"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    404:
+      description: Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\SocialEvent] 4"
+          }
+delete:
+  tags:
+    - Social Event
+  summary: Delete social event.
+  description: Delete a social event
+  parameters:
+    - name: social_event
+      description: Social Event ID
+      in: path
+      required: true
+      type: integer
+  responses:
+    204:
+      description: Success
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\SocialEvent] 4"
+          }
+put:
+  tags:
+    - Social Event
+  summary: Edit social event.
+  description: Edit social event.
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: event_title
+      description: Event Title
+      in: formData
+      required: true
+      type: string
+    - name: event_progress
+      description: Event progress classification
+        * `1` - IN PREPARATION
+        * `2` - UNDER WAY
+        * `3` - COMPLETE
+      in: formData
+      required: true
+      enum: [ 1, 2, 3 ]
+      type: integer
+    - name: planned_start
+      description: Planned start date in YYYY/MM/DD
+      in: formData
+      required: true
+      type: string
+    - name: creation_deadline
+      description: Creation date in YYYY/MM/DD
+      in: formData
+      required: true
+      type: string
+    - name: approval_deadline
+      description: Approval deadline in YYYY/MM/DD
+      in: formData
+      required: true
+      type: string
+    - name: order_deadline
+      description: Order deadline in YYYY/MM/DD
+      in: formData
+      required: true
+      type: string
+    - name: planned_completion
+      description: Planned completion date in YYYY/MM/DD
+      in: formData
+      required: true
+      type: string
+    - name: plan_comment
+      description: Plan comment
+      in: formData
+      required: false
+      type: string
+    - name: actual_comment
+      description: Actual comment
+      in: formData
+      required: false
+      type: string
+    - name: memo
+      description: Memo
+      in: formData
+      required: false
+      type: string
+    - name: use_classification
+      description: Usage classification
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      default: 2
+      required: true
+      enum: [ 1, 2 ]
+      type: integer
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 44,
+              "event_id": 2,
+              "event_classification": {
+                "id": 2,
+                "name": "株式会社 村山",
+                "use_classification": 2
+              },
+              "group_id": 2,
+              "management_group": {
+                "id": 2,
+                "name": "Management group 1",
+                "use_classification": 2
+              },
+              "event_title": "event_title_44",
+              "event_progress": 2,
+              "planned_start": "2024/09/17",
+              "creation_deadline": "2024/09/17",
+              "approval_deadline": "2024/09/17",
+              "order_deadline": "2024/09/17",
+              "planned_completion": "2024/09/17",
+              "plan_comment": "plan_comment",
+              "actual_comment": "actual_comment",
+              "memo": "memo",
+              "use_classification": 2,
+              "created_info": {
+                "date": "2024/10/09 16:53:08",
+                "name": "Danh　Nguyen"
+              },
+              "updated_info": {
+                "date": "2024/10/09 19:06:38",
+                "name": "Danh　Nguyen"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "name",
+                "message": [
+                  "顧客カテゴリは必須項目です。"
+                ]
+              }
+            ]
+          }

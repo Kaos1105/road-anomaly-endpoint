@@ -1,0 +1,49 @@
+get:
+  tags:
+    - Device Information
+  summary: Show all using device information of user
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 4,
+                "name": "Postmain4",
+                "device_information": "PostmanRuntime/7.43.0",
+                "use_classification": 2,
+                "updated_at": "2025/03/12 18:31:03"
+              },
+              {
+                "id": 5,
+                "name": "Postman5",
+                "device_information": "PostmanRuntime/7.43.0",
+                "use_classification": 2,
+                "updated_at": "2025/03/12 16:36:53"
+              },
+              {
+                "id": 3,
+                "name": "Postman",
+                "device_information": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/600.8.9 (KHTML, like Gecko) Version/8.0.8 Safari/600.8.9",
+                "use_classification": 2,
+                "updated_at": "2025/03/12 15:30:04"
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }

@@ -1,0 +1,97 @@
+post:
+  tags:
+    - Event Classification
+  summary: Create an event classification
+  description: Create an event classification
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: name
+      description: Unique name
+      in: formData
+      required: true
+      type: string
+    - name: description
+      description: Event Classification's description
+      in: formData
+      required: false
+      type: string
+    - name: operation_rule
+      description: Event Classification's operation rule
+      in: formData
+      required: false
+      type: string
+    - name: social_criteria
+      description: Event Classification's social criteria
+      in: formData
+      required: false
+      type: string
+    - name: memo
+      description: Event Classification's memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: Event Classification's display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Event Classification's usage classification
+      in: formData
+      default: 2
+      required: true
+      type: integer
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 201,
+            "data": {
+              "id": 54,
+              "name": "name1",
+              "description": "description",
+              "operation_rule": "operation_rule",
+              "social_criteria": "social_criteria",
+              "memo": "memo",
+              "display_order": 1,
+              "use_classification": 2
+            },
+            "message": "登録しました。",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "name",
+                "message": [
+                  "このイベント区分名は、すでに存在します。"
+                ]
+              }
+            ]
+          }

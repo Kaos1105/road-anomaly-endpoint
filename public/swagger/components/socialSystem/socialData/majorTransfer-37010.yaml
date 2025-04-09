@@ -1,0 +1,84 @@
+get:
+  tags:
+    - Social Data
+  summary: Get Major transfer of Social Data Customer
+  description: Get Major transfer of Social Data Customer for No.37010
+  parameters:
+    - name: social_data
+      description: Social Data Id
+      in: path
+      required: true
+      type: integer
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 102,
+                "employee_id": 109,
+                "start_date": "2024/10/01",
+                "end_date": "2024/10/31",
+                "position": null,
+                "major_history_flg": 2,
+                "updated_at": "2024/10/01",
+                "company": {
+                  "id": 81,
+                  "code": "C103",
+                  "long_name": "岡山情報ビジネス学院",
+                  "previous_name": "OIC",
+                  "previous_name_flg": 2,
+                  "use_classification": 2
+                },
+                "site": {
+                  "id": 134,
+                  "company_id": 81,
+                  "code": null,
+                  "long_name": "OIC 岡山",
+                  "previous_name": null,
+                  "previous_name_flg": 1,
+                  "phone": "08056163044",
+                  "post_code": "709-0826",
+                  "address_1": "岡山県",
+                  "address_2": "赤磐市",
+                  "address_3": "和田",
+                  "use_classification": 2
+                },
+                "department": {
+                  "id": 140,
+                  "site_id": 134,
+                  "code": "SOCIAL_TRANSFER",
+                  "long_name": "TRANSFER CUSTOMER NAME",
+                  "previous_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                },
+                "division": {
+                  "id": 243,
+                  "department_id": 140,
+                  "code": "DI SOCIAL",
+                  "long_name": "Phòng Nhân Sự SOCIAL",
+                  "previous_name": null,
+                  "previous_name_flg": 1,
+                  "use_classification": 2
+                }
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

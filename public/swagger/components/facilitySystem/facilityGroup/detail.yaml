@@ -1,0 +1,231 @@
+get:
+  tags:
+    - Facility Group
+  summary: Show a facility group.
+  description: Show detail facility group
+  parameters:
+    - in: path
+      name: group
+      type: integer
+      required: true
+      description: Numeric ID of the facility group to get.
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 1,
+              "use_group_id": 22,
+              "use_group": {
+                "id": 22,
+                "name": "TESTttttttt",
+                "display_order": 2,
+                "use_classification": 2
+              },
+              "name": "Nhóm Sáng Tạo",
+              "display_order": 2,
+              "use_classification": 2,
+              "memo": null,
+              "created_info": {
+                "date": "2025/01/14 16:23:57",
+                "name": "Lê Thụy　Ngọc Hạnh"
+              },
+              "updated_info": {
+                "date": "2025/01/14 16:35:05",
+                "name": "Lê Thụy　Ngọc Hạnh"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\FacilityGroup] 22"
+          }
+put:
+  tags:
+    - Facility Group
+  summary: Update a facility group.
+  description: Update a facility group
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - in: path
+      name: group
+      type: integer
+      required: true
+      description: Numeric ID of the facility group.
+    - name: name
+      description: Facility group name
+      in: formData
+      required: true
+      type: string
+    - name: use_group_id
+      description: Choose use_group_id in dropdown
+      in: formData
+      required: true
+      type: integer
+    - name: display_order
+      description: Company display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Company usage classification.
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      default: 2
+      required: true
+      type: integer
+      enum: [ 1, 2 ]
+    - name: memo
+      description: memo
+      in: formData
+      type: string
+      required: false
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 1,
+              "use_group_id": 21,
+              "use_group": {
+                "id": 21,
+                "name": "掲示板",
+                "display_order": 1,
+                "use_classification": 2
+              },
+              "name": "group1",
+              "display_order": 2,
+              "use_classification": 2,
+              "memo": null,
+              "created_info": {
+                "date": "2025/01/14 16:23:57",
+                "name": "Lê Thụy　Ngọc Hạnh"
+              },
+              "updated_info": {
+                "date": "2025/01/16 18:21:55",
+                "name": "Lê Thụy　Ngọc Hạnh"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\FacilityGroup] 45"
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "name",
+                "message": [
+                  "この設備グループ名は、すでに存在します。"
+                ]
+              }
+            ]
+          }
+delete:
+  tags:
+    - Facility Group
+  summary: Delete facility group.
+  description: Delete a facility group
+  parameters:
+    - in: path
+      name: group
+      type: integer
+      required: true
+      description: Numeric ID of the facility group to get.
+  responses:
+    204:
+      description: Success
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました.",
+            "errors": null
+          }
+    400:
+      description: Bad Request
+      schema:
+        type: object
+        example:
+          {
+            "code": 400,
+            "data": null,
+            "message": "このデータは設備が登録されているため削除できません。",
+            "errors": [ ]
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\FacilityGroup] 45"
+          }

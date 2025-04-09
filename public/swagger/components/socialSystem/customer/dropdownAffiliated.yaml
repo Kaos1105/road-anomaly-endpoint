@@ -1,0 +1,78 @@
+get:
+  tags:
+    - Customers
+  summary: Dropdown affiliated.
+  description: Get list companies, accounting departments, responsible employees of list customers screen
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "responsible_employees": [
+                {
+                  "id": 91,
+                  "code": null,
+                  "last_name": "employee",
+                  "first_name": "name",
+                  "maiden_name": null,
+                  "previous_name_flg": 1,
+                  "display_order": 999999
+                }
+              ],
+              "accounting_departments": [
+                {
+                  "id": 102,
+                  "site_id": 107,
+                  "code": null,
+                  "long_name": "Department name",
+                  "previous_name": "aaaa",
+                  "previous_name_flg": 2,
+                  "display_order": 1
+                },
+                {
+                  "id": 108,
+                  "site_id": 109,
+                  "code": null,
+                  "long_name": "Q308 NAME 1",
+                  "previous_name": null,
+                  "previous_name_flg": 1,
+                  "display_order": 999999
+                }
+              ],
+              "companies": [
+                {
+                  "id": 68,
+                  "code": "102",
+                  "long_name": "Huế MTVHuế MTVHuế MTV",
+                  "previous_name": "xyz",
+                  "previous_name_flg": 2,
+                  "display_order": 1
+                },
+                {
+                  "id": 69,
+                  "code": null,
+                  "long_name": "NTP",
+                  "previous_name": "huế",
+                  "previous_name_flg": 2,
+                  "display_order": 1
+                }
+              ]
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }

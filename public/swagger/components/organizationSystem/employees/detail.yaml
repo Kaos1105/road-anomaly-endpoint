@@ -1,0 +1,342 @@
+put:
+  tags:
+    - Employees
+  summary: Update a employee.
+  description: Update a employee
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: employee
+      description: Employee ID
+      in: path
+      required: true
+      type: string
+    - name: code
+      description: code
+      in: formData
+      required: false
+      type: string
+    - name: last_name
+      description: Employee's last name
+      in: formData
+      required: true
+      type: string
+    - name: first_name
+      description: Employee's first name
+      in: formData
+      required: true
+      type: string
+    - name: kana
+      description: Employee name in Kana
+      in: formData
+      required: false
+      type: string
+    - name: day_of_birth
+      description: Day of birth
+      in: formData
+      required: true
+      type: string
+      format: date
+    - name: day_of_death
+      description: Day of death
+      in: formData
+      required: false
+      type: string
+      format: date
+    - name: period_accuracy_flg
+      description: Period accuracy flag
+        * `1` - IN_CORRECT
+        * `2` - CORRECT
+      in: formData
+      required: false
+      type: integer
+      enum: [ 1, 2 ]
+      default: 1
+    - name: employees_classification
+      description: Employees classification
+        * `1` - EMPLOYEE
+        * `2` - CUSTOMER
+        * `3` - TEACHER
+        * `99` - OTHER
+      in: formData
+      required: false
+      type: integer
+      enum: [ 1, 2, 3, 99 ]
+      default: 1
+    - name: maiden_name
+      description: Maiden name
+      in: formData
+      required: false
+      type: string
+    - name: previous_name_flg
+      description: Flag to indicate if employee had maiden name
+        * `1` - Not combined
+        * `2` - Combined
+      in: formData
+      required: false
+      type: integer
+      enum: [ 1, 2 ]
+      default: 1
+    - name: gender
+      description: Gender.
+        * `1` - Male
+        * `2` - Female
+      in: formData
+      required: false
+      type: integer
+      num: [ 1, 2 ]
+      default: 1
+    - name: en_notation
+      description: Employee name in English notation
+      in: formData
+      required: false
+      type: string
+    - name: company_email
+      description: Company email
+      in: formData
+      required: false
+      type: string
+    - name: company_phone
+      description: Company phone
+      in: formData
+      required: false
+      type: string
+    - name: post_code
+      description: Post code
+      in: formData
+      required: false
+      type: string
+    - name: address_1
+      description: Address  (Prefecture)
+      in: formData
+      required: false
+      type: string
+    - name: address_2
+      description: Address (city, town, ward)
+      in: formData
+      required: false
+      type: string
+    - name: address_3
+      description: Address (Street number)
+      in: formData
+      required: false
+      type: string
+    - name: phone
+      description: Employee phone
+      in: formData
+      required: false
+      type: string
+    - name: email
+      description: Employee email
+      in: formData
+      required: false
+      type: string
+    - name: memo
+      description: Employee memo
+      in: formData
+      required: false
+      type: string
+    - name: display_order
+      description: Employee display order
+      in: formData
+      type: integer
+      required: true
+      default: 999999
+    - name: use_classification
+      description: Employee usage classification
+        * `1` - Not use
+        * `2` - Use
+      in: formData
+      default: 2
+      required: true
+      enum: [ 1, 2 ]
+      type: integer
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 1,
+              "code": "SO1",
+              "last_name": "Lee",
+              "first_name": "Sunny",
+              "kana": "sunny",
+              "day_of_birth": "2010-10-10",
+              "period_accuracy_flg": 1,
+              "maiden_name": "Kwan",
+              "previous_name_flg": 1,
+              "gender": 1,
+              "en_notation": "Sunny Lee",
+              "company_email": "",
+              "company_phone": "",
+              "post_code": "",
+              "address_1": "",
+              "address_2": "",
+              "address_3": "",
+              "phone": "",
+              "email": "",
+              "memo": "",
+              "display_order": 999,
+              "use_classification": 1,
+              "employees_classification": 1,
+              "created_info": {
+                "date": "2024/08/08 14:16:30",
+                "name": "直子 廣川"
+              },
+              "updated_info": {
+                "date": "2024/08/08 14:36:30",
+                "name": "直子 廣川"
+              }
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "day_of_birth",
+                "message": [
+                  "期間 (誕生日)は必須項目です。"
+                ]
+              }
+            ]
+          }
+get:
+  tags:
+    - Employees
+  summary: Show detail employee.
+  description: Show detail employee
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - name: employee
+      description: Employee ID
+      in: path
+      required: true
+      type: string
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": {
+              "id": 1,
+              "has_favorite": false,
+              "code": "9745019",
+              "last_name": "木村",
+              "first_name": "さゆり",
+              "kana": null,
+              "day_of_birth": "2024/08/02",
+              "day_of_death": null,
+              "age": 0,
+              "period_accuracy_flg": 2,
+              "maiden_name": null,
+              "previous_name_flg": 1,
+              "gender": 1,
+              "employees_classification": 1,
+              "en_notation": null,
+              "company_email": null,
+              "company_phone": null,
+              "post_code": null,
+              "address_1": null,
+              "address_2": null,
+              "address_3": null,
+              "phone": "02-9691-2075",
+              "email": "yuki93@yamada.com",
+              "memo": null,
+              "display_order": 92,
+              "use_classification": 2,
+              "created_info": null,
+              "updated_info": null
+            },
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\Employee] 17777"
+          }
+delete:
+  tags:
+    - Employees
+  summary: Delete a employee.
+  description: Delete a employee
+  parameters:
+    - in: path
+      name: employee
+      type: integer
+      required: true
+      description: Numeric ID of the employee to get.
+  responses:
+    204:
+      description: Success
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "アクセスが拒否されました",
+            "errors": null
+          }
+    404:
+      description: Page Not Found
+      schema:
+        type: object
+        example:
+          {
+            "code": 404,
+            "data": null,
+            "message": "ページが見つかりません。",
+            "errors": "No query results for model [App\\Models\\Employee] 80"
+          }

@@ -1,0 +1,76 @@
+post:
+  tags:
+    - FAQs
+  summary: Create new answer file
+  consumes:
+    - application/x-www-form-urlencoded
+  produces:
+    - text/html; charset=utf-8
+  parameters:
+    - in: path
+      name: question
+      type: integer
+      required: true
+      description: Numeric ID of the question.
+    - in: formData
+      name: file_content[]
+      type: file
+      required: true
+      example: 'Image.png'
+    - name: width_size
+      description: width size
+      in: formData
+      required: false
+      type: integer
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        example:
+          {
+            "code": 200,
+            "data": [
+              {
+                "id": 1,
+                "display_order": 1,
+                "type_answer": 2,
+                "answer_id": 21,
+                "answer_content": null,
+                "file_path": "https://bucket-snet-dev.s3.ap-northeast-1.amazonaws.com/local/snet_answer_files/AIBrEqbir1ZpvtVD4eWlSmoRr6NiIrYLvkGXoFSE.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUBDOFLY7DRSZC6S3%2F20241101%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Date=20241101T104051Z&X-Amz-SignedHeaders=host&X-Amz-Expires=28800&X-Amz-Signature=020af9f5b72e6bc7bb33ac456cf2289091378cfc9402852142da24bfac3ef013",
+                "file_name": "images.jpg",
+                "width_size": null
+              }
+            ],
+            "message": "OK",
+            "errors": null
+          }
+    401:
+      description: Unauthorized
+      schema:
+        type: object
+        example:
+          {
+            "code": 401,
+            "data": null,
+            "message": "Unauthorized.",
+            "errors": null
+          }
+    422:
+      description: Unprocessable Content
+      schema:
+        type: object
+        example:
+          {
+            "code": 422,
+            "data": null,
+            "message": "バリデーションエラーがあります。",
+            "errors": [
+              {
+                "field": "width_size",
+                "message": [
+                  "横サイズ（px）は数字のみ有効です。"
+                ]
+              }
+            ]
+          }
