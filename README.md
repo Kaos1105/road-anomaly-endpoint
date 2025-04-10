@@ -24,9 +24,9 @@ many web projects, such as:
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-# SNET-Readme
+# Anomaly Detection-Readme
 
-Step by step install SNET on local machine
+Step by step install Project on local machine
 
 ## Installation
 
